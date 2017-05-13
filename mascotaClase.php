@@ -1,0 +1,4 @@
+Class Mascota{
+	
+	private $id;
+}
