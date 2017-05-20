@@ -156,19 +156,19 @@ header {
   color: white;
 }
 
-.bgcolor1 {
+.bgimg1 {
   background-image: url('../img/header.jpg');
 }
-.bgcolor2 {
+.bgimg2 {
   background-image: url('../img/header1.jpg');
 }
-.bgcolor3 {
+.bgimg3 {
   background-image: url('../img/header2.jpg');
 }
-.bgcolor4 {
+.bgimg4 {
   background-image: url('../img/header3.jpg');
 }
-.bgcolor5 {
+.bgimg5 {
   background-image: url('../img/header4.jpg');
 }
 

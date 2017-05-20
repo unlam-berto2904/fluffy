@@ -51,7 +51,7 @@
                         <a class="page-scroll" href="#registro">&iexcl;Registrarme!</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#acerca">Acerca de Fluffly</a>
+                        <a class="page-scroll" href="#acerca">Acerca de Fluffy</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
@@ -64,11 +64,12 @@
         </div>
     </nav>
 
-    <header class="bgcolor<?php echo rand(1,5) ?>">
+    <header class="bgimg<?php echo rand(1,5) ?>">
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="col-sm-7">
-                	<h1 id="homeHeading">&iexcl;La red social de mi mascota!</h1>
+                	<h1 id="homeHeading">Fluffy</h1>
+                	<h2 id="homeHeading">&iexcl;La red social de mi mascota!</h2>
                 </div>
                 <div class="col-sm-5 contenedor-login panel panel-default panel-heading" >
                 	<form action="procesarUser.php" class="form form-center" method="post">
@@ -80,7 +81,7 @@
                 			<label for="pwd">Contraseña:</label><br>
                 			<input type="password" class="form-control" name="pass"><br>
                 		</div>
-                		<submit class="btn btn-basic">Ingresar</submit>
+                		<button type="submit" class="btn btn-basic">Ingresar</button>
                 		<a href="#registro" class="btn btn-primary btn-md page-scroll">Registrarme</a>
                 	</form>
                 </div>
@@ -95,11 +96,11 @@
     <section class="bg-primary" id="registro">
         <div class="container">
             <div class="row">
-            	<div class="col-lg-3 col-lg-offset-2 text-center registrotitle">
+            	<div class="col-lg-3 text-center registrotitle">
             		<h2 class="section-heading">&iexcl;Registrarme en Fluffy!</h2>
             		<hr class="light">
             	</div>
-                <div class="col-lg-5 col-lg-offset-2 text-center">
+                <div class="col-lg-4 col-md-offset-1">
                     	<form class="form form-center" action="" method="post">
                     		<div class="form-group">
                     			<label>Nombre:</label>
@@ -125,6 +126,8 @@
                     			<input type="text" class="form-control" name="e_mail">
                     		</div>
                     <hr class="light">
+                            </div>
+                    <div class="col-lg-4">
                     		<div class="form-group">
                     			<label>Crea un usuario:</label>
                     			<input type="text" class="form-control" name="nombreUsuario">
@@ -137,9 +140,11 @@
                     			<label>Repita la contraseña anterior:</label>
                     			<input type="password" class="form-control" name="contrasenia">
                     		</div>
-                    		<button class="btn btn-default btn-xl sr-button" name="submit">Enviar</button>
+                    		<div class="text-center">
+                    			<button type="submit" class="btn btn-default btn-xl sr-button" name="submit">Enviar</button>
+                    		</div>
+                    </div>
                     	</form>
-                </div>
             </div>
         </div>
     </section>
