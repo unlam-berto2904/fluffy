@@ -1,11 +1,11 @@
-
+  
 html,
 body {
   height: 100%;
   width: 100%;
 }
 body {
-  font-family: 'Merriweather', 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
 }
 hr {
   border-color: #F05F40;
@@ -204,19 +204,40 @@ header .header-content .header-content-inner p {
     margin-right: auto;
   }
 }
+
+#homeHeading{
+  padding-top: 10%;
+}
+.contenedor-login{
+  color: grey;
+  border-radius: 12px 12px 12px 12px;
+}
+
+.contenedor-login-botones{
+    padding-top: 7%;
+}
+
+.google{
+  background-color: #d34836 !important;
+  margin-top: 5%;
+}
+.facebook{
+  background-color: #3b5998 !important;
+  margin-top: 5%;
+}
 .section-heading {
   margin-top: 0;
 }
-.service-box {
+.acerca-box {
   max-width: 400px;
   margin: 50px auto 0;
 }
 @media (min-width: 992px) {
-  .service-box {
+  .acerca-box {
     margin: 20px auto 0;
   }
 }
-.service-box p {
+.acerca-box p {
   margin-bottom: 0;
 }
 .portfolio-box {
