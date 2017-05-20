@@ -2,21 +2,22 @@
 require ('connQuery.php');
 
 $usuarioIngreso = $_POST["user"];
-$passIngre = $_POST["pass"];
+$passIngreso = $_POST["pass"];
 
-$usuarioRegistro = $_POST['userReg'];
-
-$queryIngreso = "select * from usuario";
+$queryIngreso = 'select * from usuario where e_mail = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
 $connQuery = new connQuery();
 
-$queryIngreso = $connQuery->ejecutarConsulta($queryIngreso);
-$resultado = mysqli_num_rows($queryIngreso);
-if ($resultado) {
+$consulta = $connQuery->ejecutarConsulta($queryIngreso);
+$resultado = mysqli_num_rows($consulta);
+echo $resultado;
+
+ if ($resultado) {
   session_start();
   header("location:pantallaLogueada.php");
 
 }else {
   header("location:index.php");
+  echo $resultado;
 }
 
 
