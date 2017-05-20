@@ -64,7 +64,7 @@
         </div>
     </nav>
 
-    <header>
+    <header class="bgcolor<?php echo rand(1,5) ?>">
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="col-sm-7">
