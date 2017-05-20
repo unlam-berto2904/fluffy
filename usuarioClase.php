@@ -11,7 +11,7 @@ Class Usuario{
 	private $e-mail;
 	private $fechaNacimiento;
 
-	function _construct_($id, $nombre, $nombreUsuario, $apellido, $ubicación, $id_sexo, $telefono, $id_domicilio, $e-mail, $fechaNacimiento){
+	function __construct($id, $nombre, $nombreUsuario, $apellido, $ubicación, $id_sexo, $telefono, $id_domicilio, $e-mail, $fechaNacimiento){
 		$this->id = $id;
 		$this->nombre = $nombre;
 		$this->nombreUsuario = $nombreUsuario;
