@@ -23,7 +23,7 @@
     <link href="indexplugins/plugin/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="indexplugins/css/estiloIndex.min.css" rel="stylesheet">
+    <link href="indexplugins/css/estiloIndex.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -51,7 +51,7 @@
                         <a class="page-scroll" href="#registro">&iexcl;Registrarme!</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#sobre">Sobre Fluffly</a>
+                        <a class="page-scroll" href="#acerca">Acerca de Fluffly</a>
                     </li>
                     <li>
                         <a class="page-scroll" href="#portfolio">Portfolio</a>
@@ -70,35 +70,36 @@
                 <div class="col-sm-7">
                 	<h1 id="homeHeading">&iexcl;La red social de mi mascota!</h1>
                 </div>
-                <div class="col-sm-4" class="contenedor-login" >
-                	<form action="" class="form form-center" method="post">
+                <div class="col-sm-5 contenedor-login panel panel-default panel-heading" >
+                	<form action="procesarUser.php" class="form form-center" method="post">
                 		<div class="form-group">
                 			<label for="user">Usuario o e-mail:</label><br>
-                			<input type="text" class="form-control" name="usuario"><br>
+                			<input type="text" class="form-control" name="user"><br>
                 		</div>
                 		<div class="form-group">
                 			<label for="pwd">Contraseña:</label><br>
-                			<input type="password" class="form-control" name="password"><br>
+                			<input type="password" class="form-control" name="pass"><br>
                 		</div>
-                		<button class="btn btn-default">Ingresar</button>
-                	<form>
+                		<submit class="btn btn-basic">Ingresar</submit>
+                		<a href="#registro" class="btn btn-primary btn-md page-scroll">Registrarme</a>
+                	</form>
                 </div>
             </div>
-            <div class="col-sm-12" class="contenedor-login-botones">
-                	<a href="#registro" class="btn btn-primary btn-xl page-scroll">Registrarme!</a>
-                	<a href="" class="btn btn-danger btn-xl"><i class="fa fa-2x fa-google"></i>   Iniciar con Google</a>
-                	<a href="" class="btn btn-info btn-xl"><i class="fa fa-2x fa-facebook-square"></i>   Iniciar con Facebook</a>
+            <div class="col-sm-12 contenedor-login-botones">
+                	<a href="" class="btn btn-danger btn-md google"><i class="fa fa-2x fa-google"></i>  Iniciar con Google</a>
+                	<a href="" class="btn btn-primary btn-md facebook"><i class="fa fa-2x fa-facebook-square"></i>   Iniciar con Facebook</a>
             </div>
-
         </div>
     </header>
 
     <section class="bg-primary" id="registro">
         <div class="container">
             <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">&iexcl;Registrarme en Fluffy!</h2>
-                    <hr class="light">
+            	<div class="col-lg-3 col-lg-offset-2 text-center registrotitle">
+            		<h2 class="section-heading">&iexcl;Registrarme en Fluffy!</h2>
+            		<hr class="light">
+            	</div>
+                <div class="col-lg-5 col-lg-offset-2 text-center">
                     	<form class="form form-center" action="" method="post">
                     		<div class="form-group">
                     			<label>Nombre:</label>
@@ -111,9 +112,8 @@
                     		<div class="form-group">
                     			<label>Sexo:</label>
                     			<select name="sexo">
-                    				<option value="femenino">Femenino</option>
-                    				<option value="masculino">Masculino</option>
-                    				<option value="otro">Otro</option>
+                    				<option value="1">Masculino</option>
+                    				<option value="2">Femenino</option>
                     			</select>
                     		</div>
                     		<div class="form-group">
@@ -121,8 +121,8 @@
                     			<input type="date" class="form-control" name="fechaNacimiento">
                     		</div>
                     		<div class="form-group">
-                    			<label>Telefono:</label>
-                    			<input type="text" class="form-control" name="telefono">
+                    			<label>E-mail:</label>
+                    			<input type="text" class="form-control" name="e_mail">
                     		</div>
                     <hr class="light">
                     		<div class="form-group">
@@ -144,11 +144,11 @@
         </div>
     </section>
 
-    <section id="sobre">
+    <section id="acerca">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading">At Your Service</h2>
+                    <h2 class="section-heading"> En Fluffy </h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -156,28 +156,28 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+                    <div class="acerca-box">
                         <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
                         <h3>Sturdy Templates</h3>
                         <p class="text-muted">Our templates are updated regularly so they don't break.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+                    <div class="acerca-box">
                         <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
                         <h3>Ready to Ship</h3>
                         <p class="text-muted">You can use this theme as is, or you can make changes!</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+                    <div class="acerca-box">
                         <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
                         <h3>Up to Date</h3>
                         <p class="text-muted">We update dependencies to keep things fresh.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
-                    <div class="service-box">
+                    <div class="acerca-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
                         <h3>Made with Love</h3>
                         <p class="text-muted">You have to make your websites with love these days!</p>
