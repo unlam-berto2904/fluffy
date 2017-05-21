@@ -1,0 +1,33 @@
+﻿COMANDOS PARA REPOSITORIOS GIT:
+------------------------------
+
+git version 						: Para ver la version de GIT
+git config --global user.name		: Para saber el nombre de usuario
+git config --global user.email		: Para saber el email de usuario
+clear									: limpiar la pantalla del cmd
+cd desktop git init nuevorepo		: Creacion de repositorio "nuevorepo" en el escritorio
+cd nuevorepo						: Entrar a la carpeta nuevorepo
+
+-------------------------------------------------------------------------
+cd nuevorepo git status			: Estado del repositorio
+cd nuevorepo git add .			: Prepara los arvhivos para comitear
+
+(Si el estatus se muestra en rojo: no se está siguiendo, verde: si se están siguiendo y listos para comitear)
+
+git remote add origin (direccion a donde comitear)	: Setear direccion de repositorio en git
+git commit -m (mensaje)								: Comitear
+git push -u origin master							: Enviar commit a la direccion Origin y master el repositorio del escritorio
+
+{--Origin: es el alias de nuestro repositorio en github--}
+{--Master: es la rama principal que contiene nuestros commits--}
+
+-------------------------------------------------------------------------------------------------------------------------------
+git clone (direccion http del repositorio)
+-------------------------------------------------------------------------------------------------------------------------------
+cd C:/Users/Pablo/Repositorio/Fluffy
+git init
+git pull https://github.com/berto2904/fluffy
+git pull fluffy master
+git add .
+git commit -m "Mensaje de commit"
+git push fluffy master
