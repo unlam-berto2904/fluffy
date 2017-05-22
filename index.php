@@ -41,9 +41,9 @@
             <!-- Menu desplegable para mobile -->
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                    <span class="sr-only">Abrir el menu</span> Menu <i class="fa fa-bars"></i>
+                    <span class="sr-only">Abrir el menu</span><i class="fa fa-2x fa-navicon"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top">FLUFFY</a>
+                <a class="navbar-brand page-scroll" href="#page-top"><i class="fa fa-paw"></i>&nbsp;&nbsp;FLUFFY</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
@@ -51,20 +51,20 @@
                         <a class="page-scroll" href="#registro">&iexcl;Registrarme!</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#acerca">Acerca de Fluffy</a>
+                        <a class="page-scroll" href="#acerca">¿Qu&eacute; es Fluffy?</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#portfolio">Portfolio</a>
+                        <a class="page-scroll" href="#ilustraciones">Conoce mas de Fluffy</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#contact">Contact</a>
+                        <a class="page-scroll" href="#ayuda">Ayuda</a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-
-    <header class="bgimg<?php echo rand(1,5) ?>">
+<!--Sector del login. Usa el header como pantalla de presentación -->
+    <header class="bgimg<?php echo rand(1,10) ?>">
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="col-sm-7">
@@ -92,13 +92,17 @@
             </div>
         </div>
     </header>
-
+<!--Sector del registro-->
     <section class="bg-primary" id="registro">
         <div class="container">
             <div class="row">
             	<div class="col-lg-3 text-center registrotitle">
             		<h2 class="section-heading">&iexcl;Registrarme en Fluffy!</h2>
             		<hr class="light">
+                <h4>Registrate ahora en Fluffy, solo te tomará unos segundos y es totalmente gratis.<br></h4>
+                <hr class="light">
+                <h4>Conoce m&aacute;s sobre Fluffy y como tus mascotas pueden tener su lugar en internet.<br></h4>
+                    <a href="#acerca" class="btn btn-default btn-md page-scroll">¿Qu&eacute; es Fluffy?</a>
             	</div>
                 <div class="col-lg-4 col-md-offset-1">
                     	<form class="form form-center" action="" method="post">
@@ -112,7 +116,8 @@
                     		</div>
                     		<div class="form-group">
                     			<label>Sexo:</label>
-                    			<select name="sexo">
+                    			<select class="form-control" name="sexo">
+                            <option value="0">- Seleccione un sexo -</option>
                     				<option value="1">Masculino</option>
                     				<option value="2">Femenino</option>
                     			</select>
@@ -148,12 +153,12 @@
             </div>
         </div>
     </section>
-
+<!-- Sector de información del sitio. Detalla las utilidades de forma simple-->
     <section id="acerca">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h2 class="section-heading"> En Fluffy </h2>
+                    <h2 class="section-heading"> En Fluffy... </h2>
                     <hr class="primary">
                 </div>
             </div>
@@ -162,37 +167,37 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="acerca-box">
-                        <i class="fa fa-4x fa-diamond text-primary sr-icons"></i>
-                        <h3>Sturdy Templates</h3>
-                        <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                        <i class="fa fa-4x fa-paw text-primary sr-icons"></i>
+                        <h3>...hay un lugar especial para tus mascotas...</h3>
+                        <p class="text-muted">Crea perfiles, bitacoras, arma las historias de todas tus mascotas, sube fotos de cada momento y haz que interactue con las mascotas de tus amigos.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="acerca-box">
-                        <i class="fa fa-4x fa-paper-plane text-primary sr-icons"></i>
-                        <h3>Ready to Ship</h3>
-                        <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                        <i class="fa fa-4x fa-home text-primary sr-icons"></i>
+                        <h3>...donde adoptar y dar en adopci&oacute;n...</h3>
+                        <p class="text-muted">Muchas personas estan buscando un nueva mascota para cuidar, y si necesitas, tambi&eacute;n puedes encontrar un nuevo hogar para tu mascotas</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="acerca-box">
-                        <i class="fa fa-4x fa-newspaper-o text-primary sr-icons"></i>
-                        <h3>Up to Date</h3>
-                        <p class="text-muted">We update dependencies to keep things fresh.</p>
+                        <i class="fa fa-4x fa-qrcode text-primary sr-icons"></i>
+                        <h3>...donde tienes una nueva forma de protegerlas...</h3>
+                        <p class="text-muted">Puedes obtener un codigo QR con tu informaci&oacute;n y, en caso de perderse, podr&aacute;n ponerse en contacto rapidamente contigo</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="acerca-box">
                         <i class="fa fa-4x fa-heart text-primary sr-icons"></i>
-                        <h3>Made with Love</h3>
-                        <p class="text-muted">You have to make your websites with love these days!</p>
+                        <h3>...y hasta buscales una pareja. </h3>
+                        <p class="text-muted">Tenemos un sitio especial donde puedes buscarle la pareja ideal y cruzarlos con la otra mascota que elijan </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-
-    <section class="no-padding" id="portfolio">
+<!-- ilustraciones de las funciones del sitio -->
+    <section class="no-padding" id="ilustraciones">
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
@@ -201,10 +206,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    D&iacute;a a d&iacute;a de tus mascotas.
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Registra cada uno de sus d&iacute;as.
                                 </div>
                             </div>
                         </div>
@@ -216,10 +221,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    &iexcl;No importa el tipo de mascota!
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Pueden ser perro, gato, conejo, coballo, oveja... &iexcl;hasta tibur&oacute;n!
                                 </div>
                             </div>
                         </div>
@@ -231,10 +236,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                  &iexcl;Un lugar para todas tus mascotas!
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                  Puedes crear tantas bit&aacute;coras como mascotas tengas.
                                 </div>
                             </div>
                         </div>
@@ -246,10 +251,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                  Comparte con tus amigos
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                  Puedes ver como est&aacute;n las mascotas de tus amigos, y ellos, ver las tuyas.
                                 </div>
                             </div>
                         </div>
@@ -261,10 +266,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    Busca tu mascota en caso de perderse
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Ofrecemos herramientas para buscar tu mascota perdida, en la ubicaci&oacute;n donde est&eacute;s.
                                 </div>
                             </div>
                         </div>
@@ -276,10 +281,10 @@
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
-                                    Category
+                                    &iquest;Quieres que tenga cria? &iexcl;Buscale una pareja!
                                 </div>
                                 <div class="project-name">
-                                    Project Name
+                                    Tu mascota puede encontrar pareja mediante Fluffy.
                                 </div>
                             </div>
                         </div>
@@ -288,31 +293,28 @@
             </div>
         </div>
     </section>
-
+<!-- Despues de la informacion, ofrezco nuevamente loguearse o registrarse-->
     <aside class="bg-dark">
         <div class="container text-center">
             <div class="call-to-action">
-                <h2>Free Download at Start Bootstrap!</h2>
-                <a href="http://startbootstrap.com/template-overviews/creative/" class="btn btn-default btn-xl sr-button">Download Now!</a>
+                <h2>&iexcl;Es el momento de empezar en Fluffy!</h2>
+                <a href="#page-top" class="btn btn-default btn-xl page-scroll">Ingresar</a>
+                <a href="#registro" class="btn btn-primary btn-xl page-scroll">Registrarme</a>
             </div>
         </div>
     </aside>
-
-    <section id="contact">
+<!-- -->
+    <section id="contacto">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <h2 class="section-heading">Let's Get In Touch!</h2>
+                    <h2 class="section-heading">&iquest;Tienes alguna duda ?</h2>
                     <hr class="primary">
-                    <p>Ready to start your next project with us? That's great! Give us a call or send us an email and we will get back to you as soon as possible!</p>
+                    <p>&iexcl;No te preocupes, escribenos! y as&iacute; de esta forma, nos pondremos en contacto contigo lo m&aacute;s r&aacute;pido posible.</p>
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x sr-contact"></i>
-                    <p>123-456-6789</p>
-                </div>
-                <div class="col-lg-4 text-center">
+                <div class="col-lg-12 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
-                    <p><a href="mailto:your-email@your-domain.com">feedback@startbootstrap.com</a></p>
+                    <p><a href="mailto:ayuda@fluffy.com">ayuda@fluffy.com</a></p>
                 </div>
             </div>
         </div>
