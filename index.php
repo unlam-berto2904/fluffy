@@ -105,7 +105,7 @@
                     <a href="#acerca" class="btn btn-default btn-md page-scroll">¿Qu&eacute; es Fluffy?</a>
             	</div>
                 <div class="col-lg-4 col-md-offset-1">
-                    	<form class="form form-center" action="" method="post">
+                    	<form class="form form-center" action="procesarRegistroUsuario.php" method="post">
                     		<div class="form-group">
                     			<label>Nombre:</label>
                     			<input type="text" class="form-control" name="nombre">

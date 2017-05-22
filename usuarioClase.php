@@ -11,10 +11,12 @@ Class Usuario{
 	private $id_domicilio;
 	private $e_mail;
 	private $fechaNacimiento;
+	private $ultimaConexion;
+	private $pass;
 
 
 	
-	function _construct_($id, $nombre, $nombreUsuario, $apellido, $ubicación, $id_sexo, $telefono, $id_domicilio, $e_mail, $fechaNacimiento){
+	function _construct_($id, $nombre, $nombreUsuario, $apellido, $ubicación, $id_sexo, $telefono, $id_domicilio, $e_mail, $fechaNacimiento, $ultimaConexion, $pass){
 
 		$this->id = $id;
 		$this->nombre = $nombre;
@@ -26,6 +28,8 @@ Class Usuario{
 		$this->id_domicilio = $id_domicilio;
 		$this->e_mail = $e_mail;
 		$this->fechaNacimiento = $fechaNacimiento;
+		$this->ultimaConexion = $ultimaConexion;
+		$this->pass = $pass;
 	}
 
 	function agregarMascota(){

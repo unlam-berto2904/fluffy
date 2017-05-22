@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `id_sexo` INT NULL,
   `telefono` VARCHAR(20) NULL,
   `id_domicilio` INT NULL,
-  `e-mail` VARCHAR(45) NOT NULL,
+  `e_mail` VARCHAR(45) NOT NULL,
   `fecha_nacimiento` DATE NULL,
   `ultima_conexion` DATETIME NULL,
   `contrasenia` VARCHAR(100) NULL,
@@ -238,4 +238,3 @@ INSERT INTO `raza` (`id_raza`, `id_animal`, `descripcion`) VALUES (2, 2, 'Sin Ra
 INSERT INTO `raza` (`id_raza`, `id_animal`, `descripcion`) VALUES (100, 1, 'Ovejero Aleman');
 
 COMMIT;
-

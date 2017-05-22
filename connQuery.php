@@ -1,9 +1,9 @@
 <?php
-class connQuery
+class ConnQuery
 {
   private $servidor ="localhost";
   private $usuario = "root";
-  private $pass = "admin2904";
+  private $pass = "abrh++++";
   private $bd="fluffy";
   private $conn;
 
