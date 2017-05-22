@@ -1,5 +1,7 @@
 <?php
-	
+require("connQuery.php");
+$conexion = new connQuery();
+
 	 $nombre = $_POST["nombre"];
 	 $apellido = $_POST["apellido"];
 	 $id_sexo = $_POST["sexo"];
@@ -12,6 +14,7 @@
 	 $id_domicilio = null;
 	 $ultimaConexion = null;
 
+<<<<<<< HEAD
 	 require("connQuery.php");
 
 	 $conexion = new connQuery();
@@ -30,3 +33,17 @@
 	 
 	 header("location:index.php");
 ?>
+=======
+	 $sql = "insert into usuario( nombre, apellido, id_sexo, e_mail, fecha_nacimiento, contrasenia, nombre_usuario)
+	 					values  (	'".$nombre."',
+											'".$apellido."',
+											".$id_sexo.",
+											'".$e_mail."',
+											'".$fechaNacimiento."',
+											'".$pass."',
+											'".$nombreUsuario."')";
+
+	$respuesta = $conexion->ejecutarConsulta($sql);
+  header("location:index.php");
+?>
+>>>>>>> 93b4ffa434de938fe9e6bdf4c958252cbb7da5ac

@@ -1,4 +1,4 @@
-  
+
 html,
 body {
   height: 100%;
@@ -157,21 +157,35 @@ header {
 }
 
 .bgimg1 {
-  background-image: url('../img/header.jpg');
-}
-.bgimg2 {
   background-image: url('../img/header1.jpg');
 }
-.bgimg3 {
+.bgimg2 {
   background-image: url('../img/header2.jpg');
 }
-.bgimg4 {
+.bgimg3 {
   background-image: url('../img/header3.jpg');
 }
-.bgimg5 {
+.bgimg4 {
   background-image: url('../img/header4.jpg');
 }
-
+.bgimg5 {
+  background-image: url('../img/header5.jpg');
+}
+.bgimg6 {
+  background-image: url('../img/header6.jpg');
+}
+.bgimg7 {
+  background-image: url('../img/header7.jpg');
+}
+.bgimg8 {
+  background-image: url('../img/header8.jpg');
+}
+.bgimg9 {
+  background-image: url('../img/header9.jpg');
+}
+.bgimg10 {
+  background-image: url('../img/header10.jpg');
+}
 
 header .header-content {
   position: relative;
@@ -246,6 +260,7 @@ header .header-content .header-content-inner p {
 .section-heading {
   margin-top: 0;
 }
+
 .acerca-box {
   max-width: 400px;
   margin: 50px auto 0;
