@@ -24,7 +24,7 @@ git push -u origin master							: Enviar commit a la direccion Origin y master e
 -------------------------------------------------------------------------------------------------------------------------------
 git clone (direccion http del repositorio)
 -------------------------------------------------------------------------------------------------------------------------------
-cd C:/Users/Pablo/Repositorio/Fluffy
+cd C:/xampp/htdocs/fluffy
 git init
 git pull https://github.com/berto2904/fluffy
 git pull fluffy master

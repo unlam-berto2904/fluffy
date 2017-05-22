@@ -1,5 +1,7 @@
 <?php
-	
+require("connQuery.php");
+$conexion = new connQuery();
+
 	 $nombre = $_POST["nombre"];
 	 $apellido = $_POST["apellido"];
 	 $id_sexo = $_POST["sexo"];
@@ -12,14 +14,15 @@
 	 $id_domicilio;
 	 $ultimaConexion;
 
-	 require("connQuery.php");
+	 $sql = "insert into usuario( nombre, apellido, id_sexo, e_mail, fecha_nacimiento, contrasenia, nombre_usuario)
+	 					values  (	'".$nombre."',
+											'".$apellido."',
+											".$id_sexo.",
+											'".$e_mail."',
+											'".$fechaNacimiento."',
+											'".$pass."',
+											'".$nombreUsuario."')";
 
-	 $conexion = new connQuery();
-
-	 //INSERT INTO NombreTabla [(Campo1, …, CampoN)] VALUES (Valor1, …, ValorN)
-	 $sql = "insert into 'usuario' ('nombre', 'id_ubicacion', 'id_sexo', 'telefono', 'id_domicilio', 'e_mail', 'fecha_nacimiento', 'ultima_conexion', 'contrasenia', 'nombre_usuario', 'apellido') values ('".$nombre."', ".$ubicación.", ".$id_sexo.", ".$telefono.", ".$id_domicilio.", '".$e_mail."', '".$fechaNacimiento."', ".$ultimaConexion.", ".$pass.", '".$nombreUsuario."', '".$apellido."');";
-
-	 //$respuesta = $conexion->ejecutarConsulta($sql);
-	 echo $sql;
-	 //header("location:index.php");
+	$respuesta = $conexion->ejecutarConsulta($sql);
+  header("location:index.php");
 ?>
