@@ -113,8 +113,8 @@
                     		<div class="form-group">
                     			<label>Sexo:</label>
                     			<select name="sexo">
-                    				<option value="1">Masculino</option>
-                    				<option value="2">Femenino</option>
+                    				<option value=1>Masculino</option>
+                    				<option value=2>Femenino</option>
                     			</select>
                     		</div>
                     		<div class="form-group">

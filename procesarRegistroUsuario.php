@@ -3,23 +3,30 @@
 	 $nombre = $_POST["nombre"];
 	 $apellido = $_POST["apellido"];
 	 $id_sexo = $_POST["sexo"];
-	 $fechaNacimiento = $_POST["fechaNacimiento"];
+	 $fechaNacimiento = null;
 	 $e_mail = $_POST["e_mail"];
 	 $nombreUsuario = $_POST["nombreUsuario"];
 	 $pass = $_POST["contrasenia"];
-	 $ubicación;
-	 $telefono;
-	 $id_domicilio;
-	 $ultimaConexion;
+	 $ubicación = null;
+	 $telefono = null;
+	 $id_domicilio = null;
+	 $ultimaConexion = null;
 
 	 require("connQuery.php");
 
 	 $conexion = new connQuery();
 
-	 //INSERT INTO NombreTabla [(Campo1, …, CampoN)] VALUES (Valor1, …, ValorN)
-	 $sql = "insert into 'usuario' ('nombre', 'id_ubicacion', 'id_sexo', 'telefono', 'id_domicilio', 'e_mail', 'fecha_nacimiento', 'ultima_conexion', 'contrasenia', 'nombre_usuario', 'apellido') values ('".$nombre."', ".$ubicación.", ".$id_sexo.", ".$telefono.", ".$id_domicilio.", '".$e_mail."', '".$fechaNacimiento."', ".$ultimaConexion.", ".$pass.", '".$nombreUsuario."', '".$apellido."');";
+	 
 
-	 //$respuesta = $conexion->ejecutarConsulta($sql);
-	 echo $sql;
-	 //header("location:index.php");
+	 $sql = "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (
+	 																	'".$nombre."',
+	 																	".$id_sexo.",								  
+	 																	'".$e_mail."', 
+	 																	'".$pass."', 
+	 																	'".$nombreUsuario."', 
+	 																	'".$apellido."');";
+
+	 $respuesta = $conexion->ejecutarConsulta($sql);
+	 
+	 header("location:index.php");
 ?>
