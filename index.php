@@ -116,11 +116,9 @@
                     		</div>
                     		<div class="form-group">
                     			<label>Sexo:</label>
-<<<<<<< HEAD
                     			<select name="sexo">
                     				<option value=1>Masculino</option>
                     				<option value=2>Femenino</option>
-=======
                     			<select class="form-control" name="sexo">
                             <option value="0">- Seleccione un sexo -</option>
                     				<option value="1">Masculino</option>
