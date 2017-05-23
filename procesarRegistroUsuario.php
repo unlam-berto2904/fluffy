@@ -1,11 +1,10 @@
 <?php
-require("connQuery.php");
-$conexion = new connQuery();
+
 
 	 $nombre = $_POST["nombre"];
 	 $apellido = $_POST["apellido"];
 	 $id_sexo = $_POST["sexo"];
-	 $fechaNacimiento = $_POST["fechaNacimiento"];
+	 $fechaNacimiento = null;
 	 $e_mail = $_POST["e_mail"];
 	 $nombreUsuario = $_POST["nombreUsuario"];
 	 $pass = $_POST["contrasenia"];
