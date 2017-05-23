@@ -3,21 +3,25 @@ class ConnQuery
 {
   private $servidor ="localhost";
   private $usuario = "root";
-  private $pass = "abrh++++";
+  private $pass = "admin2904";
   private $bd="fluffy";
   private $conn;
 
 
   function __construct(){
-    $this->conn = mysqli_connect( $this->servidor,
-                            $this->usuario,
-                            $this->pass,
-                            $this->bd);
+    $this->conn = mysqli_connect($this->servidor, $this->usuario, $this->pass, $this->bd);
+  }
+  
+  function ejecutarConsulta($sql){
+    $query = mysqli_query($this->conn,$sql);
+    $resultado = mysqli_num_rows($query);
+    return $resultado;
   }
 
-  function ejecutarConsulta($sql){
-    $resultado = mysqli_query($this->conn,$sql);
-    return $resultado;
+  function getFila($sql){
+    $query = mysqli_query($this->conn,$sql);
+    $fila =  mysqli_fetch_assoc($query);
+    return $fila;
   }
 
 }

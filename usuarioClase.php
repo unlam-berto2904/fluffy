@@ -15,9 +15,8 @@ Class Usuario{
 	private $pass;
 
 
-	
-	function _construct_($id, $nombre, $nombreUsuario, $apellido, $ubicación, $id_sexo, $telefono, $id_domicilio, $e_mail, $fechaNacimiento, $ultimaConexion, $pass){
 
+	function _construct_($id, $nombre, $nombreUsuario, $apellido, $ubicación, $id_sexo, $telefono, $id_domicilio, $e_mail, $fechaNacimiento, $ultimaConexion, $pass){
 		$this->id = $id;
 		$this->nombre = $nombre;
 		$this->nombreUsuario = $nombreUsuario;

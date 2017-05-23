@@ -9,10 +9,10 @@ $conexion = new connQuery();
 	 $e_mail = $_POST["e_mail"];
 	 $nombreUsuario = $_POST["nombreUsuario"];
 	 $pass = $_POST["contrasenia"];
-	 $ubicación;
-	 $telefono;
-	 $id_domicilio;
-	 $ultimaConexion;
+	 $ubicación = null;
+	 $telefono = null;
+	 $id_domicilio = null;
+	 $ultimaConexion = null;
 
 	 $sql = "insert into usuario( nombre, apellido, id_sexo, e_mail, fecha_nacimiento, contrasenia, nombre_usuario)
 	 					values  (	'".$nombre."',
