@@ -1,10 +1,10 @@
 <?php
-
+	require("connQuery.php");
 
 	 $nombre = $_POST["nombre"];
 	 $apellido = $_POST["apellido"];
 	 $id_sexo = $_POST["sexo"];
-	 $fechaNacimiento = null;
+	 $fechaNacimiento = $_POST["fechaNacimiento"];
 	 $e_mail = $_POST["e_mail"];
 	 $nombreUsuario = $_POST["nombreUsuario"];
 	 $pass = $_POST["contrasenia"];
@@ -22,6 +22,7 @@
 											'".$pass."',
 											'".$nombreUsuario."')";
 
+	$conexion = new connQuery();
 	$respuesta = $conexion->ejecutarConsulta($sql);
   header("location:index.php");
 ?>
