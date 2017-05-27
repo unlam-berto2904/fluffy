@@ -1,0 +1,9 @@
+1 - Home.html
+2 - Home.php (Controlador)
+3 - Perfil Mascota
+4 - Perfil User
+5 - Controlador de Secciones
+6 - Perfil Mascota Ajena
+7 - Agregar Mascota (Vista - modal)
+8 - Vista QR
+9 - Vista Agregar Experiencia
