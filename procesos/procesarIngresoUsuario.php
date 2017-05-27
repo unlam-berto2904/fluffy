@@ -1,6 +1,5 @@
 <?php
 require ('../connQuery.php');
-
 $usuarioIngreso = $_POST["user"];
 $passIngreso = $_POST["pass"];
 
