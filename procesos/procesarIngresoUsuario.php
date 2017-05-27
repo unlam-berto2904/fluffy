@@ -8,8 +8,9 @@ $queryStringIngresoEmail = 'select * from usuario where e_mail = "'.$usuarioIngr
 $queryStringIngresoUser = 'select * from usuario where nombre_usuario = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
 
 $connQuery = new connQuery();
-$resultadoConEmail = $connQuery->ejecutarConsulta($queryStringIngresoEmail);
-$resultadoConUserName = $connQuery->ejecutarConsulta($queryStringIngresoUser);
+$resultadoConEmail = $connQuery->ejecutarConsultaIsTrue($queryStringIngresoEmail);
+$resultadoConUserName = $connQuery->ejecutarConsultaIsTrue($queryStringIngresoUser);
+
 $idUsuario = null;
 
 session_start();
