@@ -116,14 +116,10 @@
                     		</div>
                     		<div class="form-group">
                     			<label>Sexo:</label>
-                    			<select name="sexo">
-                    				<option value=1>Masculino</option>
-                    				<option value=2>Femenino</option>
                     			<select class="form-control" name="sexo">
-                            <option value="0">- Seleccione un sexo -</option>
+                                    <option value="0">- Seleccione un sexo -</option>
                     				<option value="1">Masculino</option>
                     				<option value="2">Femenino</option>
->>>>>>> 93b4ffa434de938fe9e6bdf4c958252cbb7da5ac
                     			</select>
                     		</div>
                     		<div class="form-group">
@@ -314,7 +310,7 @@
                 <div class="col-lg-8 col-lg-offset-2 text-center">
                     <h2 class="section-heading">&iquest;Tienes alguna duda ?</h2>
                     <hr class="primary">
-                    <p>&iexcl;No te preocupes, escribenos! y as&iacute; de esta forma, nos pondremos en contacto contigo lo m&aacute;s r&aacute;pido posible.</p>
+                    <p>&iexcl;No te preocupes, escribenos! Nos pondremos en contacto contigo lo m&aacute;s r&aacute;pido posible.</p>
                 </div>
                 <div class="col-lg-12 text-center">
                     <i class="fa fa-envelope-o fa-3x sr-contact"></i>
