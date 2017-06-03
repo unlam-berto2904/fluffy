@@ -1,10 +1,14 @@
 <?php
 
 /*
+=======
+	require("connQuery.php");
+
+>>>>>>> 056a6ecd91fee5e5a39e0babfe19290ce678dd69
 	 $nombre = $_POST["nombre"];
 	 $apellido = $_POST["apellido"];
 	 $id_sexo = $_POST["sexo"];
-	 $fechaNacimiento = null;
+	 $fechaNacimiento = $_POST["fechaNacimiento"];
 	 $e_mail = $_POST["e_mail"];
 	 $nombreUsuario = $_POST["nombreUsuario"];
 	 $pass = $_POST["contrasenia"];
@@ -13,6 +17,7 @@
 	 $id_domicilio = null;
 	 $ultimaConexion = null;
 
+<<<<<<< HEAD
 
 	 require("connQuery.php");
 
@@ -62,13 +67,16 @@
 
 	$resultado = $usuario->persistirse($conexion);
 	
-	echo $resultado;
+	
 
 
-	//header("location:index.php");
+	header("location:index.php");
 
 
 
+
+	
+  header("location:index.php");
 ?>
 
 

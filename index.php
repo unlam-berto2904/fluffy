@@ -72,7 +72,7 @@
                 	<h2 id="homeHeading">&iexcl;La red social de mi mascota!</h2>
                 </div>
                 <div class="col-sm-5 contenedor-login panel panel-default panel-heading" >
-                	<form action="procesarUser.php" class="form form-center" method="post">
+                	<form action="procesos/procesarIngresoUsuario.php" class="form form-center" method="post">
                 		<div class="form-group">
                 			<label for="user">Usuario o e-mail:</label><br>
                 			<input type="text" class="form-control" name="user"><br>
