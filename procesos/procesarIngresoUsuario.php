@@ -1,5 +1,5 @@
 <?php
-require ('../connQuery.php');
+require ('../clases/connQuery.php');
 $usuarioIngreso = $_POST["user"];
 $passIngreso = $_POST["pass"];
 
