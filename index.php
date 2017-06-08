@@ -12,18 +12,18 @@
     <title>Fluffy - ¡La red social de mi mascota!</title>
 
     <!-- Nucleo de Bootstrap -->
-    <link href="indexplugins/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="librerias/indexplugins/plugin/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Fuentes customizadas -->
-    <link href="indexplugins/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="librerias/indexplugins/plugin/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
 
     <!-- Plugin del CSS -->
-    <link href="indexplugins/plugin/magnific-popup/magnific-popup.css" rel="stylesheet">
+    <link href="librerias/indexplugins/plugin/magnific-popup/magnific-popup.css" rel="stylesheet">
 
     <!-- CSS -->
-    <link href="indexplugins/css/estiloIndex.css" rel="stylesheet">
+    <link href="librerias/indexplugins/css/estiloIndex.css" rel="stylesheet">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -72,7 +72,7 @@
                 	<h2 id="homeHeading">&iexcl;La red social de mi mascota!</h2>
                 </div>
                 <div class="col-sm-5 contenedor-login panel panel-default panel-heading" >
-                	<form action="procesos/procesarIngresoUsuario.php" class="form form-center" method="post">
+                	<form action="controladores/ingresoUsuarioController.php" class="form form-center" method="post">
                 		<div class="form-group">
                 			<label for="user">Usuario o e-mail:</label><br>
                 			<input type="text" class="form-control" name="user"><br>
@@ -105,7 +105,7 @@
                     <a href="#acerca" class="btn btn-default btn-md page-scroll">¿Qu&eacute; es Fluffy?</a>
             	</div>
                 <div class="col-lg-4 col-md-offset-1">
-                    	<form class="form form-center" action="procesarRegistroUsuario.php" method="post">
+                    	<form class="form form-center" action="controladores/registrarUsuarioController.php" method="post">
                     		<div class="form-group">
                     			<label>Nombre:</label>
                     			<input type="text" class="form-control" name="nombre">
@@ -201,8 +201,8 @@
         <div class="container-fluid">
             <div class="row no-gutter popup-gallery">
                 <div class="col-lg-4 col-sm-6">
-                    <a href="indexplugins/img/portfolio/fullsize/1.jpg" class="portfolio-box">
-                        <img src="indexplugins/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
+                    <a href="librerias/indexplugins/img/portfolio/fullsize/1.jpg" class="portfolio-box">
+                        <img src="librerias/indexplugins/img/portfolio/thumbnails/1.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -216,8 +216,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="indexplugins/img/portfolio/fullsize/2.jpg" class="portfolio-box">
-                        <img src="indexplugins/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
+                    <a href="librerias/indexplugins/img/portfolio/fullsize/2.jpg" class="portfolio-box">
+                        <img src="librerias/indexplugins/img/portfolio/thumbnails/2.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -231,8 +231,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="indexplugins/img/portfolio/fullsize/3.jpg" class="portfolio-box">
-                        <img src="indexplugins/img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
+                    <a href="librerias/indexplugins/img/portfolio/fullsize/3.jpg" class="portfolio-box">
+                        <img src="librerias/indexplugins/img/portfolio/thumbnails/3.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -246,8 +246,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="indexplugins/img/portfolio/fullsize/4.jpg" class="portfolio-box">
-                        <img src="indexplugins/img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
+                    <a href="librerias/indexplugins/img/portfolio/fullsize/4.jpg" class="portfolio-box">
+                        <img src="librerias/indexplugins/img/portfolio/thumbnails/4.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -261,8 +261,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="indexplugins/img/portfolio/fullsize/5.jpg" class="portfolio-box">
-                        <img src="indexplugins/img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
+                    <a href="librerias/indexplugins/img/portfolio/fullsize/5.jpg" class="portfolio-box">
+                        <img src="librerias/indexplugins/img/portfolio/thumbnails/5.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -276,8 +276,8 @@
                     </a>
                 </div>
                 <div class="col-lg-4 col-sm-6">
-                    <a href="indexplugins/img/portfolio/fullsize/6.jpg" class="portfolio-box">
-                        <img src="indexplugins/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
+                    <a href="librerias/indexplugins/img/portfolio/fullsize/6.jpg" class="portfolio-box">
+                        <img src="librerias/indexplugins/img/portfolio/thumbnails/6.jpg" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -321,18 +321,18 @@
     </section>
 
     <!-- jQuery -->
-    <script src="indexplugins/plugin/jquery/jquery.min.js"></script>
+    <script src="librerias/indexplugins/plugin/jquery/jquery.min.js"></script>
 
     <!-- JS de Bootstrap -->
-    <script src="indexplugins/plugin/bootstrap/js/bootstrap.min.js"></script>
+    <script src="librerias/indexplugins/plugin/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- js de los Plugins -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-    <script src="indexplugins/plugin/scrollreveal/scrollreveal.min.js"></script>
-    <script src="indexplugins/plugin/magnific-popup/jquery.magnific-popup.min.js"></script>
+    <script src="librerias/indexplugins/plugin/scrollreveal/scrollreveal.min.js"></script>
+    <script src="librerias/indexplugins/plugin/magnific-popup/jquery.magnific-popup.min.js"></script>
 
     <!-- Codigo de js del index -->
-    <script src="indexplugins/js/indexjs.min.js"></script>
+    <script src="librerias/indexplugins/js/indexjs.min.js"></script>
 
 </body>
 

@@ -1,5 +1,5 @@
 <?php
-require('connQuery.php');
+require('ConnQuery.php');
 
 Class Experiencia{
 

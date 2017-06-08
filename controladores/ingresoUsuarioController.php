@@ -1,5 +1,5 @@
 <?php
-require ('../clases/connQuery.php');
+require ('../clases/ConnQuery.php');
 $usuarioIngreso = $_POST["user"];
 $passIngreso = $_POST["pass"];
 
@@ -17,12 +17,12 @@ session_start();
 if ($resultadoConEmail) {
   $idUsuario = $connQuery->getFila($queryStringIngresoEmail)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
-  header("location: ../pantallaLogueada.php");
+  header("location: ../vistas/pantallaLogueada.php");
 
 }else if ($resultadoConUserName) {
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
   $usuario = $_SESSION["usuario"] = $idUsuario;
-  header("location:../pantallaLogueada.php");
+  header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();
     header("location:../index.php");

@@ -1,5 +1,5 @@
 <?php
-  require ('../clases/experienciaClass.php');
+  require ('../clases/ExperienciaClass.php');
 
   Experiencia::inicioHistorias();
  ?>

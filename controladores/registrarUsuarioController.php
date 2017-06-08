@@ -1,11 +1,7 @@
 <?php
+	require("../clases/UsuarioClass.php");
+	// require("../clases/ConnQuery.php");
 
-	
-	require("Usuario.php");
-	//require("connQuery.php");
-
-
-	//$conexion = new ConnQuery();
 
 
 	 $id = Null;
@@ -20,33 +16,16 @@
 	 $telefono = Null;
 	 $id_domicilio = Null;
 	 $ultimaConexion = Null;
-	
-
-	
-
-	
 
 	$usuario = new Usuario($id, $nombre, $nombreUsuario, $apellido, $id_sexo, $telefono, $id_domicilio, $e_mail, $fechaNacimiento, $ultimaConexion, $pass);
-
-	
-	
 	$resultado = $usuario->persistirse();
-	
+
 	if( !$resultado){
 		header("location:index.php");
 	}else{
 		echo "<h1>El Registro fall&oacute;</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
 	}
-	
-	
-  
+
+
+
 ?>
-
-
-
-
-
-
-
-
-
