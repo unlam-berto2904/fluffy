@@ -64,7 +64,7 @@
         </div>
     </nav>
 <!--Sector del login. Usa el header como pantalla de presentación -->
-    <header class="bgimg<?php echo rand(1,10) ?>">
+    <header class="bgimg<?php echo rand(1,10)?>">
         <div class="header-content">
             <div class="header-content-inner">
                 <div class="col-sm-7">

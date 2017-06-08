@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <?php
 require ('usuarioClase.php');
-require ('connQuery.php');
+require ('clases/connQuery.php');
 session_start();
 
 if (isset($_SESSION["usuario"])) {
@@ -22,9 +22,13 @@ else {
 <html>
   <head>
     <meta charset="utf-8">
+    <script src="librerias/jquery-3.1.1.js" charset="utf-8" type="text/javascript"></script>
+    <script src="js/home.js" charset="utf-8" type="text/javascript"></script>
     <title></title>
   </head>
   <body>
     HOLAAAA SOY UNA PANTALLA LOGUEADA
+    <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()">
+
   </body>
 </html>

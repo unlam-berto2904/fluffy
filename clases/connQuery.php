@@ -3,18 +3,13 @@ class ConnQuery
 {
   private $servidor ="localhost";
   private $usuario = "root";
-<<<<<<< HEAD
-  private $pass = "abrh++++";
-=======
-  private $pass = "digio";
->>>>>>> 4fc4f8d70a9b023d09fc4acee926072769bc1f19
+  private $pass = "admin2904";
   private $bd="fluffy";
   private $conn;
 
 
   function __construct(){
     $this->conn = mysqli_connect($this->servidor, $this->usuario, $this->pass, $this->bd);
-    return $this->conn;
   }
 
   function ejecutarConsultaIsTrue($sql){
