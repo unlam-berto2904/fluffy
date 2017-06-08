@@ -143,7 +143,7 @@
                     		</div>
 							<div class="form-group">
                     			<label>Repita la contraseña anterior:</label>
-                    			<input type="password" class="form-control" name="contrasenia">
+                    			<input type="password" class="form-control" name="contrasenia2">
                     		</div>
                     		<div class="text-center">
                     			<button type="submit" class="btn btn-default btn-xl sr-button" name="submit">Enviar</button>
