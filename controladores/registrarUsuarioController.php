@@ -21,7 +21,7 @@
 	$resultado = $usuario->persistirse();
 
 	if( !$resultado){
-		header("location:index.php");
+		header("location:../index.php");
 	}else{
 		echo "<h1>El Registro fall&oacute;</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
 	}
