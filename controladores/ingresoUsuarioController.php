@@ -1,27 +1,29 @@
 <?php
-require ('../clases/ConnQuery.php');
+// require ('../clases/ConnQuery.php');
+require ('../clases/UsuarioClass.php');
+$connQuery = new connQuery();
+
 $usuarioIngreso = $_POST["user"];
 $passIngreso = $_POST["pass"];
 
-$queryStringIngresoEmail = 'select * from usuario where e_mail = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
-$queryStringIngresoUser = 'select * from usuario where nombre_usuario = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
+$resultadoConUserName = Usuario::ingresarUsuarioUser($usuarioIngreso,$passIngreso);
+$resultadoConEmail = Usuario::ingresarUsuarioEmail($usuarioIngreso,$passIngreso);
 
-$connQuery = new connQuery();
-$resultadoConEmail = $connQuery->ejecutarConsultaIsTrue($queryStringIngresoEmail);
-$resultadoConUserName = $connQuery->ejecutarConsultaIsTrue($queryStringIngresoUser);
 
 $idUsuario = null;
 
 session_start();
 
 if ($resultadoConEmail) {
+  $queryStringIngresoEmail = 'select * from usuario where e_mail = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
   $idUsuario = $connQuery->getFila($queryStringIngresoEmail)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   header("location: ../vistas/pantallaLogueada.php");
 
 }else if ($resultadoConUserName) {
+  $queryStringIngresoUser = 'select * from usuario where nombre_usuario = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
-  $usuario = $_SESSION["usuario"] = $idUsuario;
+  $_SESSION["usuario"] = $idUsuario;
   header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();

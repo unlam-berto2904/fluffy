@@ -1,9 +1,7 @@
 <?php
-require("ConnQuery.php");
-$conn = new ConnQuery();
+require('ConnQuery.php');
 
-
-Class Usuario{
+class Usuario{
 		private $id;
 		private $nombre;
 		private $nombreUsuario;
@@ -31,16 +29,67 @@ Class Usuario{
 		$this->fechaNacimiento = $fechaNacimiento;
 		$this->ultimaConexion = $ultimaConexion;
 		$this->pass = $pass;
-		$this->conexion = mysqli_connect("localHost", "root", "abrh++++", "fluffy");
+		// $this->conexion = mysqli_connect("localhost", "root", "admin2904", "fluffy");
 	}
+	public static function  ingresarUsuarioUser ($usuarioUser,$usuarioPass){
+		$cq = new connQuery();
+		$sql = "select * from usuario where nombre_usuario = ? and contrasenia = ? ";
+		$ps = $cq->prepare($sql);
 
-	function persistirse( ){
-		if ($stmt = mysqli_prepare($this->conexion, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
-			mysqli_stmt_bind_param($stmt, "sissss", $this->nombre, $this->id_sexo, $this->e_mail, $this->pass, $this->nombreUsuario, $this->apellido);
-			mysqli_stmt_execute($stmt);
-			$persistido = mysqli_stmt_fetch($stmt);
-			return $persistido;
-		}
+		mysqli_stmt_bind_param($ps,
+		"ss",
+		$usuarioUser,
+		$usuarioPass);
+
+		mysqli_stmt_execute($ps);
+		$consultaIsTrue = mysqli_stmt_fetch($ps);
+
+		return $consultaIsTrue;
 	}
+	public static function  ingresarUsuarioEmail ($usuarioEmail,$usuarioPass){
+		$cq = new connQuery();
+		$sql = "select * from usuario where e_mail = ? and contrasenia = ? ";
+		$ps = $cq->prepare($sql);
+
+		mysqli_stmt_bind_param($ps,
+		"ss",
+		$usuarioEmail,
+		$usuarioPass);
+
+		mysqli_stmt_execute($ps);
+		$consultaIsTrue = mysqli_stmt_fetch($ps);
+
+		return $consultaIsTrue;
+	}
+	function persistirse(){
+			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
+				mysqli_stmt_bind_param($stmt, "sissss", $this->nombre, $this->id_sexo, $this->e_mail, $this->pass, $this->nombreUsuario, $this->apellido);
+				mysqli_stmt_execute($stmt);
+				$persistido = mysqli_stmt_fetch($stmt);
+				return $persistido;
+			}
+		}
+			function persistirse2(){
+				$cq = new connQuery();
+				$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";
+				$ps = $cq->prepare($sql);
+				mysqli_stmt_bind_param($ps,
+					"sissss",
+				 	$this->nombre,
+					$this->id_sexo,
+					$this->e_mail,
+					$this->pass,
+					$this->nombreUsuario,
+					$this->apellido);
+
+				mysqli_stmt_execute($ps);
+			}
+
+		function actualizarHoraDeConexion($idUsuario){
+			date_default_timezone_set('America/Buenos_Aires');
+		  $fechaUltimaConexion = (new \DateTime())->format('y-m-d H:i:s');
+		  $ultimaConexion= "update usuario set ultima_conexion = '".$fechaUltimaConexion."' where id_usuario = ".$idUsuario;
+		  $conn->ejecutarConsulta($ultimaConexion);
+		}
 }
 ?>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
 require ('../clases/UsuarioClass.php');
-require ('../clases/ConnQuery.php');
+// require ('../clases/ConnQuery.php');
+
 session_start();
 
 if (isset($_SESSION["usuario"])) {
@@ -16,7 +17,7 @@ if (isset($_SESSION["usuario"])) {
 }
 else {
   session_destroy();
-  header("location:index.php");
+  header("location: ../index.php");
 }
 ?>
 <html>

@@ -1,6 +1,6 @@
 <?php
-class ConnQuery
-{
+class ConnQuery{
+
   private $servidor ="localhost";
   private $usuario = "root";
   private $pass = "admin2904";
@@ -25,6 +25,10 @@ class ConnQuery
     $query = mysqli_query($this->conn,$sql);
     $fila =  mysqli_fetch_assoc($query);
     return $fila;
+  }
+  function prepare($sql){
+    $stmt = mysqli_prepare($this->conn, $sql);
+    return $stmt;
   }
 
 }
