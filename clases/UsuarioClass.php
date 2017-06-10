@@ -85,11 +85,12 @@ class Usuario{
 				mysqli_stmt_execute($ps);
 			}
 
-		function actualizarHoraDeConexion($idUsuario){
+		public static function actualizarHoraDeConexion($idUsuario){
+			$connQuery =  new connQuery();
 			date_default_timezone_set('America/Buenos_Aires');
 		  $fechaUltimaConexion = (new \DateTime())->format('y-m-d H:i:s');
 		  $ultimaConexion= "update usuario set ultima_conexion = '".$fechaUltimaConexion."' where id_usuario = ".$idUsuario;
-		  $conn->ejecutarConsulta($ultimaConexion);
+		  $connQuery->ejecutarConsulta($ultimaConexion);
 		}
 }
 ?>

@@ -4,16 +4,8 @@ require ('../clases/UsuarioClass.php');
 // require ('../clases/ConnQuery.php');
 
 session_start();
-
 if (isset($_SESSION["usuario"])) {
   $id_usuario = ($_SESSION["usuario"]);
-
-  date_default_timezone_set('America/Buenos_Aires');
-  $fechaUltimaConexion = (new \DateTime())->format('y-m-d H:i:s');
-  $ultimaConexion= "update usuario set ultima_conexion = '".$fechaUltimaConexion."' where id_usuario = ".$id_usuario;
-  $connQueryInsertDateConexion = new connQuery();
-  $connQueryInsertDateConexion->ejecutarConsulta($ultimaConexion);
-
 }
 else {
   session_destroy();
