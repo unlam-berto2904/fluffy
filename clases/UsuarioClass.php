@@ -31,6 +31,7 @@ class Usuario{
 		$this->pass = $pass;
 		// $this->conexion = mysqli_connect("localhost", "root", "admin2904", "fluffy");
 	}
+
 	public static function  ingresarUsuarioUser ($usuarioUser,$usuarioPass){
 		$cq = new connQuery();
 		$sql = "select * from usuario where nombre_usuario = ? and contrasenia = ? ";
@@ -46,6 +47,7 @@ class Usuario{
 
 		return $consultaIsTrue;
 	}
+
 	public static function  ingresarUsuarioEmail ($usuarioEmail,$usuarioPass){
 		$cq = new connQuery();
 		$sql = "select * from usuario where e_mail = ? and contrasenia = ? ";
@@ -61,6 +63,7 @@ class Usuario{
 
 		return $consultaIsTrue;
 	}
+
 	function persistirse(){
 			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
 				mysqli_stmt_bind_param($stmt, "sissss", $this->nombre, $this->id_sexo, $this->e_mail, $this->pass, $this->nombreUsuario, $this->apellido);
@@ -69,7 +72,8 @@ class Usuario{
 				return $persistido;
 			}
 		}
-			function persistirse2(){
+	
+	function persistirse2(){
 				$cq = new connQuery();
 				$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";
 				$ps = $cq->prepare($sql);
@@ -85,7 +89,7 @@ class Usuario{
 				mysqli_stmt_execute($ps);
 			}
 
-		public static function actualizarHoraDeConexion($idUsuario){
+	public static function actualizarHoraDeConexion($idUsuario){
 			$connQuery =  new connQuery();
 			date_default_timezone_set('America/Buenos_Aires');
 		  $fechaUltimaConexion = (new \DateTime())->format('y-m-d H:i:s');
