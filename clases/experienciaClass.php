@@ -12,10 +12,19 @@ Class Experiencia{
   private $id_muro_mascota;
 
   public static function inicioHistorias(){
-      // $sql = "select * from experiencia";
-      // $connQuery = new ConnQuery();
-      // $connQuery->ejecutarConsulta($sql);
-      echo "Holaa";
+    $cq = new connQuery();
+    $sql = "select * from experiencia";
+    $filas = $cq->ejecutarConsulta($sql);
+
+    $types = array();
+
+    while(($fila =  mysqli_fetch_assoc($filas))) {
+      $types["id"] = $fila['id_experiencia'];
+      $types["comentarios"] = $fila['comentario_experiencia'];
+    }
+    foreach ($types as $type) {
+      echo $type;
+    }
   }
 }
 ?>
