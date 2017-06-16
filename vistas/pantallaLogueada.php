@@ -5,7 +5,8 @@ require ('../clases/UsuarioClass.php');
 
 session_start();
 if (isset($_SESSION["usuario"])) {
-  $id_usuario = ($_SESSION["usuario"]);
+  $id_usuario = $_SESSION["usuario"];
+  $experiencias_usuario = $_SESSION['experiencias'];
 }
 else {
   session_destroy();
@@ -21,7 +22,12 @@ else {
   </head>
   <body>
     HOLAAAA SOY UNA PANTALLA LOGUEADA
-    <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()">
-
+    <!-- <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()"> -->
+    <?php
+    foreach ($experiencias_usuario as $experiencia => $exp) {
+      echo $exp['id'];
+      echo $exp['comentario'].'<br />';
+    }
+    ?>
   </body>
 </html>
