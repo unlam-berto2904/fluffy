@@ -24,9 +24,9 @@ else {
     HOLAAAA SOY UNA PANTALLA LOGUEADA
     <!-- <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()"> -->
     <?php
-    foreach ($experiencias_usuario as $experiencia => $prop) {
-      echo $prop['id'];
-      echo $prop['comentario'].'<br />';
+    foreach ($experiencias_usuario as $experiencia => $exp) {
+      echo $exp['id'];
+      echo $exp['comentario'].'<br />';
     }
     ?>
   </body>

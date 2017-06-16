@@ -27,5 +27,8 @@ Class Experiencia{
 
     $_SESSION['experiencias'] = $experiencias;
   }
+  public static function valorarExperiencia($id_experiencia){
+    
+  }
 }
 ?>
