@@ -16,17 +16,6 @@ Class Experiencia{
     $sql = "select * from experiencia";
     $filas = $cq->ejecutarConsulta($sql);
 
-<<<<<<< HEAD
-    $types = array();
-
-    while(($fila =  mysqli_fetch_assoc($filas))) {
-      $types["id"] = $fila['id_experiencia'];
-      $types["comentarios"] = $fila['comentario_experiencia'];
-    }
-    foreach ($types as $type) {
-      echo $type;
-    }
-=======
     $experiencias = array();
 
     while ($fila =  mysqli_fetch_assoc($filas)) {
@@ -39,8 +28,7 @@ Class Experiencia{
     $_SESSION['experiencias'] = $experiencias;
   }
   public static function valorarExperiencia($id_experiencia){
-    
->>>>>>> 6232dd70dcd9e7af3e67784fd3159a3935603a1e
+
   }
 }
 ?>
