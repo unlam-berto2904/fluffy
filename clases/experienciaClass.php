@@ -1,5 +1,5 @@
 <?php
-require('ConnQuery.php');
+// require('ConnQuery.php');
 
 Class Experiencia{
 
@@ -16,15 +16,16 @@ Class Experiencia{
     $sql = "select * from experiencia";
     $filas = $cq->ejecutarConsulta($sql);
 
-    $types = array();
+    $experiencias = array();
 
-    while(($fila =  mysqli_fetch_assoc($filas))) {
-      $types["id"] = $fila['id_experiencia'];
-      $types["comentarios"] = $fila['comentario_experiencia'];
+    while ($fila =  mysqli_fetch_assoc($filas)) {
+      $experiencia = array( 'id' => $fila['id_experiencia'],
+                            'comentario' => $fila['comentario_experiencia'],
+                            );
+      $experiencias[] = $experiencia;
     }
-    foreach ($types as $type) {
-      echo $type;
-    }
+
+    $_SESSION['experiencias'] = $experiencias;
   }
 }
 ?>

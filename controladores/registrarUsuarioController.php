@@ -1,6 +1,5 @@
 <?php
 	require("../clases/UsuarioClass.php");
-	// require("../clases/ConnQuery.php");
 
 	 $id = Null;
 	 $nombre = $_POST["nombre"];
