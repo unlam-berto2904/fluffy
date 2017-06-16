@@ -33,6 +33,7 @@ git commit -m "Mensaje de commit"
 git push fluffy master
 ------------------------------------------------------------------------------------------------------------------------------
 git reset --hard HEAD~1   //para deshacer el ultimo commit y las cosas que commmiteaste
+git reset HEAD~1 //para deshacer el ultimo commit pero sin los archivos modificados
 ------------------------------------------------------------------------------------------------------------------------------
 git branch //muestra el branch donde estás parado
 git branch (nombre) // crear branch
