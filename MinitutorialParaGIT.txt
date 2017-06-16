@@ -31,3 +31,5 @@ git pull fluffy master
 git add .
 git commit -m "Mensaje de commit"
 git push fluffy master
+------------------------------------------------------------------------------------------------------------------------------
+git reset --hard HEAD~1  : para deshacer el ultimo commit y las cosas que commmiteaste
