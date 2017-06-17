@@ -18,6 +18,7 @@ else {
     <meta charset="utf-8">
     <script src="../librerias/jquery-3.1.1.js" charset="utf-8" type="text/javascript"></script>
     <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/estiloHome.css">
     <title></title>
   </head>
   <body>
@@ -28,6 +29,14 @@ else {
       echo $exp['id'];
       echo $exp['comentario'].'<br />';
     }
+    ?>
+    <?php
+      foreach ($experiencias_usuario as $experiencia => $exp) { ?>
+      <fieldset class="experienciaDiv">
+
+      </fieldset>
+    <?php
+      }
     ?>
   </body>
 </html>
