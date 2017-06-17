@@ -107,11 +107,11 @@ CREATE TABLE IF NOT EXISTS `raza` (
 DROP TABLE IF EXISTS `mascota` ;
 
 CREATE TABLE IF NOT EXISTS `mascota` (
-  `id_mascota` INT NOT NULL,
+  `id_mascota` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   `id_sexo` INT NULL,
   `fecha_nacimiento` DATE NULL,
-  `url_lite` INT NULL,
+  `url_lite` VARCHAR(200) NULL,
   `nombre` VARCHAR(45) NULL,
   `id_muro_mascota` INT NOT NULL,
   `id_raza` INT NOT NULL,

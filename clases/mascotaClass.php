@@ -1,4 +1,6 @@
 <?php
+require_once('ConnQuery.php');
+
 Class Mascota{
 	
 	private $id;
@@ -11,8 +13,7 @@ Class Mascota{
 	private $idRaza;
 	private $idAnimal;
 
-	function __construct($id, $idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal){
-		$this->id = $id;
+	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal){
 		$this->idUsuario = $idUsuario;
 		$this->sexo = $sexo;
 		$this->fechaNacimiento = $fechaNacimiento;
@@ -21,6 +22,41 @@ Class Mascota{
 		$this->idMuroMascota = $idMuroMascota;
 		$this->idRaza = $idRaza;
 		$this->idAnimal = $idAnimal;
+	}
+	function persistirMascota(){
+		$cq = new ConnQuery();
+		$sql = "insert into mascota (id_usuario, id_sexo, fecha_nacimiento, url_lite, nombre, id_muro_mascota, id_raza, id_animal) VALUE (?, ?, ?, ?, ?, ?, ?, ?)";
+		$ps = $cq->prepare($sql);
+		mysqli_stmt_bind_param($ps,
+		"iisssiii",
+		//$this->id,
+	 	$this->id_usuario,
+		$this->id_sexo,
+		$this->fecha_nacimiento,
+		$this->url_lite,
+		$this->nombre,
+		$this->id_muro_mascota,
+		$this->id_raza,
+		$this->id_animal);
+
+		mysqli_stmt_execute($ps);
+		$ultimoId = $cq->getUltimoId();
+		return $ultimoId;		
+	}
+	public static function  ingresarMascota ($id,$nombre){
+		$cq = new ConnQuery();
+		$sql = "select * from mascota where id = ? and nombre = ? ";
+		$ps = $cq->prepare($sql);
+
+		mysqli_stmt_bind_param($ps,
+		"is",
+		$idMascota,
+		$nombre);
+
+		mysqli_stmt_execute($ps);
+		$consultaIsTrue = mysqli_stmt_fetch($ps);
+
+		return $consultaIsTrue;
 	}
 	
 }

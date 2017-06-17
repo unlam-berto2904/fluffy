@@ -3,7 +3,7 @@ class ConnQuery{
 
   private $servidor ="localhost";
   private $usuario = "root";
-  private $pass = "admin2904";
+  private $pass = "1286";
   private $bd="fluffy";
   private $conn;
 
@@ -30,6 +30,10 @@ class ConnQuery{
     $stmt = mysqli_prepare($this->conn, $sql);
     return $stmt;
   }
+  function getUltimoId(){
+    return mysqli_insert_id($this->conn);
+  }
+
 }
 
 ?>
