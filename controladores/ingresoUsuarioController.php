@@ -27,7 +27,8 @@ if ($resultadoConEmail) {
   header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();
-    header("location:../index.php");
+    //header("location:../index.php");
+    echo "fallo ingreso";
   }
 
 ?>
