@@ -78,7 +78,7 @@ class Usuario{
 				return $persistido;
 			}
 		}
-	
+
 	function persistirse2(){
 				$cq = new connQuery();
 				$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";

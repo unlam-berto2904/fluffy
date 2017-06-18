@@ -31,7 +31,6 @@ class ConnQuery{
     $stmt = mysqli_prepare($this->conn, $sql);
     return $stmt;
   }
-
 }
 
 ?>
