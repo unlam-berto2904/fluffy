@@ -1,28 +1,14 @@
 <?php
-	require ('../clases/UsuarioClass.php');
 	require ("../clases/MuroMascotaClass.php");
-	require ("../clases/MascotaClass.php");
+	require ("../clases/mascotaClass.php");
 
-
-	/*
-	$id = Null;
-	$idUsuario = $_GET["id_usuario"];
-	$sexo = $_POST["sexoMascota"];
-	$fechaNacimiento = $_POST["fechaNacimiento"];
-	$urlLite = Null;
-	$nombre = $_POST["nombre"];
-	$idMuroMascota = Null;
-	$idRaza = $_POST["raza"];
-	$idAnimal = $_POST["animal"];
-	*/
-	//$id = Null;
-	$Usuario = $_GET["id_usuario"];
-	$idUsuario = (int)$Usuario;
+	$usuario = $_GET["id_usuario"];
+	$idUsuario = (int)$usuario;
 	$sexo = 4;
-	$fechaNacimiento = "2017-01-01";
-	$urlLite = "URL";
-	$nombre = "Firulais";
-	$idMuroMascota = Null;
+	$fechaNacimiento = '2017-01-01';
+	$urlLite = "urlSarasa";
+	$nombre = "pancho";
+	$idMuroMascota = 1;
 	$idRaza = 1;
 	$idAnimal = 1;
 
@@ -36,13 +22,12 @@
 
 	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal);
 	$resultado_ingreso = $mascota->persistirMascota();
-
 	$resultado_consulta = Mascota::ingresarMascota($id,$nombre);
 
 	if(!$consultaIsTrue){
-		header("location:../index.php");
+		header("location:../vistas/pantallaLogueada.php");
 	}else{
-		echo "<h1>Ha ocurrido un error</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
+		// echo "<h1>Ha ocurrido un error</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
 	}
 
 ?>

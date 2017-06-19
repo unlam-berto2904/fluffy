@@ -25,7 +25,6 @@ Class MuroMascota{
 		$this->perdido);
 
 		$persistenciaMascota = mysqli_stmt_execute($ps);
-
 		$ultimoId = $cq->getUltimoId();
 		return $ultimoId;
 	}
