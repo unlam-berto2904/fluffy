@@ -157,34 +157,34 @@ header {
 }
 
 .bgimg1 {
-  background-image: url('../img/header1.jpg');
+  background-image: url('../resources/index/header1.jpg');
 }
 .bgimg2 {
-  background-image: url('../img/header2.jpg');
+  background-image: url('../resources/index/header2.jpg');
 }
 .bgimg3 {
-  background-image: url('../img/header3.jpg');
+  background-image: url('../resources/index/header3.jpg');
 }
 .bgimg4 {
-  background-image: url('../img/header4.jpg');
+  background-image: url('../resources/index/header4.jpg');
 }
 .bgimg5 {
-  background-image: url('../img/header5.jpg');
+  background-image: url('../resources/index/header5.jpg');
 }
 .bgimg6 {
-  background-image: url('../img/header6.jpg');
+  background-image: url('../resources/index/header6.jpg');
 }
 .bgimg7 {
-  background-image: url('../img/header7.jpg');
+  background-image: url('../resources/index/header7.jpg');
 }
 .bgimg8 {
-  background-image: url('../img/header8.jpg');
+  background-image: url('../resources/index/header8.jpg');
 }
 .bgimg9 {
-  background-image: url('../img/header9.jpg');
+  background-image: url('../resources/index/header9.jpg');
 }
 .bgimg10 {
-  background-image: url('../img/header10.jpg');
+  background-image: url('../resources/index/header10.jpg');
 }
 
 header .header-content {
