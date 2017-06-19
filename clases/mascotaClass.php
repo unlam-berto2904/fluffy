@@ -43,9 +43,9 @@ Class Mascota{
 		mysqli_stmt_bind_param($stmt, "ii", $desde, $cantidad);
 
 		mysqli_stmt_execute($stmt);
-		$resultado = mysqli_get_result($stmt);
+		$resultado = mysqli_stmt_get_result($stmt);
 
-		while ($row = myqli_fetch_array($resultado)) {
+		while ($row = mysqli_fetch_array($resultado)) {
 			$output[] =$row;
 		}
 		

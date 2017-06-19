@@ -32,8 +32,8 @@ else {
     <div ng-app="traerCitas" ng-controller="controlador" >
       <button ng-click="traerCitas()">ver mascotas en cita</button>
       <ul ng-model="mascota">
-        <li ng-repeat="mascota in mascotas" value="mascota.id_mascota">
-          <div  class="panel panel-default">
+        <li ng-repeat="mascota in mascotas">
+          <div  class="panel panel-default" >
             <div class="panel-heading">
               <h3>{{mascota.nombreMascota}}</h3>
             </div>
@@ -64,7 +64,7 @@ else {
  var app = angular.module("traerCitas",[]);  
  app.controller("controlador", function($scope, $http){  
       $scope.traerCitas = function(){  
-           $http.get("../controladores/verMascotasEnCitasController.php", {'desde':0, 'cantidad':5})  
+           $http.post("../controladores/verMascotasEnCitasController.php", {'desde':0, 'cantidad':5})  
            .success(function(data){  
                 $scope.mascotas = data;  
                 //desde = desde + 20;
