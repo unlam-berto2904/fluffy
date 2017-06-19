@@ -26,21 +26,24 @@ else {
     HOLAAAA SOY UNA PANTALLA LOGUEADA
 
     <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()">
+    
 
+    <!--Seccion de citass -->
     <div ng-app="traerCitas" ng-controller="controlador" >
       <button ng-click="traerCitas()">ver mascotas en cita</button>
-      <ul>
-        <li ng-repeat="mascota in mascotasEnCita track by $index">
+      <ul ng-model="mascota">
+        <li ng-repeat="mascota in mascotas" value="mascota.id_mascota">
           <div  class="panel panel-default">
             <div class="panel-heading">
               <h3>{{mascota.nombreMascota}}</h3>
             </div>
-            <div class="panel-body"></div>
-           
+            <div class="panel-body">
+              <h6>{{mascota.nombreUsuario}}</h6>
+            </div>
           </div>
         </li>
       </ul>
-        <input type="button" class="btn btn-success" name="verMasMascotas" value="ver mas " ng-app="traerCitas" ng-controller="controlador">
+        <input type="button" class="btn btn-success" name="verMasMascotas" value="ver mas " ng-app="traerCitas()" ng-controller="controlador">
       </div>
     </div>
 
@@ -57,14 +60,14 @@ else {
 </html>
 <!--Script de prueba para verificar funcionamiento de traerCitas    -->
 <script>  
- var desde = 0;
+ //var desde = 0;
  var app = angular.module("traerCitas",[]);  
  app.controller("controlador", function($scope, $http){  
       $scope.traerCitas = function(){  
-           $http.get("../controladores/verMascotasEnCitasController.php", {'desde':desde, 'cantidad':20})  
+           $http.get("../controladores/verMascotasEnCitasController.php", {'desde':0, 'cantidad':5})  
            .success(function(data){  
-                $scope.mascotasEnCita = data;  
-                desde = desde + 20;
+                $scope.mascotas = data;  
+                //desde = desde + 20;
            })  
       }  
       /*$scope.loadLocalidad = function(){  

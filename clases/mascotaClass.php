@@ -1,4 +1,7 @@
 <?php
+
+require('connQuery.php');
+
 Class Mascota{
 	
 	private $id;
@@ -24,9 +27,12 @@ Class Mascota{
 	}
 
 
-	public static function traerCitas($conexion, $desde, $cantidad){
+	public static function traerCitas( $desde, $cantidad){
+		
+		$conexion = new ConnQuery();
+
 		$output = array();
-		$sql = "SELECT  M.nombre nombreMascota, U.nombre nombreUsuario
+		$sql = "SELECT  M.id_mascota, M.nombre nombreMascota, U.id_usuario, U.nombre nombreUsuario
 			FROM usuario U join mascota M on U.id_usuario=M.id_usuario join
 				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota 
 			where MM.cita =  1

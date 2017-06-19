@@ -6,7 +6,7 @@
 	//$desde = $_POST["desde"];
 	//$cantidad = $_POST["cantidad"];
 	$data = json_decode(file_get_contents("php://input"));
-
+	var_dump($data);
 	//se crea el array para pasar los resultados de la query
 	$mascotasConCita = array();
 	
@@ -15,8 +15,8 @@
 
 
 	//se realiza la consulta con statement prepare desde helper de Mascota
-	$mascotasConCita = Mascota::traerCitas($conexion, $data->desde, $data->cantidad);
-	var_dump($mascotasConCita);
+	$mascotasConCita = Mascota::traerCitas($data->desde, $data->cantidad);
+	
 
 	echo json_encode($mascotasConCita); 
 

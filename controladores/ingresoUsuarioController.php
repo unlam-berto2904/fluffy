@@ -1,6 +1,6 @@
 <?php
 require ('../clases/UsuarioClass.php');
-require ('../clases/ExperienciaClass.php');
+require ('../clases/experienciaClass.php');
 
 $connQuery = new connQuery();
 
