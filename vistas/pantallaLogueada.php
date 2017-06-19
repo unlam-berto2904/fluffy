@@ -17,6 +17,11 @@ else {
     <meta charset="utf-8">
     <script src="../librerias/jquery-3.1.1.js" charset="utf-8" type="text/javascript"></script>
     <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
+
+    <script src="../librerias\bootstrap-4.0.0-alpha.6-dist\js\bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
+    <link href="../librerias\bootstrap-4.0.0-alpha.6-dist\css\bootstrap.min.css" rel="stylesheet" type="text/css">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <title></title>
   </head>
   <body>
@@ -25,25 +30,30 @@ else {
 
     <input type="button" name="" value="agregarMascota" onclick="agregarMascota(<?= $id_usuario ?>)">
 
-    <a data-toggle="modal" href="#example" class="btn btn-primary btn-large">Abrir ventana modal</a>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+    </button>
 
-    <div id="example" class="modal hide fade in" style="display: none;">
-    <div class="modal-header">
-        <a data-dismiss="modal" class="close">×</a>
-        <h3>Cabecera de la ventana</h3>
-     </div>
-     <div class="modal-body">
-         <h4>Texto de la ventana</h4>
-        <p>Mas texto en la ventana.</p>                
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="modal-footer">
-        <a href="index.html" class="btn btn-success">Guardar</a>
-        <a href="#" data-dismiss="modal" class="btn">Cerrar</a>
-    </div>
-</div>
-
-  <script src="jquery.js"></script>
-  <script src="bootstrap-modal.js"></script>
 
   </body>
 </html>

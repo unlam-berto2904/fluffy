@@ -1,4 +1,4 @@
-<?php			
+<?php
 	require ('../clases/UsuarioClass.php');
 	require ("../clases/MuroMascotaClass.php");
 	require ("../clases/MascotaClass.php");
@@ -26,18 +26,17 @@
 	$idRaza = 1;
 	$idAnimal = 1;
 
-	
+
 	$adopcion = 0;
 	$cita = 0;
 	$perdido = 0;
-	
+
 	$muroMascota = new MuroMascota($adopcion, $cita, $perdido);
 	$idMuroMascota = $muroMascota->persistirMuroMascota();
-	
+
 	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal);
-	var_dump($mascota);
-	die();
 	$resultado_ingreso = $mascota->persistirMascota();
+
 	$resultado_consulta = Mascota::ingresarMascota($id,$nombre);
 
 	if(!$consultaIsTrue){

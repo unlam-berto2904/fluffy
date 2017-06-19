@@ -1,4 +1,4 @@
-<?php 
+<?php
 require_once('ConnQuery.php');
 
 Class MuroMascota{
@@ -24,7 +24,8 @@ Class MuroMascota{
 		$this->cita,
 		$this->perdido);
 
-		mysqli_stmt_execute($ps);
+		$persistenciaMascota = mysqli_stmt_execute($ps);
+
 		$ultimoId = $cq->getUltimoId();
 		return $ultimoId;
 	}
