@@ -43,10 +43,10 @@ else {
           </div>
         </li>
       </ul>
-        <input type="button" class="btn btn-success" name="verMasMascotas" value="ver mas " ng-app="traerCitas()" ng-controller="controlador">
+        <input type="button" class="btn btn-success" name="verMasMascotas" value="ver mas " ng-click="traerCitas()" >
       </div>
     </div>
-
+    <!-- fin sesion de citas -->
 
     <!-- <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()"> -->
     <?php
@@ -60,14 +60,14 @@ else {
 </html>
 <!--Script de prueba para verificar funcionamiento de traerCitas    -->
 <script>  
- //var desde = 0;
+ var desde = 0;
  var app = angular.module("traerCitas",[]);  
  app.controller("controlador", function($scope, $http){  
       $scope.traerCitas = function(){  
-           $http.post("../controladores/verMascotasEnCitasController.php", {'desde':0, 'cantidad':5})  
+           $http.post("../controladores/verMascotasEnCitasController.php", {'desde':desde, 'cantidad':2})  
            .success(function(data){  
-                $scope.mascotas = data;  
-                //desde = desde + 20;
+                $scope.mascotas =  data;  
+                desde = desde + 2;
            })  
       }  
       /*$scope.loadLocalidad = function(){  
