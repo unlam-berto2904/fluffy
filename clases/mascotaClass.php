@@ -39,6 +39,7 @@ Class Mascota{
 		$this->idAnimal);
 		$persistenciaMascota = mysqli_stmt_execute($ps);
 	}
+
 	public static function  ingresarMascota ($id,$nombre){
 		$cq = new ConnQuery();
 		$sql = "select * from mascota where id = ? and nombre = ? ";
@@ -55,6 +56,31 @@ Class Mascota{
 		return $consultaIsTrue;
 	}
 
+	public static function  consultarTipoAnimal (){
+		$cq = new ConnQuery();
+		$sql = "select id_animal, descripcion from animal";
+		$ps = $cq->ejecutarConsulta($sql);
+
+		$resultadoConsulta = array();
+		while ($filaResultado = mysqli_fetch_assoc($ps)) {
+			$resultadoConsulta[] =  $filaResultado;
+		}
+
+		return $resultadoConsulta;
+	}
+
+	public static function  consultarTipoRaza ($id_animal){
+		$cq = new ConnQuery();
+		$sql = "select id_raza, descripcion from raza where id_animal =".$id_animal;
+		$ps = $cq->ejecutarConsulta($sql);
+
+		$resultadoConsulta = array();
+		while ($filaResultado = mysqli_fetch_assoc($ps)) {
+			$resultadoConsulta[] =  $filaResultado;
+		}
+
+		return $resultadoConsulta;
+	}	
 }
 
 ?>
