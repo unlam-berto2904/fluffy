@@ -48,11 +48,15 @@ else {
             </button>
           </div>
           <div class="modal-body">
-            <form id="formulario" action="../controladores/crearMascotaController.php" method="post">
+            <form id="formulario" action="../controladores/crearMascotaController.php" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
               <div class="form-group">
                 <label>Decinos cu&aacute;l es el nombre de tu mascota</label>
                 <input type="text" name="nombre" class="form-control" placeholder="Escrib&iacute; su nombre">
+              </div>
+              <div class="form-group">
+                <label for="adjuntar archivo">Subi una imagen de tu mascota</label>
+                <input type='file' name='fotoPerfil' id='foto' placeholder="Selecciona una foto" required>
               </div>
               <div class="form-group">
                 <label>Selecciona qu&eacute; tipo de animal es y su raza</label>

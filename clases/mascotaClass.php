@@ -11,8 +11,9 @@ Class Mascota{
 	private $idMuroMascota;
 	private $idRaza;
 	private $idAnimal;
+	private $fotoPerfil;
 
-	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal){
+	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil){
 		$this->idUsuario = $idUsuario;
 		$this->sexo = $sexo;
 		$this->fechaNacimiento = $fechaNacimiento;
@@ -21,6 +22,7 @@ Class Mascota{
 		$this->idMuroMascota = $idMuroMascota;
 		$this->idRaza = $idRaza;
 		$this->idAnimal = $idAnimal;
+		$this->fotoPerfil = $fotoPerfil;
 	}
 
 	function persistirMascota(){
@@ -36,7 +38,8 @@ Class Mascota{
 		$this->nombre,
 		$this->idMuroMascota,
 		$this->idRaza,
-		$this->idAnimal);
+		$this->idAnimal,
+		$this->fotoPerfil);
 		$persistenciaMascota = mysqli_stmt_execute($ps);
 	}
 

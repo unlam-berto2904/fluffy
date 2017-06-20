@@ -20,8 +20,10 @@
 	$nombre = $_POST["nombre"];
 	$idRaza = $_POST["tipoRaza"];
 	$idAnimal = $_POST["tipoAnimal"];
+	$fotoPerfil = $_POST["fotoPerfil"];
 
-
+	var_dump($idUsuario,$sexo,$fechaNacimiento,$urlLite,$nombre,$idRaza,$idAnimal,$fotoPerfil);
+	die();
 	$adopcion = 0;
 	$cita = 0;
 	$perdido = 0;
@@ -29,7 +31,7 @@
 	$muroMascota = new MuroMascota($adopcion, $cita, $perdido);
 	$idMuroMascota = $muroMascota->persistirMuroMascota();
 
-	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal);
+	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil);
 	$resultado_ingreso = $mascota->persistirMascota();
 	$resultado_consulta = Mascota::ingresarMascota($id,$nombre);
 
