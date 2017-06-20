@@ -35,16 +35,16 @@ else {
 
     <!-- Comienzo de prueba ver Mascotas Perdidas -->
     <div ng-app="verPerdidos" ng-controller="controlador">
-      <input type="button" name="verPerdidos" value="ver mascotas perdidas" ng-click="verPerdidos()">
+      <input type="button" name="verPerdidos" value="ver mascotas perdidas" ng-click="verMascotasPerdidas()">
       <ul ng-model="perdido">
-        <li ng-repeat="perdido in perdidos track by $index">
+        <li ng-repeat="perdido in perdidos">
           <div class="panel panel-default">
-          <div class="panel-heading">
-            <h3>{{perdido.nombreMascota}}</h3>
-          </div>
-          <div class="panel-body">
-            <h6>{{perdido.nombreUsuario}} </h6>
-          </div>
+            <div class="panel-heading">
+              <h3>{{perdido.nombreMascota}}</h3>
+            </div>
+            <div class="panel-body">
+              <h6>{{perdido.nombreUsuario}} </h6>
+            </div>
           </div>
         </li>
       </ul>

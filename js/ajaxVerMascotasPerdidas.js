@@ -2,11 +2,13 @@ var desde = 0;
 var cantidad = 3;
 var app = angular.module("verPerdidos", []);
 app.controller("controlador", function($scope, $http){
+  $scope.verMascotasPerdidas = function(){
 	$http.post("../controladores/verMascotasPerdidasController.php", {'desde':desde, 'cantidad':cantidad})
 	.success(function(data){
-		$scope.Perdidos = data;
+		$scope.perdidos = data;
 		desde = desde + cantidad;
-	})
+    }
+	)}
 });
 
 
