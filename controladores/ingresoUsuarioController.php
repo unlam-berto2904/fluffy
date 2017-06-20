@@ -1,8 +1,7 @@
 <?php
 require ('../clases/UsuarioClass.php');
-require ('../clases/ExperienciaClass.php');
-
-$connQuery = new connQuery();
+require ('../clases/experienciaClass.php');
+$connQuery = new ConnQuery();
 
 $usuarioIngreso = $_POST["user"];
 $passIngreso = $_POST["pass"];
