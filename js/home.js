@@ -25,8 +25,8 @@ function enviarExperienciasAHome(experiencia){
       type:"POST",
       data:{experiencias:experiencia},
       success: function(data){
-        var result = $('<div />').append(data).find('#holaMundo').html();
-            $('#holaMundo').html(result);
+        var result = $('<div />').append(data).find('#experienciasSection').html();
+            $('#experienciasSection').html(result);
         }
     });
 }
