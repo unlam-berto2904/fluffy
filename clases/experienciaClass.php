@@ -1,5 +1,5 @@
 <?php
-// require('ConnQuery.php');
+require('ConnQuery.php');
 
 Class Experiencia{
 
@@ -25,10 +25,10 @@ Class Experiencia{
       $experiencias[] = $experiencia;
     }
 
-    $_SESSION['experiencias'] = $experiencias;
+    return $experiencias;
   }
   public static function valorarExperiencia($id_experiencia){
-    
+
   }
 }
 ?>
