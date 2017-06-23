@@ -94,7 +94,7 @@ class Usuario{
 			date_default_timezone_set('America/Buenos_Aires');
 		  $fechaUltimaConexion = (new \DateTime())->format('y-m-d H:i:s');
 		  $ultimaConexion= "update usuario set ultima_conexion = '".$fechaUltimaConexion."' where id_usuario = ".$idUsuario;
-		  $connQuery->ejecutarConsulta($ultimaConexion);
+			$connQuery->ejecutarConsulta($ultimaConexion);
 		}
 }
 ?>

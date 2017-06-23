@@ -259,6 +259,9 @@ small.text-muted {
   width: 8%;
   margin-right: 2%;
 }
+.comentarioUsuario{
+  margin: 2% 0%;
+}
 
 /*
  * off canvas sidebar
