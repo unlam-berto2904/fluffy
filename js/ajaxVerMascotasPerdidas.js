@@ -1,17 +1,22 @@
 //Inicialización de variables para comienzo de busqueda en BD y limite de resultasdos en la query
 var desde = 0;
-var cantidad = 3;
+var cantidad = 1;
 
 // Funcion ajax de Angularjs
 var app = angular.module("verPerdidos", []);
 app.controller("controlador", function($scope, $http){
   $scope.verMascotasPerdidas = function(){
-	$http.post("../controladores/verMascotasPerdidasController.php", {'desde':desde, 'cantidad':cantidad})
-	.success(function(data){
-		$scope.perdidos = data;
-		desde = desde + cantidad;
-    }
-	)}
+    	$http.post("../controladores/verMascotasPerdidasController.php", {'desde':desde, 'cantidad':cantidad})
+    	.success(function(data){
+          if(desde == 0){
+      		  $scope.perdidos = data;
+      		  desde = desde + cantidad;
+          }else{
+            $scope.perdidos = $scope.perdidos.concat(data);
+            desde = desde + cantidad;
+          }
+        }
+    	)}
 });
 
 
