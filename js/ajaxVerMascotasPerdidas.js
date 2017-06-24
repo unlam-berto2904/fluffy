@@ -1,5 +1,8 @@
+//Inicialización de variables para comienzo de busqueda en BD y limite de resultasdos en la query
 var desde = 0;
 var cantidad = 3;
+
+// Funcion ajax de Angularjs
 var app = angular.module("verPerdidos", []);
 app.controller("controlador", function($scope, $http){
   $scope.verMascotasPerdidas = function(){
