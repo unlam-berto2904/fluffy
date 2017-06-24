@@ -19,7 +19,7 @@ else {
     <link rel="stylesheet" type="text/css" href="../css/estiloHome.css">
     <link rel="stylesheet" type="text/css" href="../librerias/boostrapVistaExperiencias/css/bootstrap.min.css">
     <script src="../librerias/boostrapVistaExperiencias/js/bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
-    <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
+    <script src="../js/vistaExperiencia.js" charset="utf-8" type="text/javascript"></script>
     <title></title>
   </head>
   <body>
