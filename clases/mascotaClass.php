@@ -11,8 +11,9 @@ Class Mascota{
 	private $idMuroMascota;
 	private $idRaza;
 	private $idAnimal;
+	private $fotoPerfil;
 
-	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal){
+	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil){
 		$this->idUsuario = $idUsuario;
 		$this->sexo = $sexo;
 		$this->fechaNacimiento = $fechaNacimiento;
@@ -21,6 +22,7 @@ Class Mascota{
 		$this->idMuroMascota = $idMuroMascota;
 		$this->idRaza = $idRaza;
 		$this->idAnimal = $idAnimal;
+		$this->fotoPerfil = $fotoPerfil;
 	}
 
 	function persistirMascota(){
@@ -36,9 +38,11 @@ Class Mascota{
 		$this->nombre,
 		$this->idMuroMascota,
 		$this->idRaza,
-		$this->idAnimal);
+		$this->idAnimal,
+		$this->fotoPerfil);
 		$persistenciaMascota = mysqli_stmt_execute($ps);
 	}
+
 	public static function  ingresarMascota ($id,$nombre){
 		$cq = new ConnQuery();
 		$sql = "select * from mascota where id = ? and nombre = ? ";
@@ -55,6 +59,31 @@ Class Mascota{
 		return $consultaIsTrue;
 	}
 
+	public static function  consultarTipoAnimal (){
+		$cq = new ConnQuery();
+		$sql = "select id_animal, descripcion from animal";
+		$ps = $cq->ejecutarConsulta($sql);
+
+		$resultadoConsulta = array();
+		while ($filaResultado = mysqli_fetch_assoc($ps)) {
+			$resultadoConsulta[] =  $filaResultado;
+		}
+
+		return $resultadoConsulta;
+	}
+
+	public static function  consultarTipoRaza ($id_animal){
+		$cq = new ConnQuery();
+		$sql = "select id_raza, descripcion from raza where id_animal =".$id_animal;
+		$ps = $cq->ejecutarConsulta($sql);
+
+		$resultadoConsulta = array();
+		while ($filaResultado = mysqli_fetch_assoc($ps)) {
+			$resultadoConsulta[] =  $filaResultado;
+		}
+
+		return $resultadoConsulta;
+	}	
 }
 
 ?>
