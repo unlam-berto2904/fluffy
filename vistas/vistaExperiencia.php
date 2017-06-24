@@ -24,7 +24,6 @@ else {
   </head>
   <body>
     <div class="col-sm-7" id="experienciasSection">
-      HOLAAAA SOY UNA PANTALLA LOGUEADA
       <?php $experiencias = json_decode($_POST["experiencias"],true);
       foreach ($experiencias as $experiencia => $exp) { ?>
         <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">

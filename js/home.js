@@ -2,6 +2,7 @@ var base_url = window.location.origin;
 
 $(document).ready(function() {
 mostrarUltimasHistorias();
+
 });
 
 
@@ -21,7 +22,7 @@ function mostrarUltimasHistorias() {
 
 function enviarExperienciasAHome(experiencia){
     $.ajax({
-      url:base_url+"/fluffy/vistas/pantallaLogueada.php",
+      url:base_url+"/fluffy/vistas/vistaExperiencia.php",
       type:"POST",
       data:{experiencias:experiencia},
       success: function(data){
