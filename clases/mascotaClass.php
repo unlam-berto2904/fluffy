@@ -1,5 +1,5 @@
 <?php
-// require('ConnQuery.php');
+require_once('ConnQuery.php');
 
 Class Mascota{
 
