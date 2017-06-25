@@ -20,10 +20,8 @@
 	$nombre = $_POST["nombre"];
 	$idRaza = $_POST["tipoRaza"];
 	$idAnimal = $_POST["tipoAnimal"];
-	$fotoPerfil = $_POST["fotoPerfil"];
+	$fotoPerfil = $_FILES["fotoPerfil"];
 
-	var_dump($idUsuario,$sexo,$fechaNacimiento,$urlLite,$nombre,$idRaza,$idAnimal,$fotoPerfil);
-	die();
 	$adopcion = 0;
 	$cita = 0;
 	$perdido = 0;
@@ -31,7 +29,16 @@
 	$muroMascota = new MuroMascota($adopcion, $cita, $perdido);
 	$idMuroMascota = $muroMascota->persistirMuroMascota();
 
-	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil);
+// Ingreso de la foto de perfil de la mascota a carpeta resources
+	//Obtengo nombre del archivo original y obtengo la extension
+	$nombreFoto = $fotoPerfil['name'];
+	$ext = pathinfo($nombreFoto, PATHINFO_EXTENSION);
+	//creo el path para almacenar la foto donde quiero
+	$pathFotoMascota = "resources/fotoDePerfiles/mascotas/mascota_".$usuario."_".$idMuroMascota.".".$ext;
+	move_uploaded_file($fotoPerfil['tmp_name'], "../".$pathFotoMascota);
+//Fin de ingreso de foto de perfil a la carpeta resources
+
+	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $pathFotoMascota);
 	$resultado_ingreso = $mascota->persistirMascota();
 	$resultado_consulta = Mascota::ingresarMascota($id,$nombre);
 

@@ -12,7 +12,6 @@ Class Mascota{
 	private $idRaza;
 	private $idAnimal;
 	private $fotoPerfil;
-
 	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil){
 		$this->idUsuario = $idUsuario;
 		$this->sexo = $sexo;
@@ -27,10 +26,18 @@ Class Mascota{
 
 	function persistirMascota(){
 		$cq = new ConnQuery();
-		$sql = "insert into mascota (id_usuario, id_sexo, fecha_nacimiento, url_lite, nombre, id_muro_mascota, id_raza, id_animal) VALUE (?, ?, ?, ?, ?, ?, ?, ?)";
+		$sql = "insert into mascota (	id_usuario,
+																	id_sexo,
+																	fecha_nacimiento,
+																	url_lite,
+																	nombre,
+																	id_muro_mascota,
+																	id_raza,
+																	id_animal,
+																	foto_mascota) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 		$ps = $cq->prepare($sql);
 		mysqli_stmt_bind_param($ps,
-		"iisssiii",
+		"iisssiiis",
 		$this->idUsuario,
 		$this->sexo,
 		$this->fechaNacimiento,
@@ -83,7 +90,7 @@ Class Mascota{
 		}
 
 		return $resultadoConsulta;
-	}	
+	}
 }
 
 ?>
