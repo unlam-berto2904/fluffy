@@ -5,7 +5,7 @@ require ('../clases/UsuarioClass.php');
 
 session_start();
 if (isset($_SESSION["usuario"])) {
-  $id_usuario = ($_SESSION["usuario"]);
+  $id_usuario = $_SESSION["usuario"];
 }
 else {
   session_destroy();
@@ -16,12 +16,13 @@ else {
   <head ng-app="fluffy">
     <meta charset="utf-8">
     <script src="../librerias/jquery-3.1.1.js" charset="utf-8" type="text/javascript"></script>
-    <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../css/estiloHome.css">
+    <link rel="stylesheet" type="text/css" href="../librerias/boostrapVistaExperiencias/css/bootstrap.min.css">
+    <script src="../librerias/boostrapVistaExperiencias/js/bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
+    <!-- <script src="../js/home.js" charset="utf-8" type="text/javascript"></script> -->
     <title></title>
   </head>
   <body>
-    HOLAAAA SOY UNA PANTALLA LOGUEADA
-    <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()">
 
 
     <!-- MODAL PARA EDITAR DATOS DEL USUARIO -->
@@ -51,5 +52,12 @@ else {
 
     
 
+
+    <div class="col-sm-7" id="">
+      HOLAAAA SOY UNA PANTALLA LOGUEADA
+      <a href="vistaMascotasDelUser.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">mostrar animales</a>
+      <a href="vistaExperiencia.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar Experiencias</a>
+      <a href="vistaCrearMascota.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Mascotas</a>
+    </div>
   </body>
 </html>
