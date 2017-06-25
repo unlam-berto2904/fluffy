@@ -21,9 +21,10 @@ else {
     <script type="text/javascript" src="../librerias/bootstrap.min.js"></script>
     <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
     <script type="text/javascript" src="../librerias/angular.min.js"></script>
+    <script type="text/javascript" src="../js/moduloAngularFluffy.js"></script>
+    <script type="text/javascript" src="../js/ajaxVerMascotaEnAdopcion.js"></script> 
     <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script> 
 
-    <!-- <script type="text/javascript" src="../js/adopcion.js"></script> -->
     <title></title>
   </head>
   <body ng-app="miModulo">
@@ -37,9 +38,10 @@ else {
     ?>
     <!-- boto activador del modal -->
     <br />
-    <input type="button" name="verPerdidos" value="abrir el modal" data-toggle="modal" data-target="#myModal">
+    <div ng-controller="controlador" >
+    <input type="button" name="verPerdidos" value="abrir el modal de Perdidos" ng-click="verMascotasPerdidas()" data-toggle="modal" data-target="#myModal">
 
-    <!-- modal -->
+    <!-- modal Perdidos-->
     <div id="myModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
 
@@ -50,7 +52,7 @@ else {
             <h4 class="modal-title">Mascotas Perdidas</h4>
           </div>
           <div class="modal-body">
-            <div  ng-controller="controlador" ng-init="verMascotasPerdidas()">
+            <div  >
      
               <ul ng-model="perdido" class="list-group">
                 <li ng-repeat="perdido in perdidos" class="list-group-item">
@@ -74,11 +76,12 @@ else {
           </div>
         </div>
       </div>
+    </div>
     </div> 
 
     <!-- Modal de Adopcion-->
     <br />
-    <div ng-controller="controladorAdopcion">
+    <div ng-controller="controladorEnAdopcion">
     <input type="button" name="verEnAdopcion"  ng-click="verMascotasEnAdopcion()" value="abrir el modal de mascotas Adoptadas" data-toggle="modal" data-target="#myModalAdopcion">
 
    

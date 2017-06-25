@@ -1,9 +1,4 @@
-//Inicialización de variables para comienzo de busqueda en BD y limite de resultasdos en la query
-var desde = 0;
-var cantidad = 1;
-var desdeAdopcion = 0;
-// definicion del modulo
-var app = angular.module("miModulo", []);
+
 
 //funcion ajax para consultar mascotas perdidas
 app.controller("controlador", function($scope, $http){
@@ -11,17 +6,26 @@ app.controller("controlador", function($scope, $http){
     	$http.post("../controladores/verMascotasPerdidasController.php", {'desde':desde, 'cantidad':cantidad})
     	.success(function(data){
           if(desde == 0){
-      		  $scope.perdidos = data;
+            arrayPerdidos = data;
+      		  $scope.perdidos = arrayPerdidos;
       		  desde = desde + cantidad;
           }else{
-            $scope.perdidos = $scope.perdidos.concat(data);
+            arrayPerdidos = arrayPerdidos.concat(data);
+            $scope.perdidos = arrayPerdidos;
             desde = desde + cantidad;
           }
         }
     	)}
+  $scope.vaciarPerdidos = function(){
+        desde = 0;
+        arrayPerdidos = [];
+  }  
 });
 
+  
+/*
 var array = [];
+
 
 // segundo controlador del modulo. Permite utilizar un nuevo ajax independiente del controlador anterior
 app.controller("controladorAdopcion", function($scope, $http){
@@ -47,7 +51,7 @@ app.controller("controladorAdopcion", function($scope, $http){
       array = [];
     }
 });
-
+*/
 /*
 var app = angular.module("myapp",[]);  
  app.controller("controlador", function($scope, $http){  
