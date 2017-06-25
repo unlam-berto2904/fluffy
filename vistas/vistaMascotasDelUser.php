@@ -19,15 +19,16 @@ else {
     <link rel="stylesheet" type="text/css" href="../css/estiloHome.css">
     <link rel="stylesheet" type="text/css" href="../librerias/boostrapVistaExperiencias/css/bootstrap.min.css">
     <script src="../librerias/boostrapVistaExperiencias/js/bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
-    <!-- <script src="../js/home.js" charset="utf-8" type="text/javascript"></script> -->
+    <script src="../js/vistaMascotasDelUser.js" charset="utf-8" type="text/javascript"></script>
     <title></title>
   </head>
   <body>
-    <div class="col-sm-7" id="">
-      HOLAAAA SOY UNA PANTALLA LOGUEADA
-      <a href="vistaMascotasDelUser.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">mostrar animales</a>
-      <a href="vistaExperiencia.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar Experiencias</a>
-      <a href="vistaCrearMascota.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Mascotas</a>
+    <div class="col-sm-7" id="mascotasUserSection">
+    <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
+    <?php $mascotas = json_decode($_POST["mascotas"],true);
+      var_dump($mascotas);
+    ?>
+
     </div>
   </body>
 </html>
