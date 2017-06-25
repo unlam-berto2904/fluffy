@@ -8,7 +8,7 @@
     display:none;
     padding:8px;
     color:#444;
-} 
+}
 
 .contenido{
     margin:0;
@@ -18,25 +18,25 @@
 
 .active{
     font-weight:bold;
-} 
+}
 
 
 /* de aca en adelante, es codigo CSS que venia con el template*/
 
 
 html , body{
-	
+
  height:100%;
 
- 
+
 }
- 
+
 .full-width {
-	
+
  width:100%;
- 
+
  }
- 
+
 .full-height{
  height:100%;
  }
@@ -267,7 +267,7 @@ body {
     font-family: "Helvetica Neue", Roboto, Arial, "Droid Sans", sans-serif;
     font-size: 13px;
     font-weight: 400;
-    
+
 }
 .main_container .top_nav {
     display: block;
@@ -587,7 +587,7 @@ a.user-profile {
     height: 29px;
     border-radius: 50%;
     margin-right: 10px
-}   
+}
 /* custom template */
 html, body {
    height: 100%;
@@ -614,7 +614,7 @@ hr {
 
 .wrapper, .row {
    height: 100%;
-   margin-left:0;
+   margin-left:5em;
    margin-right:0;
 }
 
@@ -854,7 +854,7 @@ small.text-muted {
 }
 
 /*
- * off canvas 
+ * off canvas
  * --------------------------------------------------
  */
 @media screen and (max-width: 768px) {
