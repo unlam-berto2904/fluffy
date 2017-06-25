@@ -21,10 +21,12 @@ else {
     <script type="text/javascript" src="../librerias/bootstrap.min.js"></script>
     <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
     <script type="text/javascript" src="../librerias/angular.min.js"></script>
-    <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script>
+    <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script> 
+
+    <!-- <script type="text/javascript" src="../js/adopcion.js"></script> -->
     <title></title>
   </head>
-  <body>
+  <body ng-app="miModulo">
     HOLAAAA SOY UNA PANTALLA LOGUEADA
     <!-- <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()"> -->
     <?php
@@ -48,7 +50,7 @@ else {
             <h4 class="modal-title">Mascotas Perdidas</h4>
           </div>
           <div class="modal-body">
-            <div ng-app="verPerdidos" ng-controller="controlador" ng-init="verMascotasPerdidas()">
+            <div  ng-controller="controlador" ng-init="verMascotasPerdidas()">
      
               <ul ng-model="perdido" class="list-group">
                 <li ng-repeat="perdido in perdidos" class="list-group-item">
@@ -72,6 +74,49 @@ else {
           </div>
         </div>
       </div>
+    </div> 
+
+    <!-- Modal de Adopcion-->
+    <br />
+    <div ng-controller="controladorAdopcion">
+    <input type="button" name="verEnAdopcion"  ng-click="verMascotasEnAdopcion()" value="abrir el modal de mascotas Adoptadas" data-toggle="modal" data-target="#myModalAdopcion">
+
+   
+    <div id="myModalAdopcion" class="modal fade" role="dialog">
+      <div class="modal-dialog modal-lg">
+
+    
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Mascotas en Adopci&oacute;n</h4>
+          </div>
+          <div class="modal-body">
+            <div   >
+     
+              <ul ng-model="adopcion" class="list-group">
+                <li ng-repeat="adopcion in enAdopcion" class="list-group-item">
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h3>{{adopcion.nombreMascota}}</h3>
+                    </div>
+                    <div class="panel-body">
+                      <h6>{{adopcion.nombreUsuario}} </h6>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+              <br />
+              <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
+            </div>
+            
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vaciarEnAdopcion()">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
 
     <!-- Comienzo de prueba ver Mascotas Perdidas -->
