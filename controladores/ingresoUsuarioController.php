@@ -1,6 +1,6 @@
 <?php
+// require ('../clases/ConnQuery.php');
 require ('../clases/UsuarioClass.php');
-// require ('../clases/experienciaClass.php');
 $connQuery = new connQuery();
 
 $usuarioIngreso = $_POST["user"];
@@ -24,7 +24,6 @@ if ($resultadoConEmail) {
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   Usuario::actualizarHoraDeConexion($idUsuario);
-  // Experiencia::inicioHistorias();
   header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();
