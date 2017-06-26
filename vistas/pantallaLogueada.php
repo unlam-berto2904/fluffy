@@ -6,7 +6,6 @@ require ('../clases/UsuarioClass.php');
 session_start();
 if (isset($_SESSION["usuario"])) {
   $id_usuario = $_SESSION["usuario"];
-  $experiencias_usuario = $_SESSION['experiencias'];
 }
 else {
   session_destroy();
@@ -19,6 +18,7 @@ else {
 
     <link rel="stylesheet" type="text/css" href="../librerias/bootstrap.min.css">
     <script src="../librerias/jquery-3.1.1.js" charset="utf-8" type="text/javascript"></script>
+
     <script type="text/javascript" src="../librerias/bootstrap.min.js"></script>
     <script src="../js/home.js" charset="utf-8" type="text/javascript"></script>
 
@@ -29,6 +29,12 @@ else {
     <script type="text/javascript" src="../js/ajaxVerMascotaEnAdopcion.js"></script> 
     <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script> 
     <script type="text/javascript" src="../js/ajaxVerMascotaEnCita.js"></script> 
+    
+    <link rel="stylesheet" type="text/css" href="../css/estiloHome.css">
+    <link rel="stylesheet" type="text/css" href="../librerias/boostrapVistaExperiencias/css/bootstrap.min.css">
+    <script src="../librerias/boostrapVistaExperiencias/js/bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
+    <!-- <script src="../js/home.js" charset="utf-8" type="text/javascript"></script> -->
+
     <title></title>
   </head>
   <body ng-app="miModulo">
@@ -38,10 +44,18 @@ else {
     
     <br>
     <br/>
-    <a href="vistaMascotasEnAdopcion.php">Ir a Adopcion</a>
-    <a href="vistaMascotasEnCita.php">Ir a Cita</a>
-    <a href="vistaMascotasPerdidas.php">Ir a Perdidas</a>
+    <div>
+      <a href="vistaMascotasEnAdopcion.php" class="btn btn-primary btn-lg active">Ir a Adopcion</a>
+      <a href="vistaMascotasEnCita.php" class="btn btn-primary btn-lg active">Ir a Cita</a>
+      <a href="vistaMascotasPerdidas.php" class="btn btn-primary btn-lg active">Ir a Perdidas</a>
+    </div>
     
+    <div class="col-sm-7" id="">
+      HOLAAAA SOY UNA PANTALLA LOGUEADA
+      <a href="vistaMascotasDelUser.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">mostrar animales</a>
+      <a href="vistaExperiencia.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar Experiencias</a>
+      <a href="vistaCrearMascota.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Mascotas</a>
+    </div>
     
 
     <!-- <input type="button" name="" value="mostrarHistorias" onclick="mostrarUltimasHistorias()"> -->
@@ -51,6 +65,8 @@ else {
       echo $exp['comentario'].'<br />';
     }
     ?>
+
+    
 
   </body>
 </html>

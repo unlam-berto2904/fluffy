@@ -31,6 +31,10 @@ class ConnQuery{
     $stmt = mysqli_prepare($this->conn, $sql);
     return $stmt;
   }
+  function getUltimoId(){
+    return mysqli_insert_id($this->conn);
+  }
+
 }
 
 ?>

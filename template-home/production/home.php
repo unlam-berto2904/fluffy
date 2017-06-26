@@ -9,15 +9,14 @@
     <title>Fluffy</title>
 
     <!-- Bootstrap -->
-    <link href="../librerias/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendors/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome -->
-    <link href="../librerias/fuentes/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="../vendors/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <!-- Estilo css -->
-    <link href="../css/estiloHome.css" rel="stylesheet">
+    <link href="../build/css/estilo_home.css" rel="stylesheet">
   </head>
 
-
-  <body class="nav-sm">
+  <body class="nav-md">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -33,30 +32,41 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                	<!-- cada mascota -->
                     <li>
-                        <a><div class=" img-caption img-thumbnail"><img class="perfil_mascota" src="../resources/fotoPerfil/default_user.png"></div></a>
+                        <a><div class=" img-caption img-thumbnail"><img class="perfil_mascota" src="images/user.png"></div></a>
                     </li>
+                    <li>
+                        <a><div class=" img-caption img-thumbnail"><img class="perfil_mascota" src="images/user.png"></div></a>
+                    </li>
+                    <li>
+                        <a><div class=" img-caption img-thumbnail"><img class="perfil_mascota" src="images/user.png"></div></a>
+                    </li>
+                    <li>
+                        <a><div class=" img-caption img-thumbnail"><img class="perfil_mascota" src="images/user.png"></div></a>
+                    </li>
+                    <!-- cada mascota -->
+
+
                 </ul>
-
               </div>
-
             </div>
           </div>
-        </div> 
- 
+        </div>
+
         <!-- Barra superior -->
         <div class="top_nav">
           <div class="nav_menu">
             <nav>
               <div class="nav toggle">
-                <a id="menu_toggle"><i id="arrow" class="fa fa-4x fa-chevron-right" ></i></a>
+
+                <a id="menu_toggle"><i class="fa fa-4x fa-chevron-right"></i></a>
+
               </div>
 
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../resources/fotoPerfil/default_user.png" alt="">Nombre de usuario
+                    <img src="images/user.png" alt="">Nombre de usuario
                     <span class=" fa fa-angle-down"></span>
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
@@ -70,33 +80,15 @@
         </div>
         <!-- Fin de la barra superior -->
 
-		<!-- Contenedor donde estará todo el contenido  -->
-        <div class="tabscontent row col-md-offset-1">
-	      	<!-- Navegador de los tabs -->
-		    <ul class="contenido nav nav-tabs">
-	          <li class="active col-md-3"><a href="#experiencias">Experiencias</a></li>
-		      <li class="col-md-3"><a href="#citas">Citas</a></li>
-		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
-		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
-		    </ul>
-
-		      <!-- Cada contenido de cada tab -->	        
-		    <div id="contenido">
-	          <div id="experiencias" class="cont">Aca van las Experiencias</div>
-		      <div id="citas" class="cont">Aca van las citas</div>
-		      <div id="perdidos" class="cont">Aca va tu vieja</div>
-		      <div id="adopcion" class="cont">Aca van los adoptados</div>
-		    </div>
-      	</div>
       </div>
-    </div>	
+    </div>
 
     <!-- jQuery -->
-    <script src="../librerias/jquery/jquery.min.js"></script>
+    <script src="../vendors/jquery/jquery.min.js"></script>
     <!-- Js del Bootstrap -->
-    <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../vendors/bootstrap/js/bootstrap.min.js"></script>
     <!-- Scripts JS -->
-    <script src="../js/menu_home.js"></script>
+    <script src="../build/js/custom.min.js"></script>
 
   </body>
 </html>

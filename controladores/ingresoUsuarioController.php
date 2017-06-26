@@ -1,8 +1,11 @@
 <?php
-require ('../clases/UsuarioClass.php');
-require ('../clases/experienciaClass.php');
+// require ('../clases/ConnQuery.php');
+require_once ('../clases/UsuarioClass.php');
+
+require_once ('../clases/experienciaClass.php');
 
 $connQuery = new ConnQuery();
+
 
 
 
@@ -21,7 +24,6 @@ if ($resultadoConEmail) {
   $idUsuario = $connQuery->getFila($queryStringIngresoEmail)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   Usuario::actualizarHoraDeConexion($idUsuario);
-  Experiencia::inicioHistorias();
   header("location: ../vistas/pantallaLogueada.php");
 
 }else if ($resultadoConUserName) {
@@ -29,7 +31,6 @@ if ($resultadoConEmail) {
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   Usuario::actualizarHoraDeConexion($idUsuario);
-  Experiencia::inicioHistorias();
   header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();
