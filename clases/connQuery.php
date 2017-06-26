@@ -10,6 +10,7 @@ class ConnQuery{
 
   function __construct(){
     $this->conn = mysqli_connect($this->servidor, $this->usuario, $this->pass, $this->bd);
+    
   }
 
   function ejecutarConsultaIsTrue($sql){

@@ -1,5 +1,5 @@
 <?php
-require('connQuery.php');
+require_once('connQuery.php');
 
 class Usuario{
 		private $id;
@@ -66,7 +66,14 @@ class Usuario{
 
 	function persistirse(){
 			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
-				mysqli_stmt_bind_param($stmt, "sissss", $this->nombre, $this->id_sexo, $this->e_mail, $this->pass, $this->nombreUsuario, $this->apellido);
+				mysqli_stmt_bind_param($stmt, "sissss", 
+										$this->nombre, 
+										$this->id_sexo, 
+										$this->e_mail, 
+										$this->pass, 
+										$this->nombreUsuario, 
+										$this->apellido);
+				
 				mysqli_stmt_execute($stmt);
 				$persistido = mysqli_stmt_fetch($stmt);
 				return $persistido;

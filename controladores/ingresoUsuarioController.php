@@ -1,7 +1,11 @@
 <?php
 require ('../clases/UsuarioClass.php');
 require ('../clases/experienciaClass.php');
+
 $connQuery = new ConnQuery();
+
+
+
 
 $usuarioIngreso = $_POST["user"];
 $passIngreso = $_POST["pass"];
@@ -29,7 +33,8 @@ if ($resultadoConEmail) {
   header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();
-    header("location:../index.php");
+    //header("location:../index.php");
+    echo "fallo ingreso";
   }
 
 ?>
