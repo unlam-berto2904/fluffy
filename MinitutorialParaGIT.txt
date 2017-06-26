@@ -34,6 +34,8 @@ git push fluffy master
 ------------------------------------------------------------------------------------------------------------------------------
 git reset --hard HEAD~1   //para deshacer el ultimo commit y las cosas que commmiteaste
 git reset HEAD~1 //para deshacer el ultimo commit pero sin los archivos modificados
+git stash save --keep-index // grabar stash de los elementos que no estan agregados
+git stash drop // elimina lo que está stasheado
 ------------------------------------------------------------------------------------------------------------------------------
 git branch //muestra el branch donde estás parado
 git branch (nombre) // crear branch
