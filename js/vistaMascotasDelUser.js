@@ -23,7 +23,7 @@ function mostrarMascotasDelUser(idUsuario) {
 
 function enviarMascotasAVistaMascotasDelUser(mascotasDelUser){
     $.ajax({
-      url:base_url+"/fluffy/vistas/vistaMascotasDelUser.php",
+      url:base_url+"/fluffy/vistas/home.php",
       type:"POST",
       data:{mascotas:mascotasDelUser},
       success: function(data){

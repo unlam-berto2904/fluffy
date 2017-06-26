@@ -1,4 +1,4 @@
-﻿COMANDOS PARA REPOSITORIOS GIT:
+COMANDOS PARA REPOSITORIOS GIT:
 ------------------------------
 
 git version 						: Para ver la version de GIT
