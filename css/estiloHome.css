@@ -1,7 +1,8 @@
 /* Modificaciones nuevas */
 
 .perfil_mascota{
-    width: 100%;
+  width: 100%;
+  max-width: 12em;
 }
 
 .cont{
@@ -47,7 +48,7 @@ html , body{
 }
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
-    width: 70px;
+    width: 5%;
     padding: 0;
     z-index: 9999;
     position: absolute
@@ -71,7 +72,8 @@ html , body{
 .nav-sm .navbar.nav_title {
     width: 70px
 }
-.nav-sm .navbar.nav_title a span {
+.nav-sm .navbar.nav_title a span
+ {
     display: none
 }
 .nav-sm .navbar.nav_title a i {
@@ -499,6 +501,8 @@ a:focus {
 
 .mascotasUser{
   position: fixed !important;
+  overflow-y: auto;
+  height: 100%;
 }
 
 
@@ -853,6 +857,9 @@ small.text-muted {
 }
 .comentarioUsuario{
   margin: 2% 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 /*

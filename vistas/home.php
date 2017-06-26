@@ -45,9 +45,10 @@ else {
 
                     ?>
                     <li>
-                        <a>
-                          <div class=" img-caption img-thumbnail">
-                            <img class="perfil_mascota" src="../<?php echo $mascota['fotoMascota'] ?>">
+                        <a class="">
+                          <div class="mascotaPerfiles">
+                            <img class="perfil_mascota img-caption img-thumbnail" src="../<?php echo $mascota['fotoMascota'] ?>">
+                            <p><?php echo $mascota['nombreMascota'] ?></p>
                           </div>
                         </a>
                     </li>
@@ -99,7 +100,7 @@ else {
 		      <!-- Cada contenido de cada tab -->
 		    <div id="contenido">
           <div class="col-sm-9">
-            <div class="cont col-sm-10 col-sm-push-1 experienciasDiv" id="experienciasSection">
+            <div class="cont col-sm-10 col-sm-push-3 experienciasDiv" id="experienciasSection">
                 <?php $experiencias = json_decode($_POST["experiencias"],true);
                 foreach ($experiencias as $experiencia => $exp) { ?>
                   <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
