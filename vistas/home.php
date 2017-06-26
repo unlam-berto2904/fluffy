@@ -5,6 +5,15 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <!-- Angular -->
+    <script type="text/javascript" src="../librerias/angular.min.js" ></script>
+    <!-- Modulo angular -->
+    <script type="text/javascript" src="../js/moduloAngularFluffy.js"></script>
+    <!-- Controladores angular -->
+    <script type="text/javascript" src="../js/ajaxVerMascotaEnAdopcion.js"></script> 
+    <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script> 
+    <script type="text/javascript" src="../js/ajaxVerMascotaEnCita.js"></script> 
 
     <title>Fluffy</title>
 
@@ -17,7 +26,7 @@
   </head>
 
 
-  <body class="nav-sm">
+  <body class="nav-sm" ng-app="miModulo">
     <div class="container body">
       <div class="main_container">
         <div class="col-md-3 left_col">
@@ -71,23 +80,84 @@
         <!-- Fin de la barra superior -->
 
 		<!-- Contenedor donde estará todo el contenido  -->
-        <div class="tabscontent row col-md-offset-1">
-	      	<!-- Navegador de los tabs -->
-		    <ul class="contenido nav nav-tabs">
-	          <li class="active col-md-3"><a href="#experiencias">Experiencias</a></li>
-		      <li class="col-md-3"><a href="#citas">Citas</a></li>
-		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
-		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
-		    </ul>
+        <div ng-controller="controladorEnCita">
+            <div ng-controller="controladorEnAdopcion">
+              <div ng-controller="controlador">  
 
-		      <!-- Cada contenido de cada tab -->	        
-		    <div id="contenido">
-	          <div id="experiencias" class="cont">Aca van las Experiencias</div>
-		      <div id="citas" class="cont">Aca van las citas</div>
-		      <div id="perdidos" class="cont">Aca va tu vieja</div>
-		      <div id="adopcion" class="cont">Aca van los adoptados</div>
-		    </div>
-      	</div>
+                <div class="tabscontent row col-md-offset-1"  >
+          	      	<!-- Navegador de los tabs -->
+          		    <ul class="contenido nav nav-tabs">
+          	          <li class="active col-md-3"><a href="#experiencias">Experiencias</a></li>
+          		      <li class="col-md-3"><a href="#citas"  >Citas</a></li>
+          		      <li class="col-md-3"><a href="#perdidos" >Perdidos</a></li>
+          		      <li class="col-md-3"><a href="#adopcion" >En Adopci&oacute;n</a></li>
+          		    </ul>
+
+          		      <!-- Cada contenido de cada tab -->	    
+
+          		    <div id="contenido">
+                    <div id="experiencias" class="cont">Aca van las Experiencias</div>
+          		      <div id="citas" class="cont">
+                      <div >
+                        <div ng-init="traerCitas()">       
+                          <ul ng-model="mascota" class="list-group">
+                            <li ng-repeat="mascota in mascotas" class="list-group-item">
+                              <div class="panel panel-default">
+                                <div class="panel-heading">
+                                  <h3>{{mascota.nombreMascota}}</h3>
+                                </div>
+                                <div class="panel-body">
+                                  <h6>{{mascota.nombreUsuario}} </h6>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          <br />
+                          <input type="button" name="verCitaConcatenado" ng-click="traerCitas()" class="btn btn-info" value="Ver m&aacute;s">
+                        </div> 
+                      </div>
+                    </div>
+          		      <div id="perdidos" class="cont">
+                      <div ng-init="verMascotasPerdidas()">       
+                        <ul ng-model="perdido" class="list-group">
+                          <li ng-repeat="perdido in perdidos" class="list-group-item">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3>{{perdido.nombreMascota}}</h3>
+                              </div>
+                              <div class="panel-body">
+                                <h6>{{perdido.nombreUsuario}} </h6>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <br />
+                        <input type="button" name="verPerdidosConcatenado" ng-click="verMascotasPerdidas()" class="btn btn-info" value="Ver m&aacute;s">
+                      </div>
+                    </div>
+                    <div id="adopcion" class="cont">
+                      <div  ng-init="verMascotasEnAdopcion()">       
+                        <ul ng-model="adopcion" class="list-group">
+                          <li ng-repeat="adopcion in enAdopcion" class="list-group-item">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">
+                                <h3>{{adopcion.nombreMascota}}</h3>
+                              </div>
+                              <div class="panel-body">
+                                <h6>{{adopcion.nombreUsuario}} </h6>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                        <br />
+                        <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
+                      </div>
+                    </div>
+          		    </div>
+              	</div>
+            </div>
+          </div>
+        </div> 
       </div>
     </div>	
 
@@ -97,6 +167,7 @@
     <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
     <!-- Scripts JS -->
     <script src="../js/menu_home.js"></script>
+
 
   </body>
 </html>
