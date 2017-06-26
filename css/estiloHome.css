@@ -16,12 +16,17 @@
     list-style: none;
 }
 
+.fa-chevron-left,
+.fa-chevron-right{
+    color: #F05F40;
+}
+
 .active{
     font-weight:bold;
 }
 
 
-/* de aca en adelante, es codigo CSS que venia con el template*/
+/* de aca en adelante, la mayoria es codigo CSS que venia con el template*/
 
 
 html , body{
