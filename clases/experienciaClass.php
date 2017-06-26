@@ -1,10 +1,9 @@
 <?php
-<<<<<<< HEAD
+
 require_once('connQuery.php');
-=======
-require('ConnQuery.php');
+
 require ('comentarioExternoClass.php');
->>>>>>> 7201ec163a08f28429f2c8b92b8b95e11e9f027e
+
 
 Class Experiencia{
 
