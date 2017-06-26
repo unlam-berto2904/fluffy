@@ -23,12 +23,11 @@ else {
     <link href="../librerias/fuentes/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/estiloHome.css" rel="stylesheet">
     <script type="text/javascript" src="../librerias/angular.min.js"></script>
-
   </head>
   <body class="nav-sm">
     <div class="container body">
       <div class="main_container">
-        <div class="col-md-3 left_col">
+        <div class="col-md-3 left_col mascotasUser" >
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
               <a href = "#" class="site_title" data-toggle="modal" data-target="#exampleModal">
@@ -39,11 +38,21 @@ else {
             <!-- Listado lateral para seleccionar mascota-->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <ul class="nav side-menu">
-                	<!-- cada mascota -->
+                <ul class="nav side-menu" id="mascotasUserSection">
+                  <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
+                  <?php $mascotas = json_decode($_POST["mascotas"],true);
+                  foreach ($mascotas as $mascotaUser => $mascota){
+
+                    ?>
                     <li>
-                        <a><div class=" img-caption img-thumbnail"><img class="perfil_mascota" src="../resources/fotoPerfil/default_user.png"></div></a>
+                        <a>
+                          <div class=" img-caption img-thumbnail">
+                            <img class="perfil_mascota" src="../<?php echo $mascota['fotoMascota'] ?>">
+                          </div>
+                        </a>
                     </li>
+                    <?php } ?>
+
                 </ul>
 
               </div>
@@ -81,7 +90,7 @@ else {
         <div class="tabscontent row col-md-offset-1">
 	      	<!-- Navegador de los tabs -->
 		    <ul class="contenido nav nav-tabs">
-	          <li class="active col-md-3"><a href="#experiencias">Experiencias</a></li>
+	          <li class="active col-md-3"><a href="#experienciasSection">Experiencias</a></li>
 		      <li class="col-md-3"><a href="#citas">Citas</a></li>
 		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
 		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
@@ -89,7 +98,53 @@ else {
 
 		      <!-- Cada contenido de cada tab -->
 		    <div id="contenido">
-	          <div id="experiencias" class="cont">Aca van las Experiencias</div>
+          <div class="col-sm-9">
+            <div class="cont col-sm-10 col-sm-push-1 experienciasDiv" id="experienciasSection">
+                <?php $experiencias = json_decode($_POST["experiencias"],true);
+                foreach ($experiencias as $experiencia => $exp) { ?>
+                  <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
+                    <div class="panel-heading">
+                      <a href="#" class="pull-right">View all</a>
+                      <img src="../<?php echo $exp['fotoPerfilMascota']; ?>" class="fotoComentario"/>
+                      <label for=""> <h4><?php echo $exp['nombreMascota']; ?></h4></label>
+                    </div>
+                      <div class="panel-body">
+                        <p class="text-center ">
+                          <img class="img-responsive img-thumbnail" onerror="this.style.display='none'" src="../<?php echo $exp['fotoExperiencia']; ?>" class="img">
+                        </p>
+                        <div class="clearfix"></div>
+                        <hr>
+                          <p><?php echo $exp['comentario']; ?></p>
+                        <hr>
+                        <ul class="list-group" id="comentariosExternosUl">
+                          <?php
+                          foreach ($exp as $exp2 => $comentariosExternos) {
+                            if (!empty($comentariosExternos[$exp2])) {
+                              foreach ($comentariosExternos as $ce => $comentario) {?>
+                                  <li class="list-group-item" id="id_comentarioExterno_<?php echo $comentario['idComentarioExterno'] ?>">
+                                    <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
+                                    <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
+                                    <p class="comentarioUsuario"><em><?php echo $comentario['comentarioExterno'] ?></em></p>
+                                  </li>
+                              <?php
+                              }
+                            }
+                          }?>
+                          <?php  ?>
+                        </ul>
+                        <form>
+                          <div class="input-group">
+                            <div class="input-group-btn">
+                              <button class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                            </div>
+                            <input type="text" class="form-control" placeholder="Add a comment..">
+                          </div>
+                        </form>
+                    </div>
+                  </div>
+                <?php }?>
+            </div>
+          </div>
 		      <div id="citas" class="cont">Aca van las citas</div>
 		      <div id="perdidos" class="cont">Aca va tu vieja</div>
 		      <div id="adopcion" class="cont">Aca van los adoptados</div>
@@ -160,8 +215,10 @@ else {
     </div>
     <!-- Fin modal de mascota -->
     <script src="../librerias/jquery/jquery.min.js"></script>
-    <script src="../js/menu_home.js"></script>
-    <script type="text/javascript" src="../js/ajaxCargaMascota.js"></script>
+    <script src="../js/vistaMascotasDelUser.js" charset="utf-8" type="text/javascript"></script>
+    <script src="../js/vistaExperiencia.js" charset="utf-8" types="text/javascript"></script>
+    <script src="../js/menu_home.js" type="text/javascript"></script>
+    <script src="../js/ajaxCargaMascota.js" type="text/javascript" ></script>
     <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

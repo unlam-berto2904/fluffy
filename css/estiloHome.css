@@ -497,7 +497,9 @@ a:focus {
     background-color: transparent
 }
 
-
+.mascotasUser{
+  position: fixed !important;
+}
 
 
 
