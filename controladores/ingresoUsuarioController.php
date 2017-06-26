@@ -17,14 +17,14 @@ if ($resultadoConEmail) {
   $idUsuario = $connQuery->getFila($queryStringIngresoEmail)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   Usuario::actualizarHoraDeConexion($idUsuario);
-  header("location: ../vistas/pantallaLogueada.php");
+  header("location: ../vistas/home.php");
 
 }else if ($resultadoConUserName) {
   $queryStringIngresoUser = 'select * from usuario where nombre_usuario = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   Usuario::actualizarHoraDeConexion($idUsuario);
-  header("location:../vistas/pantallaLogueada.php");
+  header("location:../vistas/home.php");
 }else {
     session_destroy();
     header("location:../index.php");

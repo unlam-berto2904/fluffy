@@ -12,6 +12,7 @@ Class Mascota{
 	private $idRaza;
 	private $idAnimal;
 	private $fotoPerfil;
+	
 	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil){
 		$this->idUsuario = $idUsuario;
 		$this->sexo = $sexo;

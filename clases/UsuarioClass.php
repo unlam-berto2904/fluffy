@@ -92,5 +92,17 @@ class Usuario{
 		  $ultimaConexion= "update usuario set ultima_conexion = '".$fechaUltimaConexion."' where id_usuario = ".$idUsuario;
 			$connQuery->ejecutarConsulta($ultimaConexion);
 		}
+		public static function obtenerDatosUserById($idUser){
+			$cq = new connQuery();
+		 $sql = "select * from usuario where id_usuario =".$idUser.";";
+
+		 $filas = $cq->ejecutarConsulta($sql);
+		 $usuario = array();
+
+		 while ($fila =  mysqli_fetch_assoc($filas)) {
+			 $usuario = array( 'nombreUsuario' => $fila['nombre']);
+			 }
+		 return $usuario;
+		}
 }
 ?>

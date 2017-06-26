@@ -22,7 +22,7 @@ function mostrarUltimasHistorias() {
 
 function enviarExperienciasAHome(experiencia){
     $.ajax({
-      url:base_url+"/fluffy/vistas/vistaExperiencia.php",
+      url:base_url+"/fluffy/vistas/home.php",
       type:"POST",
       data:{experiencias:experiencia},
       success: function(data){
