@@ -18,4 +18,4 @@ if( !$facebookLogin->generateAccessToken() ){
 $_SESSION['fb_access_token'] = $facebookLogin->getFacebookAccessToken();
 $_SESSION['login'] = true;
 $_SESSION['userName'] = $facebookLogin->getUserName();
-header('Location: ../../vistas/pantallaLogueada.php');
+header('Location: ../../../fluffy/vistas/pantallaLogueada.php');

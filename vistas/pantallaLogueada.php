@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<?php
-require ('../clases/UsuarioClass.php');
-// require ('../clases/ConnQuery.php');
-
-session_start();
-if (isset($_SESSION["usuario"])) {
-  $id_usuario = $_SESSION["usuario"];
-}
-else {
-  session_destroy();
-  header("location: ../index.php");
-}
-?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -21,15 +8,21 @@ else {
     <script src="../librerias/boostrapVistaExperiencias/js/bootstrap.min.js" charset="utf-8" type="text/javascript"></script>
     <!-- <script src="../js/home.js" charset="utf-8" type="text/javascript"></script> -->
     <?php
+        require ('../clases/UsuarioClass.php');
         session_start();
         require_once  ('../librerias/loginFacebook/helper/facebookLogin/FacebookLogin.php');
 
-        if( isset($_SESSION['login']) && $_SESSION['login']){
+        if (isset($_SESSION["usuario"])) {
+            $id_usuario = $_SESSION["usuario"];
+        }
+        else if( isset($_SESSION['login']) && $_SESSION['login']){
             echo "<h3>Buenas " . $_SESSION['userName'] . "!</h3>";
-        } else {
+        } 
+        
+       /*else {
             echo "<h3>Error: Usted no se encuentra logueado.</h3>";
             //header('Location: ./index.php');
-        }
+        }*/
     ?>
     <title></title>
   </head>
