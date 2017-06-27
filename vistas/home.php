@@ -224,22 +224,31 @@ else {
         </div>
       </div>
     </div>
-    <!-- Modal de Experiencias -->
+
+    <!-- Modal de Crear Experiencias -->
     <div class="modal fade bs-example-modal-lg" id="modalExperiencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg" role="document" role="document">
+      <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Publicar Experiencias</h4>
           </div>
           <div class="modal-body">
-            <form class="formEjemplo" action="index.html" method="post">
-                <input id="hiddenMuro" type="hidden" name="" value="">
+            <form class="formEjemplo" action="../controladores/crearExperienciaController.php" method="post"  enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="usr">Foto: </label>
+                <input type="file" name="archivoExperiencia" value="">
+              </div>
+              <div class="form-group">
+                <label for="usr">Comentario: </label>
+                <textarea name="comentarioExperiencia"></textarea>
+              </div>
+                <input id="hiddenMuro" type="hidden" name="muroMascota" value="">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
             </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
           </div>
         </div>
       </div>
