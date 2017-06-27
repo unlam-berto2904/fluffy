@@ -3,7 +3,6 @@ var base_url = window.location.origin;
 $(document).ready(function() {
 var idUsuario = $("#idUsuario").val();
 mostrarMascotasDelUser(idUsuario);
-
 });
 
 
