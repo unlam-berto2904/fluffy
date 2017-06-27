@@ -166,15 +166,15 @@ else {
           <div class="modal-body">
             <form id="formulario" action="../controladores/crearMascotaController.php" method="post" enctype="multipart/form-data">
               <input type="hidden" name="id_usuario" value="<?php echo $id_usuario ?>">
-              <div class="form-group">
+              <div class="form-group col-md-12">
                 <label>Decinos cu&aacute;l es el nombre de tu mascota</label>
                 <input type="text" name="nombre" class="form-control" placeholder="Escrib&iacute; su nombre">
               </div>
-              <div class="form-group">
+              <div class="form-group col-md-12">
                 <label for="adjuntar archivo">Subi una imagen de tu mascota</label>
                 <input type='file' name='fotoPerfil' id='foto' placeholder="Selecciona una foto" required>
               </div>
-              <div class="form-group">
+              <div class="form-group col-md-12">
                 <label>Selecciona qu&eacute; tipo de animal es y su raza</label>
                 <div ng-app="traer" ng-controller="controlador" ng-init="cargar()">
                   <select name="tipoAnimal" ng-model="tipoAnimal" ng-change="cargarRaza()" class="form-control">
@@ -188,7 +188,7 @@ else {
               </select>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group col-md-12">
               ¿De qu&eacute; sexo es?
                 <div class="radio">
                   <label>
@@ -201,7 +201,7 @@ else {
                   </label>
                 </div>
               </div>
-              <div class="form-group">
+              <div class="form-group col-md-12">
                 <label>Y para terminar, ¿en qu&eacute; fecha naci&oacute;?</label>
                 <input type="date" name="fechaNacimiento" class="form-control">
               </div>

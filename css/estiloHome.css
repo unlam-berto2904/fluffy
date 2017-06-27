@@ -53,7 +53,7 @@ html , body{
 }
 .nav-sm .container.body .col-md-3.left_col {
     min-height: 100%;
-    width: 5%;
+    max-width: 6em;
     padding: 0;
     z-index: 9999;
     position: absolute
@@ -180,10 +180,15 @@ html , body{
 .nav-sm .menu_section {
     margin: 0
 }
-.nav-sm span.fa,
+
+.nav-sm li a p {
+  display: none;
+}
+
+/*.nav-sm span.fa,
 .nav-sm .menu_section h3 {
     display: none
-}
+}*/
 .nav-sm li li span.fa {
     display: inline-block
 }
