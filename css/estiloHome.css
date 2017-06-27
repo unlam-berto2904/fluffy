@@ -62,7 +62,7 @@ html , body{
 }
 .side-menu-mascota{
   overflow: visible;
-
+}
 .nav-sm .container.body .col-md-3.left_col.menu_fixed {
     position: fixed;
     height: 100%
@@ -77,7 +77,7 @@ html , body{
 .nav-sm .container.body .right_col {
     padding: 10px 20px;
     margin-left: 70px;
-    z-index: 2
+    z-index: 2;
 }
 .nav-sm .navbar.nav_title {
     width: 70px
