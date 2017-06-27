@@ -31,3 +31,8 @@ function enviarExperienciasAHome(experiencia){
         }
     });
 }
+
+$(document).on("click", ".aMuroMascota", function () {
+     var idMuroMascota = $(this).data('id');
+     $(".modal-body .formEjemplo #hiddenMuro").val(idMuroMascota);
+});
