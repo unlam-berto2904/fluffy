@@ -5,6 +5,8 @@ require ('../clases/UsuarioClass.php');
 session_start();
 if (isset($_SESSION["usuario"])) {
   $id_usuario = $_SESSION["usuario"];
+  $nombreUsuario = $_SESSION["arrayUsuario"]['nombre'];
+  $fotoUsuario = $_SESSION["arrayUsuario"]['foto_usuario'];
 }
 else {
   session_destroy();
@@ -38,19 +40,26 @@ else {
             <!-- Listado lateral para seleccionar mascota-->
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
-                <ul class="nav side-menu" id="mascotasUserSection">
+                <ul class="nav side-menu side-menu-mascota" id="mascotasUserSection">
                   <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
                   <?php $mascotas = json_decode($_POST["mascotas"],true);
                   foreach ($mascotas as $mascotaUser => $mascota){
 
                     ?>
                     <li>
-                        <a class="">
+                      <div class="dropdown mascotaPerfiles ">
+                        <a class="dropdown-toggle aMuroMascota" data-toggle="dropdown" data-id="<?php echo $mascota['muroMascota']?>">
                           <div class="mascotaPerfiles">
                             <img class="perfil_mascota img-caption img-thumbnail" src="../<?php echo $mascota['fotoMascota'] ?>">
                             <p><?php echo $mascota['nombreMascota'] ?></p>
                           </div>
                         </a>
+                        <ul class="dropdown-menu funcionesMascota">
+                          <li><a href = "#" class="" data-toggle="modal" data-target="#modalExperiencias">Publicar Experiencia</a></li>
+                          <li><a href="#">CSS</a></li>
+                          <li><a href="#">JavaScript</a></li>
+                        </ul>
+                      </div>
                     </li>
                     <?php } ?>
 
@@ -73,13 +82,14 @@ else {
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../resources/fotoPerfil/default_user.png" alt="">Nombre de usuario
+                    <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario ?>
                     <span class=" fa fa-angle-down"></span>
+
                   </a>
                   <ul class="dropdown-menu dropdown-usermenu pull-right">
                     <li><a href="javascript:;">Configuraci&oacute;n</a></li>
                     <li><a href="javascript:;">Ayuda</a></li>
-                    <li><a href="login.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                    <li><a href="../controladores/cerrarSesionController.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                   </ul>
               </ul>
             </nav>
@@ -208,6 +218,35 @@ else {
               <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                 <input type="submit" class="btn btn-primary" value="Agregar Mascota">
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal de Crear Experiencias -->
+    <div class="modal fade bs-example-modal-lg" id="modalExperiencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Publicar Experiencias</h4>
+          </div>
+          <div class="modal-body">
+            <form class="formEjemplo" action="../controladores/crearExperienciaController.php" method="post"  enctype="multipart/form-data">
+              <div class="form-group">
+                <label for="usr">Foto: </label>
+                <input type="file" name="archivoExperiencia" value="">
+              </div>
+              <div class="form-group">
+                <label for="usr">Comentario: </label>
+                <textarea name="comentarioExperiencia"></textarea>
+              </div>
+                <input id="hiddenMuro" type="hidden" name="muroMascota" value="">
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Save changes</button>
               </div>
             </form>
           </div>

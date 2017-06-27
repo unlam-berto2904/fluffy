@@ -4,14 +4,47 @@ require ('comentarioExternoClass.php');
 
 Class Experiencia{
 
-  private $id_experiencia;
+  private $id_muro_mascota;
+  private $comentario_experiencia;
   private $fecha_experiencia;
   private $foto_experiencia;
   private $video_experiencia;
-  private $comentario_experiencia;
   private $valoracion;
-  private $id_muro_mascota;
 
+  function __construct($id_muro_mascota,$comentario_experiencia,$fecha_experiencia){
+    $this->id_muro_mascota = $id_muro_mascota;
+    $this->comentario_experiencia = $comentario_experiencia ;
+    $this->fecha_experiencia = $fecha_experiencia;
+  }
+
+  function persistirExperiencias(){
+		$cq = new ConnQuery();
+		$sql = "insert into experiencia(id_muro_mascota,
+                                    fecha_experiencia,
+                                    comentario_experiencia,
+                                    valoracion)
+                values(?,?,?,0)";
+		$ps = $cq->prepare($sql);
+		mysqli_stmt_bind_param($ps,
+		"iss",
+		$this->id_muro_mascota,
+    $this->fecha_experiencia,
+		$this->comentario_experiencia);
+		mysqli_stmt_execute($ps);
+    $ultimoId = $cq->getUltimoId();
+    return $ultimoId;
+
+	}
+  public static function actualizarFotoExperiencia($id, $foto){
+    $cq = new ConnQuery();
+    $sql = "update experiencia set foto_experiencia = ? where id_experiencia = ? ;";
+    $ps = $cq->prepare($sql);
+		mysqli_stmt_bind_param($ps,
+    "si",
+    $foto,
+    $id);
+    mysqli_stmt_execute($ps);
+  }
   public static function inicioHistorias(){
     $cq = new connQuery();
     $sql = "select  e.id_experiencia            id_experiencia,
@@ -23,7 +56,8 @@ Class Experiencia{
                     e.valoracion                numero_valoracion
                     from experiencia e
                     join mascota m on m.id_muro_mascota = e.id_muro_mascota
-                    join animal a on m.id_animal = a.id_animal;";
+                    join animal a on m.id_animal = a.id_animal
+                    order by e.fecha_experiencia desc";
     $filas = $cq->ejecutarConsulta($sql);
 
     $experiencias = array();

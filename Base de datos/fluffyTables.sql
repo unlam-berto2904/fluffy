@@ -307,9 +307,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fluffy`;
-INSERT INTO `mascota` (`id_mascota`, `id_usuario`, `id_sexo`, `fecha_nacimiento`, `url_lite`, `nombre`, `id_muro_mascota`, `id_raza`, `id_animal`, `foto_mascota`) VALUES (1, 1, 3, NULL, NULL, 'nombreMascota1', 1, 1, 1, 'resources/fotosDePerfiles/mascotas/mascota_1_1.jpg');
-INSERT INTO `mascota` (`id_mascota`, `id_usuario`, `id_sexo`, `fecha_nacimiento`, `url_lite`, `nombre`, `id_muro_mascota`, `id_raza`, `id_animal`, `foto_mascota`) VALUES (2, 1, 4, NULL, NULL, 'nombreMascota2', 2, 2, 2, 'resources/fotosDePerfiles/mascotas/mascota_2_1.jpg');
-INSERT INTO `mascota` (`id_mascota`, `id_usuario`, `id_sexo`, `fecha_nacimiento`, `url_lite`, `nombre`, `id_muro_mascota`, `id_raza`, `id_animal`, `foto_mascota`) VALUES (1, 2, 3, NULL, NULL, 'Chatran', 3, 1, 1, NULL);
+INSERT INTO `mascota` (`id_mascota`, `id_usuario`, `id_sexo`, `fecha_nacimiento`, `url_lite`, `nombre`, `id_muro_mascota`, `id_raza`, `id_animal`, `foto_mascota`) VALUES (1, 1, 3, NULL, NULL, 'Charly', 1, 1, 1, 'resources/fotosDePerfiles/mascotas/mascota_1_1.jpg');
+INSERT INTO `mascota` (`id_mascota`, `id_usuario`, `id_sexo`, `fecha_nacimiento`, `url_lite`, `nombre`, `id_muro_mascota`, `id_raza`, `id_animal`, `foto_mascota`) VALUES (2, 1, 4, NULL, NULL, 'Pancho', 2, 2, 2, 'resources/fotosDePerfiles/mascotas/mascota_1_2.jpg');
+INSERT INTO `mascota` (`id_mascota`, `id_usuario`, `id_sexo`, `fecha_nacimiento`, `url_lite`, `nombre`, `id_muro_mascota`, `id_raza`, `id_animal`, `foto_mascota`) VALUES (3, 2, 3, NULL, NULL, 'Chatran', 3, 1, 1, 'resources/fotosDePerfiles/mascotas/mascota_2_3.jpg');
 
 COMMIT;
 
@@ -320,8 +320,8 @@ COMMIT;
 START TRANSACTION;
 USE `fluffy`;
 INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (1, 1, '2017-06-08 12:00', 'resources/fotosDeExperiencias/experiencia_1.jpg', NULL, 'Comentario de prueba', 1);
-INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (2, 1, '2017-06-08 12:00', NULL, NULL, 'Comentario de prueba2', 1);
-INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (3, 2, '2017-06-08 12:00', NULL, NULL, 'Comentario de prueba3', 1);
+INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (2, 1, '2017-06-08 12:04', NULL, NULL, 'Comentario de prueba2', 1);
+INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (3, 2, '2017-06-08 12:05', NULL, NULL, 'Comentario de prueba3', 1);
 
 COMMIT;
 

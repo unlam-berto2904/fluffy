@@ -52,12 +52,17 @@ html , body{
     background: #F05F40
 }
 .nav-sm .container.body .col-md-3.left_col {
-    min-height: 100%;
-    max-width: 6em;
-    padding: 0;
-    z-index: 9999;
-    position: absolute
+
+  min-height: 100%;
+  width: 6em;
+  padding: 0;
+  z-index: 9999;
+  position: absolute;
+  overflow: initial;
 }
+.side-menu-mascota{
+  overflow: visible;
+
 .nav-sm .container.body .col-md-3.left_col.menu_fixed {
     position: fixed;
     height: 100%
@@ -96,11 +101,12 @@ html , body{
     z-index: 2
 }
 .nav-sm .nav.side-menu li a {
-    margin-top: 60%;
-    text-align: center !important;
-    font-weight: 400;
-    font-size: 10px;
-    padding: 10px 5px
+  margin-top: 0%;
+  text-align: center !important;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 1em 0.1em;
+  overflow: hidden;
 }
 .nav-sm .nav.child_menu li.activo,
 .nav-sm .nav.side-menu li.activo-sm {
@@ -160,7 +166,10 @@ html , body{
     margin-top: 10px
 }
 
-
+.funcionesMascota{
+  top: 2em !important;
+  left: 7em !important;
+}
 
 
 .main_menu span.fa {
