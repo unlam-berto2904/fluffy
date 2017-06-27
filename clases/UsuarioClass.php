@@ -1,5 +1,5 @@
 <?php
-require_once('ConnQuery.php');
+require_once('connQuery.php');
 
 class Usuario{
 		private $id;
