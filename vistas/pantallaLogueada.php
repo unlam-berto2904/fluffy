@@ -68,14 +68,18 @@ else {
               <div class="form-group">
                 <label>Cambiar E-mail</label>
                 <input type="text" class="form-control" name="nuevoE_mail" value="<?=$email ?>">
+              </div> 
+              <div class="form-group">
+                <label>Cambiar Telefono</label>
+                <input type="phone" class="form-control" name="nuevoTelefono" value="<?=$telefono ?>">
               </div>                    
               <div class="form-group">
                 <label>Modificar el nombre de usuario</label>
-                <input type="text" class="form-control" name="nombreUsuario" value="<?= $nombreUsuario ?>">
+                <input type="text" class="form-control" name="nuevoNombreUsuario" value="<?= $nombreUsuario ?>">
               </div>
               <div class="form-group">
                 <label>Modificar contraseña</label>
-                <input type="password" class="form-control" name="contrasenia" value="<?= $pass ?>">
+                <input type="password" class="form-control" name="nuevaContrasenia" value="<?= $pass ?>">
               </div>
               <div class="form-group">
                 <label>Repita la contraseña modificada</label>

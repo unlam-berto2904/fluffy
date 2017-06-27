@@ -21,11 +21,11 @@ if ($resultadoConEmail) {
   header("location: ../vistas/pantallaLogueada.php");
 
 }else if ($resultadoConUserName) {
+  Usuario::actualizarHoraDeConexion($idUsuario);
   $queryStringIngresoUser = 'select * from usuario where nombre_usuario = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
   $_SESSION["arrayUsuario"] = $connQuery->getFila($queryStringIngresoUser);
-  Usuario::actualizarHoraDeConexion($idUsuario);
   header("location:../vistas/pantallaLogueada.php");
 }else {
     session_destroy();
