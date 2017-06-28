@@ -119,7 +119,7 @@ else {
                 <?php $experiencias = json_decode($_POST["experiencias"],true);
                 foreach ($experiencias as $experiencia => $exp) { ?>
                   <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
-                    <div class="panel-heading">
+                    <div class="panel-heading panel-heading-experiencias">
                       <a href="#" class="pull-right">View all</a>
                       <img src="../<?php echo $exp['fotoPerfilMascota']; ?>" class="fotoComentario"/>
                       <label for=""> <h4><?php echo $exp['nombreMascota']; ?></h4></label>
@@ -132,14 +132,16 @@ else {
                         <hr>
                           <p><?php echo $exp['comentario']; ?></p>
                         <hr>
-                        <ul class="list-group" id="comentariosExternosUl">
+                        <ul class="list-group list_comentariosExternos" id="comentariosExternosUl">
                           <?php
                           foreach ($exp as $exp2 => $comentariosExternos) {
                             if (!empty($comentariosExternos[$exp2])) {
                               foreach ($comentariosExternos as $ce => $comentario) {?>
                                   <li class="list-group-item" id="id_comentarioExterno_<?php echo $comentario['idComentarioExterno'] ?>">
-                                    <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
-                                    <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
+                                    <div class="perfilComentario">
+                                      <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
+                                      <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
+                                    </div>
                                     <p class="comentarioUsuario"><em><?php echo $comentario['comentarioExterno'] ?></em></p>
                                   </li>
                               <?php
