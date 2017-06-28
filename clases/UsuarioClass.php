@@ -95,12 +95,38 @@ class Usuario{
 
 		function editarse(){
 			$conexion = new ConnQuery();
-			if ($stmt = mysqli_prepare($conexion, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
-				mysqli_stmt_bind_param($stmt, "sissss", $this->nombre, $this->id_sexo, $this->e_mail, $this->pass, $this->nombreUsuario, $this->apellido);
+			/* UPDATE table_name
+			SET column1 = value1, column2 = value2, ...
+			WHERE condition; */
+
+			$sql = "UPDATE usuario 
+					SET nombre = ?,		
+					id_sexo = ?, 
+					e_mail = ?,
+					contrasenia = ?,
+					nombre_usuario = ?,
+					apellido = ?,
+					telefono = ?,
+					ultima_conexion = ?										
+					WHERE id_usuario = ?";
+
+				$stmt =  $conexion->prepare($sql);
+				mysqli_stmt_bind_param($stmt, "sissssssi", 
+										$this->nombre, 
+										$this->id_sexo, 
+										$this->e_mail, 
+										$this->pass, 
+										$this->nombreUsuario, 
+										$this->apellido,
+										$this->telefono,
+										$this->ultimaConexion,
+										$this->id);
+
+				/**/
 				mysqli_stmt_execute($stmt);
 				$persistido = mysqli_stmt_fetch($stmt);
 				return $persistido;
-			} 
+			
 		}
 }
 ?>

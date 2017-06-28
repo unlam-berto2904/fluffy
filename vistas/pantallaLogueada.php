@@ -13,6 +13,7 @@ if (isset($_SESSION["usuario"])) {
   $fechaNacimiento = $_SESSION['arrayUsuario']['fecha_nacimiento'];
   $email = $_SESSION['arrayUsuario']['e_mail'];
   $pass = $_SESSION['arrayUsuario']['contrasenia'];
+  $telefono = $_SESSION['arrayUsuario']['telefono'];
 }
 else {
   session_destroy();
@@ -43,7 +44,7 @@ else {
             <h4 class="modal-title">Editar perfil de usuario</h4>
           </div>
           <div class="modal-body">
-            <form ng-modal="usuario">
+            <form action="../controladores/editarUsuarioController.php" method="post">
               <input type="hidden" name="idUsuarioEditarUsuario" id="idUsuarioEditarUsuario" value="<?= $id_usuario?>">
               <div class="form-group">
                 <label>Nuevo nombre</label>
@@ -71,7 +72,7 @@ else {
               </div> 
               <div class="form-group">
                 <label>Cambiar Telefono</label>
-                <input type="phone" class="form-control" name="nuevoTelefono" value="<?=$telefono ?>">
+                <input type="text" class="form-control" name="nuevoTelefono" value="<?=$telefono ?>">
               </div>                    
               <div class="form-group">
                 <label>Modificar el nombre de usuario</label>

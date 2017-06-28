@@ -1,5 +1,6 @@
 <?php
-
+	require_once('../clases/UsuarioClass.php');
+	
 	$id = $_POST["idUsuarioEditarUsuario"];
 	$nombre = $_POST["nuevoNombre"];
 	$apellido = $_POST["nuevoApellido"];
@@ -14,13 +15,13 @@
 	$ultimaConexion = Null;
 
 	$usuario = new Usuario($id, $nombre, $nombreUsuario, $apellido, $id_sexo, $telefono, $e_mail, $fechaNacimiento, $ultimaConexion, $pass);
-
+	
 	$resultado = $usuario->editarse();
 
 	if(!$resultado){
-		header("location:../index.php");
+		header("location:../vistas/pantallaLogueada.php");
 	}else{
-		echo "<h1>El Registro fall&oacute;</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
+		echo "<h1>La Edición fall&oacute;</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
 	}
 
 ?>
