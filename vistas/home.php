@@ -153,14 +153,18 @@ else {
                           <div class="input-group">
                             <div class="input-group-btn">
                               <form class="" action="../controladores/valorarExperienciaController.php" method="post">
-                                <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
-                                <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
-                                <button type="submit" class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button>
+                                  <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                  <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
+                                  <button type="submit" class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button>
                               </form>
-                              <form class="" action="index.html" method="post">
-                                <button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
                             </div>
-                              <input type="text" class="form-control" placeholder="Add a comment..">
+                              <form class="" action="../controladores/crearComentarioExternoController.php" method="post">
+                                <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
+                                <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                <div class="input-group-btn">
+                                  <input type="text" name="comentarioExterno"class="form-control" placeholder="Agrega un comentario..">
+                                  <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                                </div>
                             </form>
                           </div>
                     </div>

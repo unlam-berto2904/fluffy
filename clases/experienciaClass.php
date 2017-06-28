@@ -102,5 +102,19 @@ Class Experiencia{
     mysqli_stmt_execute($ps2);
 // --------------------------------------------------------------------
   }
+    public static function crearComentarioExterno($idUsuario,$idExperiencia,$comentarioExterno,$fechaComentario){
+      $cq = new ConnQuery();
+      $sql = "insert into comentario_externo(id_usuario,id_experiencia,comentario,fecha_hora_comentario)
+                                values(?,?,?,?)";
+      $ps = $cq->prepare($sql);
+  		mysqli_stmt_bind_param($ps,
+      "iiss",
+      $idUsuario,
+      $idExperiencia,
+      $comentarioExterno,
+      $fechaComentario);
+      var_dump($idExperiencia);
+      mysqli_stmt_execute($ps);
+    }
 }
 ?>
