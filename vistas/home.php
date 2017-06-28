@@ -113,9 +113,9 @@ else {
 		    </ul>
 
 		      <!-- Cada contenido de cada tab -->
-		    <div id="contenido">
-          <div class="col-sm-9">
-            <div class="cont col-sm-10 col-sm-push-3 experienciasDiv" id="experienciasSection">
+		    <div id="contenido " class="contenidoDiv">
+          <div class="col-sm-10">
+            <div class="cont col-sm-11 col-sm-push-2 experienciasDiv" id="experienciasSection">
                 <?php $experiencias = json_decode($_POST["experiencias"],true);
                 foreach ($experiencias as $experiencia => $exp) { ?>
                   <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">

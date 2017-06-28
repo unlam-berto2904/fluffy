@@ -17,6 +17,11 @@
     list-style: none;
 }
 
+.contenidoDiv{
+  position: absolute;
+  background-color: rgba(240, 95, 64, 0.24);
+}
+
 .fa-chevron-left,
 .fa-chevron-right{
     color: #F05F40;
