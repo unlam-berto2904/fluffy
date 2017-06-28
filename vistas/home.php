@@ -6,6 +6,7 @@ session_start();
 if (isset($_SESSION["usuario"])) {
   $id_usuario = $_SESSION["usuario"];
   $nombreUsuario = $_SESSION["arrayUsuario"]['nombre'];
+  $apellidoUsuario = $_SESSION["arrayUsuario"]['apellido'];
   $fotoUsuario = $_SESSION["arrayUsuario"]['foto_usuario'];
 }
 else {
@@ -82,7 +83,7 @@ else {
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario ?>
+                    <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
                     <span class=" fa fa-angle-down"></span>
 
                   </a>
@@ -101,7 +102,11 @@ else {
         <div class="tabscontent row col-md-offset-1">
 	      	<!-- Navegador de los tabs -->
 		    <ul class="contenido nav nav-tabs">
-	          <li class="active col-md-3"><a href="#experienciasSection">Experiencias</a></li>
+	          <li class="active col-md-3">
+              <a href="#experienciasSection" id="aExperienciaSection">
+                Experiencias
+              </a>
+            </li>
 		      <li class="col-md-3"><a href="#citas">Citas</a></li>
 		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
 		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
@@ -143,14 +148,19 @@ else {
                           }?>
                           <?php  ?>
                         </ul>
-                        <form>
                           <div class="input-group">
                             <div class="input-group-btn">
-                              <button class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                              <form class="" action="../controladores/valorarExperienciaController.php" method="post">
+                                <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
+                                <button type="submit" class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button>
+                              </form>
+                              <form class="" action="index.html" method="post">
+                                <button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
                             </div>
-                            <input type="text" class="form-control" placeholder="Add a comment..">
+                              <input type="text" class="form-control" placeholder="Add a comment..">
+                            </form>
                           </div>
-                        </form>
                     </div>
                   </div>
                 <?php }?>
@@ -246,7 +256,7 @@ else {
                 <input id="hiddenMuro" type="hidden" name="muroMascota" value="">
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Publicar</button>
               </div>
             </form>
           </div>

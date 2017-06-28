@@ -331,8 +331,7 @@ a:activo,
 }
 a:hover,
 a:focus {
-    text-decoration: none;
-    color: darkviolet;
+    text-decoration: none
 }
 .navbar {
     margin-bottom: 0

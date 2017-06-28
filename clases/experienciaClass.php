@@ -77,8 +77,30 @@ Class Experiencia{
     }
     return $experiencias;
   }
-  public static function valorarExperiencia($id_experiencia){
-
+  public static function valorarExperiencia($idUsuario,$idExperiencia){
+    $cq = new ConnQuery();
+    $sql = "insert into valoracion_experiencia_usuario(id_usuario,id_experiencia) values(?,?)";
+    $ps = $cq->prepare($sql);
+		mysqli_stmt_bind_param($ps,
+    "ii",
+    $idUsuario,
+    $idExperiencia);
+    mysqli_stmt_execute($ps);
+// ---------------------------------------------------------------
+    $sql2 = "select  e.id_experiencia, count(*) numeroValoracion
+                from valoracion_experiencia_usuario veu
+                join experiencia e on e.id_experiencia = veu.id_experiencia
+                group by id_experiencia having e.id_experiencia = ".$idExperiencia.";";
+    $numeroDeValoracion = (int)$cq->getFila($sql2)['numeroValoracion'];
+//------------------------------------------------------------------
+    $sql3 = "update experiencia set valoracion = ? where id_experiencia = ? ;";
+    $ps2 = $cq->prepare($sql3);
+    mysqli_stmt_bind_param($ps2,
+    "ii",
+    $numeroDeValoracion,
+    $idExperiencia);
+    mysqli_stmt_execute($ps2);
+// --------------------------------------------------------------------
   }
 }
 ?>

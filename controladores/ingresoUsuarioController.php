@@ -16,16 +16,16 @@ if ($resultadoConEmail) {
   $queryStringIngresoEmail = 'select * from usuario where e_mail = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
   $idUsuario = $connQuery->getFila($queryStringIngresoEmail)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
-  $_SESSION["arrayUsuario"] = $connQuery->getFila($queryStringIngresoUser);
   Usuario::actualizarHoraDeConexion($idUsuario);
+  $_SESSION["arrayUsuario"] = $connQuery->getFila($queryStringIngresoUser);
   header("location: ../vistas/home.php");
 
 }else if ($resultadoConUserName) {
   $queryStringIngresoUser = 'select * from usuario where nombre_usuario = "'.$usuarioIngreso.'" and contrasenia ="'.$passIngreso.'"';
   $idUsuario = $connQuery->getFila($queryStringIngresoUser)['id_usuario'];
   $_SESSION["usuario"] = $idUsuario;
-  $_SESSION["arrayUsuario"] = $connQuery->getFila($queryStringIngresoUser);
   Usuario::actualizarHoraDeConexion($idUsuario);
+  $_SESSION["arrayUsuario"] = $connQuery->getFila($queryStringIngresoUser);
   header("location:../vistas/home.php");
 }else {
     session_destroy();
