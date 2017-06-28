@@ -17,12 +17,17 @@
     list-style: none;
 }
 
+.fa-chevron-left,
+.fa-chevron-right{
+    color: #F05F40;
+}
+
 .active{
     font-weight:bold;
 }
 
 
-/* de aca en adelante, es codigo CSS que venia con el template*/
+/* de aca en adelante, la mayoria es codigo CSS que venia con el template*/
 
 
 html , body{
@@ -47,6 +52,7 @@ html , body{
     background: #F05F40
 }
 .nav-sm .container.body .col-md-3.left_col {
+
   min-height: 100%;
   width: 6em;
   padding: 0;
@@ -71,7 +77,7 @@ html , body{
 .nav-sm .container.body .right_col {
     padding: 10px 20px;
     margin-left: 70px;
-    z-index: 2
+    z-index: 2;
 }
 .nav-sm .navbar.nav_title {
     width: 70px
@@ -183,10 +189,15 @@ html , body{
 .nav-sm .menu_section {
     margin: 0
 }
-.nav-sm span.fa,
+
+.nav-sm li a p {
+  display: none;
+}
+
+/*.nav-sm span.fa,
 .nav-sm .menu_section h3 {
     display: none
-}
+}*/
 .nav-sm li li span.fa {
     display: inline-block
 }
