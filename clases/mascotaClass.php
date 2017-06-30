@@ -12,7 +12,7 @@ Class Mascota{
 	private $idRaza;
 	private $idAnimal;
 	private $fotoPerfil;
-	
+
 	function __construct($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $fotoPerfil){
 		$this->idUsuario = $idUsuario;
 		$this->sexo = $sexo;
@@ -113,6 +113,43 @@ Class Mascota{
 				$mascotasUser[] = $mascotaUser;
 				}
 			return $mascotasUser;
+	}
+
+	public static function getPerfilMascotaByIdMuroMascota($idMuroMascota){
+		$cq = new connQuery();
+		$sql = "select          m.nombre                nombre_mascota,
+						                m.foto_mascota          foto_mascota,
+						                m.fecha_nacimiento      fecha_nacimiento_mascota,
+						                s.descripcion           sexo_animal,
+						                r.descripcion           raza_mascota,
+						                a.descripcion           tipo_animal,
+						                u.nombre                nombre_duenio_mascota,
+						                u.apellido              apellido_duenio_mascota,
+						                u.foto_usuario          foto_usuario,
+						                u.e_mail                email_usuario,
+						                u.ultima_conexion       ultima_conexion_usuario
+						from mascota m
+						join muro_mascota mm on mm.id_muro_mascota = m.id_muro_mascota
+						join usuario u on u.id_usuario = m.id_usuario
+						join raza r on r.id_raza = m.id_raza
+						join animal a on a.id_animal = r.id_animal
+						join sexo s on s.id_sexo = m.id_sexo
+						where m.id_muro_mascota = ".$idMuroMascota;
+
+		$fila = $cq->getFila($sql);
+		$perfilMascota = array( 'nombreMascota' => $fila['nombre_mascota'],
+														'fotoMascota' => $fila['foto_mascota'],
+														'fechNacMascota'	=> $fila['fecha_nacimiento_mascota'],
+														'sexoAnimal'	=> $fila['sexo_animal'],
+														'razaMascota'	=> $fila['raza_mascota'],
+														'tipoAnimal'	=> $fila['tipo_animal'],
+														'nombreDuenio'	=> $fila['nombre_duenio_mascota'],
+														'apellidoDuenio'	=> $fila['apellido_duenio_mascota'],
+														'fotoDuenio'	=> $fila['foto_usuario'],
+														'emailDuenio'	=> $fila['email_usuario'],
+														'ultimaConexUsuario'	=> $fila['ultima_conexion_usuario']
+															);
+		return $perfilMascota;
 	}
 }
 

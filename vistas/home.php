@@ -120,7 +120,7 @@ else {
                 foreach ($experiencias as $experiencia => $exp) { ?>
                   <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
                     <div class="panel-heading panel-heading-experiencias">
-                      <a href="#" class="pull-right">View all</a>
+                      <a href="#" class="pull-right" id="verMascota" data-toggle="modal" data-target="#modalPerfilMascota" data-id="<?php echo $exp['muroMascota']?>">Ver mascota</a>
                       <img src="../<?php echo $exp['fotoPerfilMascota']; ?>" class="fotoComentario"/>
                       <label for=""> <h4><?php echo $exp['nombreMascota']; ?></h4></label>
                     </div>
@@ -270,6 +270,25 @@ else {
       </div>
     </div>
     <!-- Fin modal de mascota -->
+
+    <!-- Modal perfil de mascota-->
+    <div class="modal fade bs-example-modal-lg" id="modalPerfilMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" id="perfilMascotaDiv">
+          <?php $perfilMascota = json_decode($_POST["perfilMascota"],true);
+          print_r($perfilMascota);
+          ?>
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Publicar Experiencias</h4>
+          </div>
+          <div class="modal-body">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin modal perfil de mascota -->
     <script src="../librerias/jquery/jquery.min.js"></script>
     <script src="../js/vistaMascotasDelUser.js" charset="utf-8" type="text/javascript"></script>
     <script src="../js/vistaExperiencia.js" charset="utf-8" types="text/javascript"></script>
