@@ -639,8 +639,17 @@ hr {
 
 .wrapper, .row {
    height: 100%;
-   margin-left:5em;
    margin-right:0;
+}
+
+@media (min-width: 992px) {
+  .wrapper, .row {
+    margin-left: 5em;
+  }
+}
+
+.cont{
+  margin-left: 1em;
 }
 
 .wrapper:before, .wrapper:after,
