@@ -237,6 +237,28 @@ CREATE TABLE IF NOT EXISTS `seguimiento` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `valoracion_experiencia_usuario`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `valoracion_experiencia_usuario` ;
+
+CREATE TABLE IF NOT EXISTS `valoracion_experiencia_usuario` (
+  `id_experiencia` INT NOT NULL,
+  `id_usuario` INT NOT NULL,
+  PRIMARY KEY (`id_experiencia`, `id_usuario`),
+  CONSTRAINT `fk_experiencia_has_usuario_experiencia1`
+    FOREIGN KEY (`id_experiencia`)
+    REFERENCES `experiencia` (`id_experiencia`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_experiencia_has_usuario_usuario1`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
@@ -319,9 +341,9 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `fluffy`;
-INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (1, 1, '2017-06-08 12:00', 'resources/fotosDeExperiencias/experiencia_1.jpg', NULL, 'Comentario de prueba', 1);
-INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (2, 1, '2017-06-08 12:04', NULL, NULL, 'Comentario de prueba2', 1);
-INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (3, 2, '2017-06-08 12:05', NULL, NULL, 'Comentario de prueba3', 1);
+INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (1, 1, '2017-06-08 12:00', 'resources/fotosDeExperiencias/experiencia_1.jpg', NULL, 'Comentario de prueba', 0);
+INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (2, 1, '2017-06-08 12:04', NULL, NULL, 'Comentario de prueba2', 0);
+INSERT INTO `experiencia` (`id_experiencia`, `id_muro_mascota`, `fecha_experiencia`, `foto_experiencia`, `video_experiencia`, `comentario_experiencia`, `valoracion`) VALUES (3, 2, '2017-06-08 12:05', NULL, NULL, 'Comentario de prueba3', 0);
 
 COMMIT;
 
@@ -334,7 +356,7 @@ USE `fluffy`;
 INSERT INTO `comentario_externo` (`id_comentario_externo`, `id_usuario`, `id_experiencia`, `comentario`, `fecha_hora_comentario`) VALUES (1, 2, 1, 'Yo hago un comentario loco a lo chatran', '2017-06-22 14:42');
 INSERT INTO `comentario_externo` (`id_comentario_externo`, `id_usuario`, `id_experiencia`, `comentario`, `fecha_hora_comentario`) VALUES (2, 2, 1, 'Hago otro comentario xq estoy re loco', '2017-06-22 14:45');
 INSERT INTO `comentario_externo` (`id_comentario_externo`, `id_usuario`, `id_experiencia`, `comentario`, `fecha_hora_comentario`) VALUES (3, 3, 1, 'Yo soy otro usuario comentando cosas locas', '2017-06-22 14:47');
-INSERT INTO `comentario_externo` (`id_comentario_externo`, `id_usuario`, `id_experiencia`, `comentario`, `fecha_hora_comentario`) VALUES (4, 1, 1, 'puto el que lee', '2017-06-22 14:49');
+INSERT INTO `comentario_externo` (`id_comentario_externo`, `id_usuario`, `id_experiencia`, `comentario`, `fecha_hora_comentario`) VALUES (4, 1, 1, 'Hoooolaa', '2017-06-22 14:49');
 
 COMMIT;
 
@@ -345,5 +367,16 @@ COMMIT;
 START TRANSACTION;
 USE `fluffy`;
 INSERT INTO `seguimiento` (`id_usuario`, `id_mascota`, `id_usuario_mascota`, `fecha_seguimiento`) VALUES (2, 1, 1, '2017-06-08');
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `valoracion_experiencia_usuario`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `fluffy`;
+INSERT INTO `valoracion_experiencia_usuario` (`id_experiencia`, `id_usuario`) VALUES (1, 1);
+INSERT INTO `valoracion_experiencia_usuario` (`id_experiencia`, `id_usuario`) VALUES (1, 2);
 
 COMMIT;

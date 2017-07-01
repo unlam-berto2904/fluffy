@@ -6,6 +6,7 @@ session_start();
 if (isset($_SESSION["usuario"])) {
   $id_usuario = $_SESSION["usuario"];
   $nombreUsuario = $_SESSION["arrayUsuario"]['nombre'];
+  $apellidoUsuario = $_SESSION["arrayUsuario"]['apellido'];
   $fotoUsuario = $_SESSION["arrayUsuario"]['foto_usuario'];
 }
 else {
@@ -82,7 +83,7 @@ else {
               <ul class="nav navbar-nav navbar-right">
                 <li class="">
                   <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario ?>
+                    <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
                     <span class=" fa fa-angle-down"></span>
 
                   </a>
@@ -101,20 +102,24 @@ else {
         <div class="tabscontent row col-md-offset-1">
 	      	<!-- Navegador de los tabs -->
 		    <ul class="contenido nav nav-tabs">
-	          <li class="active col-md-3"><a href="#experienciasSection">Experiencias</a></li>
+	          <li class="active col-md-3">
+              <a href="#experienciasSection" id="aExperienciaSection">
+                Experiencias
+              </a>
+            </li>
 		      <li class="col-md-3"><a href="#citas">Citas</a></li>
 		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
 		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
 		    </ul>
 
 		      <!-- Cada contenido de cada tab -->
-		    <div id="contenido">
-          <div class="col-sm-9">
-            <div class="cont col-sm-10 col-sm-push-3 experienciasDiv" id="experienciasSection">
+		    <div id="contenido " class="contenidoDiv">
+          <div class="col-sm-10">
+            <div class="cont col-sm-11 col-sm-push-2 experienciasDiv" id="experienciasSection">
                 <?php $experiencias = json_decode($_POST["experiencias"],true);
                 foreach ($experiencias as $experiencia => $exp) { ?>
                   <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
-                    <div class="panel-heading">
+                    <div class="panel-heading panel-heading-experiencias">
                       <a href="#" class="pull-right">View all</a>
                       <img src="../<?php echo $exp['fotoPerfilMascota']; ?>" class="fotoComentario"/>
                       <label for=""> <h4><?php echo $exp['nombreMascota']; ?></h4></label>
@@ -127,14 +132,16 @@ else {
                         <hr>
                           <p><?php echo $exp['comentario']; ?></p>
                         <hr>
-                        <ul class="list-group" id="comentariosExternosUl">
+                        <ul class="list-group list_comentariosExternos" id="comentariosExternosUl">
                           <?php
                           foreach ($exp as $exp2 => $comentariosExternos) {
                             if (!empty($comentariosExternos[$exp2])) {
                               foreach ($comentariosExternos as $ce => $comentario) {?>
                                   <li class="list-group-item" id="id_comentarioExterno_<?php echo $comentario['idComentarioExterno'] ?>">
-                                    <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
-                                    <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
+                                    <div class="perfilComentario">
+                                      <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
+                                      <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
+                                    </div>
                                     <p class="comentarioUsuario"><em><?php echo $comentario['comentarioExterno'] ?></em></p>
                                   </li>
                               <?php
@@ -143,14 +150,23 @@ else {
                           }?>
                           <?php  ?>
                         </ul>
-                        <form>
                           <div class="input-group">
                             <div class="input-group-btn">
-                              <button class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button><button class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                              <form class="" action="../controladores/valorarExperienciaController.php" method="post">
+                                  <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                  <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
+                                  <button type="submit" class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button>
+                              </form>
                             </div>
-                            <input type="text" class="form-control" placeholder="Add a comment..">
+                              <form class="" action="../controladores/crearComentarioExternoController.php" method="post">
+                                <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
+                                <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                <div class="input-group-btn">
+                                  <input type="text" name="comentarioExterno"class="form-control" placeholder="Agrega un comentario..">
+                                  <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                                </div>
+                            </form>
                           </div>
-                        </form>
                     </div>
                   </div>
                 <?php }?>
@@ -246,7 +262,7 @@ else {
                 <input id="hiddenMuro" type="hidden" name="muroMascota" value="">
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Save changes</button>
+                <button type="submit" class="btn btn-primary">Publicar</button>
               </div>
             </form>
           </div>

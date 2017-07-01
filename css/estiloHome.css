@@ -4,7 +4,10 @@
   width: 100%;
   max-width: 12em;
 }
-
+.perfilComentario{
+  width: 50%;
+  margin-right: 10%;
+}
 .cont{
     display:none;
     padding:8px;
@@ -15,6 +18,25 @@
     margin:0;
     padding:0;
     list-style: none;
+}
+.list_comentariosExternos{
+  margin: 3em;
+}
+.list_comentariosExternos li{
+  margin-bottom: 2em;
+  background: rgba(192, 133, 228, 0.08);
+  border: black solid 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.panel-heading-experiencias{
+  background-color: rgba(240, 95, 64, 0.72)!important;
+  color: rgb(255, 255, 255)!important;
+}
+.contenidoDiv{
+  position: absolute;
+  background-color: rgba(240, 95, 64, 0.24);
 }
 
 .fa-chevron-left,
@@ -342,8 +364,7 @@ a:activo,
 }
 a:hover,
 a:focus {
-    text-decoration: none;
-    color: darkviolet;
+    text-decoration: none
 }
 .navbar {
     margin-bottom: 0
@@ -880,7 +901,7 @@ small.text-muted {
 
 }
 .fotoComentario{
-  width: 8%;
+  width: 4em;
   margin-right: 2%;
 }
 .comentarioUsuario{
@@ -888,6 +909,7 @@ small.text-muted {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
+  width: 100%;
 }
 
 /*
