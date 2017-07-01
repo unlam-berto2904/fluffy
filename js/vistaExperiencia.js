@@ -22,7 +22,7 @@ function mostrarUltimasHistorias() {
 
 function enviarExperienciasAHome(experiencia){
     $.ajax({
-      url:base_url+"/fluffy/vistas/vistaExperiencia.php",
+      url:base_url+"/fluffy/vistas/home.php",
       type:"POST",
       data:{experiencias:experiencia},
       success: function(data){
@@ -31,3 +31,12 @@ function enviarExperienciasAHome(experiencia){
         }
     });
 }
+
+$(document).on("click", ".aMuroMascota", function () {
+     var idMuroMascota = $(this).data('id');
+     $(".modal-body .formEjemplo #hiddenMuro").val(idMuroMascota);
+});
+
+$(document).on("click", "#aExperienciaSection", function () {
+    mostrarUltimasHistorias();
+});
