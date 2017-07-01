@@ -44,6 +44,7 @@ else {
             <h4 class="modal-title">Editar perfil de usuario</h4>
           </div>
           <div class="modal-body">
+          <!-- FORMULARIO DE EDICION DE USUARIO -->
             <form action="../controladores/editarUsuarioController.php" method="post">
               <input type="hidden" name="idUsuarioEditarUsuario" id="idUsuarioEditarUsuario" value="<?= $id_usuario?>">
               <div class="form-group">

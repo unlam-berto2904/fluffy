@@ -107,11 +107,12 @@ class Usuario{
 					nombre_usuario = ?,
 					apellido = ?,
 					telefono = ?,
-					ultima_conexion = ?										
+					ultima_conexion = ?,
+					fecha_nacimiento = ?										
 					WHERE id_usuario = ?";
 
 				$stmt =  $conexion->prepare($sql);
-				mysqli_stmt_bind_param($stmt, "sissssssi", 
+				mysqli_stmt_bind_param($stmt, "sisssssssi", 
 										$this->nombre, 
 										$this->id_sexo, 
 										$this->e_mail, 
@@ -120,12 +121,13 @@ class Usuario{
 										$this->apellido,
 										$this->telefono,
 										$this->ultimaConexion,
+										$this->fechaNacimiento,
 										$this->id);
 
 				/**/
 				mysqli_stmt_execute($stmt);
-				$persistido = mysqli_stmt_fetch($stmt);
-				return $persistido;
+				$editado = mysqli_stmt_fetch($stmt);
+				return $editado;
 			
 		}
 }
