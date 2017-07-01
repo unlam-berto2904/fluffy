@@ -63,7 +63,7 @@ class FacebookLogin
 
         $response = null;
         try {
-            $response = $this->facebookApi->get('/me?fields=id,name', $this->accessToken);
+            $response = $this->facebookApi->get('/me?fields=id,name,email', $this->accessToken);
         } catch(Exception $e) {
             echo 'Error obteniendo datos del usuario de facebook';
         }
@@ -73,6 +73,21 @@ class FacebookLogin
 
         return $name;
     }
+
+    public function getUserEmail(){
+
+        $response = null;
+        try {
+            $response = $this->facebookApi->get('/me?fields=id,name,email', $this->accessToken);
+        } catch(Exception $e) {
+            echo 'Error obteniendo datos del usuario de facebook';
+        }
+
+        $user = $response->getGraphUser();
+        $name = $user->getEmail() ?  $user->getEmail() : "sin email";
+
+        return $name;
+    }    
 
     // Esta funcion realiza las llamadas y validaciones necesarias para obtener el token para utilizar facebook
     public function generateAccessToken(){

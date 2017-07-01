@@ -12,12 +12,15 @@
         session_start();
         require_once  ('../librerias/loginFacebook/helper/facebookLogin/FacebookLogin.php');
 
-        if (isset($_SESSION["usuario"])) {
-            $id_usuario = $_SESSION["usuario"];
-        }
-        else if( isset($_SESSION['login']) && $_SESSION['login']){
+        if( isset($_SESSION['login']) && $_SESSION['login']){
             echo "<h3>Buenas " . $_SESSION['userName'] . "!</h3>";
         } 
+
+        else if (isset($_SESSION["usuario"])) {
+            $id_usuario = $_SESSION["usuario"];
+            echo "<h3>Hola ". $_SESSION["usuario"] . "</h3>";
+        }
+        
         
        /*else {
             echo "<h3>Error: Usted no se encuentra logueado.</h3>";
@@ -32,6 +35,7 @@
       <a href="vistaMascotasDelUser.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">mostrar animales</a>
       <a href="vistaExperiencia.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar Experiencias</a>
       <a href="vistaCrearMascota.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Mascotas</a>
+      <a href="logout.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">LogOut</a>
     </div>
   </body>
 </html>
