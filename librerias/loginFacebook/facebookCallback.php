@@ -67,4 +67,4 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
 		mysqli_stmt_execute($ps);
 	}
 
-header('Location: ../../../fluffy/vistas/pantallaLogueada.php');
+header('Location: ../../../fluffy/vistas/home.php');
