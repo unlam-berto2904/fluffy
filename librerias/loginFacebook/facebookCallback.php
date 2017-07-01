@@ -22,8 +22,6 @@ $_SESSION['login'] = true;
 $_SESSION['userName'] = $facebookLogin->getUserName();
 $_SESSION['email'] = $facebookLogin->getUserEmail();
 
-
-
 // Persistencia sesion Facebook
 	 
 	$nombreUsuario = $_SESSION['userName'];
@@ -43,35 +41,30 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
   		Usuario::actualizarHoraDeConexion($idUsuario);
 	}
 	else {
-	 $id = Null;
-	 $nombre = $_SESSION['userName'];
-	 $apellido = Null;
-	 $id_sexo = Null;
-	 $fechaNacimiento = Null;
-	 $e_mail = $_SESSION['email'];
-	 $nombreUsuario = $_SESSION['userName'];
-	 $pass = Null;
-	 $ubicación = Null;
-	 $telefono = Null;
-	 $id_domicilio = Null;
-	 $ultimaConexion = Null;  	
-  	
-	//$usuario = new Usuario($id, $nombre, $nombreUsuario, $apellido, $id_sexo, $telefono, $id_domicilio, $e_mail, $fechaNacimiento, $ultimaConexion, $pass);
-	//$resultado = $usuario->persistirse();
-	 			
-				
-	$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";
-	$ps = $connQuery->prepare($sql);
-	mysqli_stmt_bind_param($ps,
-		"sissss",
-	 	$nombre,
-		$id_sexo,
-		$e_mail,
-		$pass,
-		$nombreUsuario,
-		$apellido);
-
-	mysqli_stmt_execute($ps);
+		$id = Null;
+		$nombre = $_SESSION['userName'];
+		$apellido = Null;
+		$id_sexo = Null;
+		$fechaNacimiento = Null;
+		$e_mail = $_SESSION['email'];
+		$nombreUsuario = $_SESSION['userName'];
+		$pass = Null;
+		$ubicación = Null;
+		$telefono = Null;
+		$id_domicilio = Null;
+		$ultimaConexion = Null;  	
+	  				
+		$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";
+		$ps = $connQuery->prepare($sql);
+		mysqli_stmt_bind_param($ps,
+			"sissss",
+		 	$nombre,
+			$id_sexo,
+			$e_mail,
+			$pass,
+			$nombreUsuario,
+			$apellido);
+		mysqli_stmt_execute($ps);
 	}
 
 header('Location: ../../../fluffy/vistas/pantallaLogueada.php');
