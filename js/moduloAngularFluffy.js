@@ -7,5 +7,6 @@ var arrayPerdidos = [];
 var arrayCita = [];
 var cantidad = 1;
 
+
 // definicion del modulo
 var app = angular.module("miModulo", []);
