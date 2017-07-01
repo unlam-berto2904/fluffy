@@ -19,7 +19,7 @@
 	$resultado = $usuario->editarse();
 
 	if(!$resultado){
-		header("location:../vistas/pantallaLogueada.php");
+		header("location:../vistas/home.php");
 	}else{
 		echo "<h1>La Edición fall&oacute;</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
 	}

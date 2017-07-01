@@ -130,7 +130,15 @@ Class Mascota{
 				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota 
 			where MM.perdido =  1
 			limit ?,?";
-
+		/* private $idUsuario;
+	private $sexo;
+	private $fechaNacimiento;
+	private $urlLite;
+	private $nombre;
+	private $idMuroMascota;
+	private $idRaza;
+	private $idAnimal;
+	private $fotoPerfil;*/
 		//ejecucion de prepare_statement	
 		$stmt = $conexion->prepare($sql);
 		//bindeo de datos al statement
