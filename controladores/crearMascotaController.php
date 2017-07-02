@@ -42,7 +42,7 @@
 	$resultado_ingreso = $mascota->persistirMascota();
 	$resultado_consulta = Mascota::ingresarMascota($id,$nombre);
 
-	if(!$consultaIsTrue){
+	if(!$resultado_consulta){
 		header("location:../vistas/home.php");
 	}else{
 		// echo "<h1>Ha ocurrido un error</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";

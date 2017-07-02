@@ -23,160 +23,170 @@ else {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Fluffy</title>
     <link href="../librerias/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../librerias/bootstrap/css/simple-sidebar.css" rel="stylesheet">
     <link href="../librerias/fuentes/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/estiloHome.css" rel="stylesheet">
     <script type="text/javascript" src="../librerias/angular.min.js"></script>
   </head>
   <body class="nav-sm">
-    <div class="container body">
-      <div class="main_container">
-        <div class="col-md-3 left_col mascotasUser" >
-          <div class="left_col scroll-view">
-            <div class="navbar nav_title" style="border: 0;">
-              <a href = "#" class="site_title" data-toggle="modal" data-target="#exampleModal">
-                <i class="fa fa-paw" ></i>
-                <span>Fluffy</span></a>
-            </div>
-            <br/>
-            <!-- Listado lateral para seleccionar mascota-->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-              <div class="menu_section">
-                <ul class="nav side-menu side-menu-mascota" id="mascotasUserSection">
-                  <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
-                  <?php $mascotas = json_decode($_POST["mascotas"],true);
-                  foreach ($mascotas as $mascotaUser => $mascota){
+    <div id="wrapper">
+      <div id="sidebar-wrapper">
+          <ul class="sidebar-nav">
+            Hola mundo
+          </ul>
+      </div>
+      <div class="container body" id="page-content-wrapper">
+        <div class="main_container">
+          <div class="col-md-3 left_col mascotasUser" >
+            <div class="left_col scroll-view">
+              <div class="navbar nav_title" style="border: 0;">
+                <a href = "#" class="site_title" data-toggle="modal" data-target="#exampleModal">
+                  <i class="fa fa-paw" ></i>
 
-                    ?>
-                    <li>
-                      <div class="dropdown mascotaPerfiles ">
-                        <a class="dropdown-toggle aMuroMascota" data-toggle="dropdown" data-id="<?php echo $mascota['muroMascota']?>">
-                          <div class="mascotaPerfiles">
-                            <img class="perfil_mascota img-caption img-thumbnail" src="../<?php echo $mascota['fotoMascota'] ?>">
-                            <p><?php echo $mascota['nombreMascota'] ?></p>
-                          </div>
-                        </a>
-                        <ul class="dropdown-menu funcionesMascota">
-                          <li><a href = "#" class="" data-toggle="modal" data-target="#modalExperiencias">Publicar Experiencia</a></li>
-                          <li><a href="#">CSS</a></li>
-                          <li><a href="#">JavaScript</a></li>
-                        </ul>
-                      </div>
-                    </li>
-                    <?php } ?>
-
-                </ul>
-
+                  <span>Fluffy</span></a>
               </div>
+              <br/>
+              <!-- Listado lateral para seleccionar mascota-->
+              <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
+                <div class="menu_section">
+                  <ul class="nav side-menu side-menu-mascota" id="mascotasUserSection">
+                    <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
+                    <?php $mascotas = json_decode($_POST["mascotas"],true);
+                    foreach ($mascotas as $mascotaUser => $mascota){
 
-            </div>
-          </div>
-        </div>
+                      ?>
+                      <li>
+                        <div class="dropdown mascotaPerfiles ">
+                          <a class="dropdown-toggle aMuroMascota" data-toggle="dropdown" data-id="<?php echo $mascota['muroMascota']?>">
+                            <div class="mascotaPerfiles">
+                              <img class="perfil_mascota img-caption img-thumbnail" src="../<?php echo $mascota['fotoMascota'] ?>">
+                              <p><?php echo $mascota['nombreMascota'] ?></p>
+                            </div>
+                          </a>
+                          <ul class="dropdown-menu funcionesMascota">
+                            <li><a href = "#" class="" data-toggle="modal" data-target="#modalExperiencias">Publicar Experiencia</a></li>
+                            <li><a href="#">CSS</a></li>
+                            <li><a href="#">JavaScript</a></li>
+                          </ul>
+                        </div>
+                      </li>
+                      <?php } ?>
 
-        <!-- Barra superior -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <div class="nav toggle">
-                <a id="menu_toggle"><i id="arrow" class="fa fa-4x fa-chevron-right" ></i></a>
-              </div>
-
-              <ul class="nav navbar-nav navbar-right">
-                <li class="">
-                  <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                    <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
-                    <span class=" fa fa-angle-down"></span>
-
-                  </a>
-                  <ul class="dropdown-menu dropdown-usermenu pull-right">
-                    <li><a href="javascript:;">Configuraci&oacute;n</a></li>
-                    <li><a href="javascript:;">Ayuda</a></li>
-                    <li><a href="../controladores/cerrarSesionController.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                   </ul>
-              </ul>
-            </nav>
+
+                </div>
+
+              </div>
+            </div>
           </div>
-        </div>
-        <!-- Fin de la barra superior -->
 
-		<!-- Contenedor donde estará todo el contenido  -->
-        <div class="tabscontent row col-md-offset-1">
-	      	<!-- Navegador de los tabs -->
-		    <ul class="contenido nav nav-tabs">
-	          <li class="active col-md-3">
-              <a href="#experienciasSection" id="aExperienciaSection">
-                Experiencias
-              </a>
-            </li>
-		      <li class="col-md-3"><a href="#citas">Citas</a></li>
-		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
-		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
-		    </ul>
+          <!-- Barra superior -->
+          <div class="top_nav">
+            <div class="nav_menu">
+              <nav>
+                <div class="nav toggle">
+                  <a id="menu_toggle"><i id="arrow" class="fa fa-4x fa-chevron-right" ></i></a>
+                </div>
 
-		      <!-- Cada contenido de cada tab -->
-		    <div id="contenido " class="contenidoDiv">
-          <div class="col-sm-10">
-            <div class="cont col-sm-11 col-sm-push-2 experienciasDiv" id="experienciasSection">
-                <?php $experiencias = json_decode($_POST["experiencias"],true);
-                foreach ($experiencias as $experiencia => $exp) { ?>
-                  <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
-                    <div class="panel-heading panel-heading-experiencias">
-                      <a href="#" class="pull-right">View all</a>
-                      <img src="../<?php echo $exp['fotoPerfilMascota']; ?>" class="fotoComentario"/>
-                      <label for=""> <h4><?php echo $exp['nombreMascota']; ?></h4></label>
-                    </div>
-                      <div class="panel-body">
-                        <p class="text-center ">
-                          <img class="img-responsive img-thumbnail" onerror="this.style.display='none'" src="../<?php echo $exp['fotoExperiencia']; ?>" class="img">
-                        </p>
-                        <div class="clearfix"></div>
-                        <hr>
-                          <p><?php echo $exp['comentario']; ?></p>
-                        <hr>
-                        <ul class="list-group list_comentariosExternos" id="comentariosExternosUl">
-                          <?php
-                          foreach ($exp as $exp2 => $comentariosExternos) {
-                            if (!empty($comentariosExternos[$exp2])) {
-                              foreach ($comentariosExternos as $ce => $comentario) {?>
-                                  <li class="list-group-item" id="id_comentarioExterno_<?php echo $comentario['idComentarioExterno'] ?>">
-                                    <div class="perfilComentario">
-                                      <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
-                                      <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
-                                    </div>
-                                    <p class="comentarioUsuario"><em><?php echo $comentario['comentarioExterno'] ?></em></p>
-                                  </li>
-                              <?php
+                <ul class="nav navbar-nav navbar-right">
+                  <li class="">
+                    <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                      <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
+                      <span class=" fa fa-angle-down"></span>
+
+                    </a>
+                    <ul class="dropdown-menu dropdown-usermenu pull-right">
+                      <li><a href="javascript:;">Configuraci&oacute;n</a></li>
+                      <li><a href="#menu-toggle" id="menu-toggle">Ranking de Valoraciones</a></li>
+                      <li><a href="javascript:;">Ayuda</a></li>
+                      <li><a href="../controladores/cerrarSesionController.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
+                    </ul>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- Fin de la barra superior -->
+
+  		<!-- Contenedor donde estará todo el contenido  -->
+          <div class="tabscontent row col-md-offset-1">
+  	      	<!-- Navegador de los tabs -->
+  		    <ul class="contenido nav nav-tabs">
+  	          <li class="active col-md-3">
+                <a href="#experienciasSection" id="aExperienciaSection">
+                  Experiencias
+                </a>
+              </li>
+  		      <li class="col-md-3"><a href="#citas">Citas</a></li>
+  		      <li class="col-md-3"><a href="#perdidos">Perdidos</a></li>
+  		      <li class="col-md-3"><a href="#adopcion">En Adopci&oacute;n</a></li>
+  		    </ul>
+
+  		      <!-- Cada contenido de cada tab -->
+  		    <div id="contenido " class="contenidoDiv">
+            <div class="col-sm-10">
+              <div class="cont col-sm-11 col-sm-push-2 experienciasDiv" id="experienciasSection">
+                  <?php $experiencias = json_decode($_POST["experiencias"],true);
+                  foreach ($experiencias as $experiencia => $exp) { ?>
+                    <div class="panel panel-default" id="experiencia_<?php echo $exp['id']?>">
+                      <div class="panel-heading panel-heading-experiencias">
+                        <a href="#" class="pull-right" id="verMascota" data-toggle="modal" data-target="#modalPerfilMascota" data-id="<?php echo $exp['muroMascota']?>">Ver mascota</a>
+                        <img src="../<?php echo $exp['fotoPerfilMascota']; ?>" class="fotoComentario"/>
+                        <label for=""> <h4><?php echo $exp['nombreMascota']; ?></h4></label>
+                      </div>
+                        <div class="panel-body">
+                          <p class="text-center ">
+                            <img class="img-responsive img-thumbnail" onerror="this.style.display='none'" src="../<?php echo $exp['fotoExperiencia']; ?>" class="img">
+                          </p>
+                          <div class="clearfix"></div>
+                          <hr>
+                            <p><?php echo $exp['comentario']; ?></p>
+                          <hr>
+                          <ul class="list-group list_comentariosExternos" id="comentariosExternosUl">
+                            <?php
+                            foreach ($exp as $exp2 => $comentariosExternos) {
+                              if (!empty($comentariosExternos[$exp2])) {
+                                foreach ($comentariosExternos as $ce => $comentario) {?>
+                                    <li class="list-group-item" id="id_comentarioExterno_<?php echo $comentario['idComentarioExterno'] ?>">
+                                      <div class="perfilComentario">
+                                        <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
+                                        <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
+                                      </div>
+                                      <p class="comentarioUsuario"><em><?php echo $comentario['comentarioExterno'] ?></em></p>
+                                    </li>
+                                <?php
+                                }
                               }
-                            }
-                          }?>
-                          <?php  ?>
-                        </ul>
-                          <div class="input-group">
-                            <div class="input-group-btn">
-                              <form class="" action="../controladores/valorarExperienciaController.php" method="post">
-                                  <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                            }?>
+                            <?php  ?>
+                          </ul>
+                            <div class="input-group">
+                              <div class="input-group-btn">
+                                <form class="" action="../controladores/valorarExperienciaController.php" method="post">
+                                    <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                    <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
+                                    <button type="submit" class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button>
+                                </form>
+                              </div>
+                                <form class="" action="../controladores/crearComentarioExternoController.php" method="post">
                                   <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
-                                  <button type="submit" class="btn btn-default"><?php echo $exp['numeroValoracion'];?> <?php echo $exp['tipoValoracion'];?></button>
+                                  <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
+                                  <div class="input-group-btn">
+                                    <input type="text" name="comentarioExterno"class="form-control" placeholder="Agrega un comentario..">
+                                    <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
+                                  </div>
                               </form>
                             </div>
-                              <form class="" action="../controladores/crearComentarioExternoController.php" method="post">
-                                <input type="hidden" name="idExperiencia" value="<?php echo $exp['id'] ?>">
-                                <input type="hidden" name="idUsuario" value="<?php echo $id_usuario ?>">
-                                <div class="input-group-btn">
-                                  <input type="text" name="comentarioExterno"class="form-control" placeholder="Agrega un comentario..">
-                                  <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-share"></i></button>
-                                </div>
-                            </form>
-                          </div>
+                      </div>
                     </div>
-                  </div>
-                <?php }?>
+                  <?php }?>
+              </div>
             </div>
-          </div>
-		      <div id="citas" class="cont">Aca van las citas</div>
-		      <div id="perdidos" class="cont">Aca va tu vieja</div>
-		      <div id="adopcion" class="cont">Aca van los adoptados</div>
-		    </div>
-      	</div>
+  		      <div id="citas" class="cont">Aca van las citas</div>
+  		      <div id="perdidos" class="cont">Aca va tu vieja</div>
+  		      <div id="adopcion" class="cont">Aca van los adoptados</div>
+  		    </div>
+        	</div>
+        </div>
       </div>
     </div>
     <!-- Modal de regitrar mascota -->
@@ -270,10 +280,69 @@ else {
       </div>
     </div>
     <!-- Fin modal de mascota -->
+
+    <!-- Modal perfil de mascota-->
+    <div class="modal fade bs-example-modal-lg" id="modalPerfilMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" >
+          <div class="modal-header">
+            <h4 class="modal-title">Publicar Experiencias</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <div id="prueba">
+             </div>
+          </div>
+          <div class="modal-body"id="perfilMascotaDiv">
+            <?php $perfilMascota = json_decode($_POST["perfilMascota"],true);
+            print_r($perfilMascota);
+            ?>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin modal perfil de mascota -->
     <script src="../librerias/jquery/jquery.min.js"></script>
     <script src="../js/vistaMascotasDelUser.js" charset="utf-8" type="text/javascript"></script>
     <script src="../js/vistaExperiencia.js" charset="utf-8" types="text/javascript"></script>
     <script src="../js/menu_home.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    // Load the Visualization API and the corechart package.
+    google.charts.load('current', {'packages':['corechart']});
+
+    // Set a callback to run when the Google Visualization API is loaded.
+    google.charts.setOnLoadCallback(drawChart);
+
+    // Callback that creates and populates a data table,
+    // instantiates the pie chart, passes in the data and
+    // draws it.
+    function drawChart() {
+
+      // Create the data table.
+      var data = new google.visualization.DataTable();
+      data.addColumn('string', 'Topping');
+      data.addColumn('number', 'Slices');
+      data.addRows([
+        ['Mushrooms', 3],
+        ['Onions', 1],
+        ['Olives', 1],
+        ['Zucchini', 1],
+        ['Pepperoni', 2]
+      ]);
+
+      // Set chart options
+      var options = {'title':'How Much Pizza I Ate Last Night',
+      'width':400,
+      'height':300};
+
+      // Instantiate and draw our chart, passing in some options.
+      var chart = new google.visualization.ColumnChart(document.getElementById('prueba'));
+      chart.draw(data, options);
+    }
+    </script>
     <script src="../js/ajaxCargaMascota.js" type="text/javascript" ></script>
     <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
   </body>
