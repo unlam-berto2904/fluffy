@@ -31,6 +31,6 @@ function drawChart() {
   'height':300};
 
   // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.ColumnChart(document.getElementById('prueba'));
+  var chart = new google.visualization.PieChart(document.getElementById('prueba'));
   chart.draw(data, options);
 }
