@@ -23,11 +23,11 @@ $_SESSION['userName'] = $facebookLogin->getUserName();
 $_SESSION['email'] = $facebookLogin->getUserEmail();
 
 // Persistencia sesion Facebook
-	 
+
 	$nombreUsuario = $_SESSION['userName'];
 	$email = $_SESSION['email'];
 
-	$connQuery = new connQuery(); 
+	$connQuery = new connQuery();
 	$query = 'select * from usuario where nombre_usuario = "'.$nombreUsuario.'";';
 	$queryStringUserExiste = $connQuery->ejecutarConsultaIsTrue($query);
 
@@ -38,9 +38,14 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
 
 		$idUsuario = $query1;
 		$_SESSION["usuario"] = $idUsuario;
-  		Usuario::actualizarHoraDeConexion($idUsuario);
+    $_SESSION["arrayUsuario"] = $connQuery->getFila($query);
+  	Usuario::actualizarHoraDeConexion($idUsuario);
 	}
 	else {
+    // $request = new FacebookRequest($session, 'GET','/{user-id}/picture');
+    // $response = $request->execute();
+    // $graphObject = $response->getGraphObject();
+
 		$id = Null;
 		$nombre = $_SESSION['userName'];
 		$apellido = Null;
@@ -52,8 +57,8 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
 		$ubicación = Null;
 		$telefono = Null;
 		$id_domicilio = Null;
-		$ultimaConexion = Null;  	
-	  				
+		$ultimaConexion = Null;
+
 		$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";
 		$ps = $connQuery->prepare($sql);
 		mysqli_stmt_bind_param($ps,

@@ -87,7 +87,7 @@ class FacebookLogin
         $name = $user->getEmail() ?  $user->getEmail() : "sin email";
 
         return $name;
-    }    
+    }
 
     // Esta funcion realiza las llamadas y validaciones necesarias para obtener el token para utilizar facebook
     public function generateAccessToken(){
