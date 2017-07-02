@@ -49,6 +49,7 @@ Class Experiencia{
     $cq = new connQuery();
     $sql = "select  e.id_experiencia            id_experiencia,
                     e.comentario_experiencia    comentario_experiencia,
+                    e.id_muro_mascota           muro_mascota,
                     m.nombre                    nombre_mascota,
                     m.foto_mascota              foto_perfil_Mascota,
                     e.foto_experiencia          foto_experiencia,
@@ -57,7 +58,7 @@ Class Experiencia{
                     from experiencia e
                     join mascota m on m.id_muro_mascota = e.id_muro_mascota
                     join animal a on m.id_animal = a.id_animal
-                    order by e.fecha_experiencia desc";
+                    order by e.fecha_experiencia desc;";
     $filas = $cq->ejecutarConsulta($sql);
 
     $experiencias = array();
@@ -65,6 +66,7 @@ Class Experiencia{
     while ($fila =  mysqli_fetch_assoc($filas)) {
       $experiencia = array( 'id' => $fila['id_experiencia'],
                             'comentario' => $fila['comentario_experiencia'],
+                            'muroMascota' => $fila['muro_mascota'],
                             'nombreMascota' => $fila['nombre_mascota'],
                             'fotoPerfilMascota' => $fila['foto_perfil_Mascota'],
                             'fotoExperiencia' => $fila['foto_experiencia'],

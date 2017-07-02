@@ -29,7 +29,7 @@ class Usuario{
 		$this->fechaNacimiento = $fechaNacimiento;
 		$this->ultimaConexion = $ultimaConexion;
 		$this->pass = $pass;
-		// $this->conexion = mysqli_connect("localhost", "root", "admin2904", "fluffy");
+			$this->conexion = mysqli_connect("localhost", "root", "1286", "fluffy");
 	}
 	public static function  ingresarUsuarioUser ($usuarioUser,$usuarioPass){
 		$cq = new connQuery();
@@ -62,7 +62,7 @@ class Usuario{
 		return $consultaIsTrue;
 	}
 	function persistirse(){
-			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
+			if ($stmt = mysqli_prepare($this->$conexion, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
 				mysqli_stmt_bind_param($stmt, "sissss", $this->nombre, $this->id_sexo, $this->e_mail, $this->pass, $this->nombreUsuario, $this->apellido);
 				mysqli_stmt_execute($stmt);
 				$persistido = mysqli_stmt_fetch($stmt);
