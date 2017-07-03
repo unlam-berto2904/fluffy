@@ -38,7 +38,9 @@
   position: absolute;
   background-color: rgba(240, 95, 64, 0.24);
 }
-
+.mascotaPerfiles{
+  text-align: center;
+}
 .fa-chevron-left,
 .fa-chevron-right{
     color: #F05F40;
