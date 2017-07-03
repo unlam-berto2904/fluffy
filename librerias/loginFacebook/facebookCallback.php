@@ -69,7 +69,14 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
 			$pass,
 			$nombreUsuario,
 			$apellido);
+
 		mysqli_stmt_execute($ps);
-	}
+
+		$idUsuario = $connQuery->getUltimoId();
+    $sql2 = 'select * from usuario where id_usuario = '.$idUsuario;
+		$_SESSION["usuario"] = $idUsuario;
+    $_SESSION["arrayUsuario"] = $connQuery->getFila($sql2);
+  	Usuario::actualizarHoraDeConexion($idUsuario);
+  }
 
 header('Location: ../../../fluffy/vistas/home.php');

@@ -1,3 +1,17 @@
+<?php
+  // $nombreMascota = $_GET[""];
+  // $fotoMascota = $_GET[""];
+  // $tipoAnimal = $_GET[""];
+  // $raza = $_GET[""];
+  // $fechaNacimientoMascota = $_GET[""];
+  // $nombreDueño = $_GET[""];
+  // $apellidoDueño = $_GET[""];
+  // $fotoDueño = $_GET[""];
+  // $sexoDueño = $_GET[""];
+  // $ultimaConexionDue = $_GET[""];
+
+
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -48,14 +62,14 @@
      <div class="well col-sm-12">
       <div class="tab-content">
         <div class="tab-pane fade in active" id="tab1">
-          <h3>Nombre:</h3>
-          </br><h3>Tipo de animal:</h3>
+          <h3>Nombre: </h3>
+        </br><h3>Tipo de animal: <?php echo $_GET["age"]; ?></h3>
           </br><h3>Raza:</h3>
           </br><h3>Sexo:</h3>
           </br><h3>Fecha de nacimiento:</h3>
         </div>
-       
-        <div class="tab-pane fade in" id="tab2">	
+
+        <div class="tab-pane fade in" id="tab2">
          <div class="col-sm-6">
          	<img alt="" class="img-rounded thumbnail" src="../resources/fotosDePerfiles/usuarios/usuario_1.jpg">
          </div>
@@ -66,19 +80,19 @@
           </br><h3>Sexo:</h3>
           </br><h3>Usuario</h3>
          </div>
-         
-         
+
+
         </div>
-     
+
       </div>
     </div>
-    
- 
-            
 
-	
-    <script src="../librerias/jquery/jquery.min.js"></script> 
-    <script src="../js/perfilExterno.js"></script> 
+
+
+
+
+    <script src="../librerias/jquery/jquery.min.js"></script>
+    <script src="../js/perfilExterno.js"></script>
     <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>

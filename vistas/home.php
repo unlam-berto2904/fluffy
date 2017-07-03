@@ -27,12 +27,17 @@ else {
     <link href="../librerias/fuentes/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/estiloHome.css" rel="stylesheet">
     <script type="text/javascript" src="../librerias/angular.min.js"></script>
+    <link href="../css/estiloPerfilMascotaExterno.css" rel="stylesheet">
   </head>
   <body class="nav-sm">
     <div id="wrapper">
-      <div id="sidebar-wrapper">
-          <ul class="sidebar-nav">
-            Hola mundo
+      <div id="sidebar-wrapper" class="rankingDeMascotasTitulo">
+        <i class="fa fa-paw"></i>
+        <span>Fluffy</span></a>
+          <h1>Ranking de Valoraciones</h1>
+          <ul class="sidebar-nav" id="rankingDeMascotas" class="rankingMascotasDiv">
+            <li id="Perros"></li>
+            <li id="Gatos"></li>
           </ul>
       </div>
       <div class="container body" id="page-content-wrapper">
@@ -285,16 +290,61 @@ else {
     <div class="modal fade bs-example-modal-lg" id="modalPerfilMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" >
-          <div class="modal-header">
-            <h4 class="modal-title">Publicar Experiencias</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <div id="prueba">
-             </div>
-          </div>
           <div class="modal-body"id="perfilMascotaDiv">
             <?php $perfilMascota = json_decode($_POST["perfilMascota"],true);
-            print_r($perfilMascota);
             ?>
+            <div class="col-lg-12 col-sm-12">
+          	  <div class="card hovercard">
+                <div class="card-background">
+                    <img class="card-bkimg" alt="" src="../<?php echo $perfilMascota['fotoMascota'] ?>">
+                </div>
+                <div class="useravatar">
+                    <img alt="" src="../<?php echo $perfilMascota['fotoMascota'] ?>">
+                </div>
+                <div class="card-info"> <span class="card-title"><?php echo $perfilMascota['nombreMascota'] ?></span>
+
+                </div>
+            </div>
+
+            <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
+                <div class="btn-group" role="group">
+                    <button type="button" id="stars" class="btn btn-primary" href="#tab1" data-toggle="tab"><span class="fa fa-paw" aria-hidden="true"></span>
+                        <div class="hidden-xs">Informaci&oacute;n de la mascota</div>
+                    </button>
+                </div>
+                <div class="btn-group" role="group">
+                    <button type="button" id="favorites" class="btn btn-default" href="#tab2" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                        <div class="hidden-xs">Mi dueño</div>
+                    </button>
+                </div>
+            </div>
+
+             <div class="well col-sm-12">
+              <div class="tab-content">
+                <div class="tab-pane fade in active" id="tab1">
+                  <h3>Nombre: <?php echo $perfilMascota['nombreMascota'] ?></h3>
+                  </br><h3>Tipo de animal: <?php echo $perfilMascota['tipoAnimal'] ?></h3>
+                  </br><h3>Raza: <?php echo $perfilMascota['razaMascota'] ?></h3>
+                  </br><h3>Sexo: <?php echo $perfilMascota['sexoAnimal'] ?></h3>
+                  </br><h3>Fecha de nacimiento: <?php echo $perfilMascota['fechNacMascota'] ?></h3>
+                </div>
+
+                <div class="tab-pane fade in" id="tab2">
+                 <div class="col-sm-6">
+                 	<img alt="" class="img-rounded thumbnail" src="../<?php echo $perfilMascota['fotoDuenio'] ?>">
+                 </div>
+
+                 <div class="col-sm-6">
+                 </br><h3>Nombre y Apellido: </br><?php echo $perfilMascota['nombreDuenio'] ?> <?php echo $perfilMascota['apellidoDuenio'] ?> </h3>
+                </br><h3>Ultima vez en linea: </br> <?php echo $perfilMascota['ultimaConexUsuario'] ?></h3>
+                </br><h3>E-Mail: <?php echo $perfilMascota['emailDuenio'] ?></h3>
+                 </div>
+
+
+                </div>
+
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -308,5 +358,6 @@ else {
     <script src="../js/rankingDeMascotas.js" charset="utf-8" type="text/javascript"> </script>
     <script src="../js/ajaxCargaMascota.js" type="text/javascript" ></script>
     <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../js/perfilExterno.js"></script>
   </body>
 </html>

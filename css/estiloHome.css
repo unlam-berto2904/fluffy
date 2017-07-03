@@ -38,7 +38,9 @@
   position: absolute;
   background-color: rgba(240, 95, 64, 0.24);
 }
-
+.mascotaPerfiles{
+  text-align: center;
+}
 .fa-chevron-left,
 .fa-chevron-right{
     color: #F05F40;
@@ -619,7 +621,8 @@ a:focus {
     -webkit-box-shadow: none;
     right: 0;
     left: auto;
-    width: 220px
+    width: 220px;
+    z-index: 1022224;
 }
 .navbar-nav .open .dropdown-menu.msg_list {
     width: 300px
@@ -911,7 +914,21 @@ small.text-muted {
   justify-content: flex-end;
   width: 100%;
 }
-
+.rankingMascotasDiv{
+  padding: 7% 1%;
+}
+.rankingDeMascotasTitulo i{
+  border: 1px solid #EAEAEA;
+  padding: 5px 6px;
+  border-radius: 50%;
+}
+.rankingDeMascotasTitulo{
+  text-overflow: ellipsis;
+  font-weight: 400;
+  font-size: 22px;
+  color: #ECF0F1 !important;
+  line-height: 50%;
+}
 /*
  * off canvas
  * --------------------------------------------------
