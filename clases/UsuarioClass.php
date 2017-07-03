@@ -1,8 +1,6 @@
 <?php
 
-
 require_once('connQuery.php');
-
 
 
 class Usuario{
@@ -19,8 +17,9 @@ class Usuario{
 		private $ultimaConexion;
 		private $pass;
 		//private $conexion;
+		private $fotoPerfil;
 
-	function __construct($id, $nombre, $nombreUsuario, $apellido, $id_sexo, $telefono, $e_mail, $fechaNacimiento, $ultimaConexion, $pass){
+	function __construct($id, $nombre, $nombreUsuario, $apellido, $id_sexo, $telefono, $e_mail, $fechaNacimiento, $ultimaConexion, $pass, $fotoPerfil){
 		$this->id = $id;
 		$this->nombre = $nombre;
 		$this->nombreUsuario = $nombreUsuario;
@@ -33,7 +32,8 @@ class Usuario{
 		$this->fechaNacimiento = $fechaNacimiento;
 		$this->ultimaConexion = $ultimaConexion;
 		$this->pass = $pass;
-		// $this->conexion = mysqli_connect("localhost", "root", "admin2904", "fluffy");
+		$this->conexion = mysqli_connect("localhost", "root", "1286", "fluffy");
+		$this->fotoPerfil = $fotoPerfil;
 	}
 	public static function  ingresarUsuarioUser ($usuarioUser,$usuarioPass){
 		$cq = new connQuery();
@@ -66,6 +66,7 @@ class Usuario{
 		return $consultaIsTrue;
 	}
 	function persistirse(){
+
 			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
 				mysqli_stmt_bind_param($stmt, "sissss", 
 										$this->nombre, 
@@ -75,6 +76,7 @@ class Usuario{
 										$this->nombreUsuario, 
 										$this->apellido);
 				
+
 				mysqli_stmt_execute($stmt);
 				$persistido = mysqli_stmt_fetch($stmt);
 				return $persistido;
@@ -106,10 +108,6 @@ class Usuario{
 
 		function editarse(){
 			$conexion = new ConnQuery();
-			/* UPDATE table_name
-			SET column1 = value1, column2 = value2, ...
-			WHERE condition; */
-
 			$sql = "UPDATE usuario 
 					SET nombre = ?,		
 					id_sexo = ?, 
@@ -119,26 +117,27 @@ class Usuario{
 					apellido = ?,
 					telefono = ?,
 					ultima_conexion = ?,
-					fecha_nacimiento = ?										
+					fecha_nacimiento = ?,
+					foto_usuario = ?										
 					WHERE id_usuario = ?";
 
-				$stmt =  $conexion->prepare($sql);
-				mysqli_stmt_bind_param($stmt, "sisssssssi", 
-										$this->nombre, 
-										$this->id_sexo, 
-										$this->e_mail, 
-										$this->pass, 
-										$this->nombreUsuario, 
-										$this->apellido,
-										$this->telefono,
-										$this->ultimaConexion,
-										$this->fechaNacimiento,
-										$this->id);
+			$stmt =  $conexion->prepare($sql);
 
-				/**/
-				mysqli_stmt_execute($stmt);
-				$editado = mysqli_stmt_fetch($stmt);
-				return $editado;
+			mysqli_stmt_bind_param($stmt, "sissssssssi", 
+									$this->nombre, 
+									$this->id_sexo, 
+									$this->e_mail, 
+									$this->pass, 
+									$this->nombreUsuario, 
+									$this->apellido,
+									$this->telefono,
+									$this->ultimaConexion,
+									$this->fechaNacimiento,
+									$this->fotoPerfil,
+									$this->id);			
+			mysqli_stmt_execute($stmt);
+			$editado = mysqli_stmt_fetch($stmt);
+			return $editado;
 			
 		}
 }

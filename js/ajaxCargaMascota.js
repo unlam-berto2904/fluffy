@@ -1,4 +1,4 @@
-var app = angular.module("traer", []);
+//var app = angular.module("traer", []);
 app.controller("controlador", function($scope,$http){
 	$scope.cargar=function(){
 		$http.get("../controladores/cargarTipoAnimalesParaRegistroDeMascotaController.php").success(function(data){

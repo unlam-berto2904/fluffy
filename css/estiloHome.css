@@ -1,9 +1,13 @@
 /* Modificaciones nuevas */
 
 .perfil_mascota{
-    width: 100%;
+  width: 100%;
+  max-width: 12em;
 }
-
+.perfilComentario{
+  width: 50%;
+  margin-right: 10%;
+}
 .cont{
     display:none;
     padding:8px;
@@ -15,13 +19,37 @@
     padding:0;
     list-style: none;
 }
+.list_comentariosExternos{
+  margin: 3em;
+}
+.list_comentariosExternos li{
+  margin-bottom: 2em;
+  background: rgba(192, 133, 228, 0.08);
+  border: black solid 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.panel-heading-experiencias{
+  background-color: rgba(240, 95, 64, 0.72)!important;
+  color: rgb(255, 255, 255)!important;
+}
+.contenidoDiv{
+  position: absolute;
+  background-color: rgba(240, 95, 64, 0.24);
+}
+
+.fa-chevron-left,
+.fa-chevron-right{
+    color: #F05F40;
+}
 
 .active{
     font-weight:bold;
 }
 
 
-/* de aca en adelante, es codigo CSS que venia con el template*/
+/* de aca en adelante, la mayoria es codigo CSS que venia con el template*/
 
 
 html , body{
@@ -46,11 +74,16 @@ html , body{
     background: #F05F40
 }
 .nav-sm .container.body .col-md-3.left_col {
-    min-height: 100%;
-    width: 70px;
-    padding: 0;
-    z-index: 9999;
-    position: absolute
+
+  min-height: 100%;
+  width: 6em;
+  padding: 0;
+  z-index: 9999;
+  position: absolute;
+  overflow: initial;
+}
+.side-menu-mascota{
+  overflow: visible;
 }
 .nav-sm .container.body .col-md-3.left_col.menu_fixed {
     position: fixed;
@@ -66,12 +99,13 @@ html , body{
 .nav-sm .container.body .right_col {
     padding: 10px 20px;
     margin-left: 70px;
-    z-index: 2
+    z-index: 2;
 }
 .nav-sm .navbar.nav_title {
     width: 70px
 }
-.nav-sm .navbar.nav_title a span {
+.nav-sm .navbar.nav_title a span
+ {
     display: none
 }
 .nav-sm .navbar.nav_title a i {
@@ -89,11 +123,12 @@ html , body{
     z-index: 2
 }
 .nav-sm .nav.side-menu li a {
-    margin-top: 60%;
-    text-align: center !important;
-    font-weight: 400;
-    font-size: 10px;
-    padding: 10px 5px
+  margin-top: 0%;
+  text-align: center !important;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 1em 0.1em;
+  overflow: hidden;
 }
 .nav-sm .nav.child_menu li.activo,
 .nav-sm .nav.side-menu li.activo-sm {
@@ -153,7 +188,10 @@ html , body{
     margin-top: 10px
 }
 
-
+.funcionesMascota{
+  top: 2em !important;
+  left: 7em !important;
+}
 
 
 .main_menu span.fa {
@@ -173,10 +211,15 @@ html , body{
 .nav-sm .menu_section {
     margin: 0
 }
-.nav-sm span.fa,
+
+.nav-sm li a p {
+  display: none;
+}
+
+/*.nav-sm span.fa,
 .nav-sm .menu_section h3 {
     display: none
-}
+}*/
 .nav-sm li li span.fa {
     display: inline-block
 }
@@ -321,8 +364,7 @@ a:activo,
 }
 a:hover,
 a:focus {
-    text-decoration: none;
-    color: darkviolet;
+    text-decoration: none
 }
 .navbar {
     margin-bottom: 0
@@ -497,7 +539,11 @@ a:focus {
     background-color: transparent
 }
 
-
+.mascotasUser{
+  position: fixed !important;
+  overflow-y: auto;
+  height: 100%;
+}
 
 
 
@@ -614,8 +660,17 @@ hr {
 
 .wrapper, .row {
    height: 100%;
-   margin-left:5em;
    margin-right:0;
+}
+
+@media (min-width: 992px) {
+  .wrapper, .row {
+    margin-left: 5em;
+  }
+}
+
+.cont{
+  margin-left: 1em;
 }
 
 .wrapper:before, .wrapper:after,
@@ -846,11 +901,15 @@ small.text-muted {
 
 }
 .fotoComentario{
-  width: 8%;
+  width: 4em;
   margin-right: 2%;
 }
 .comentarioUsuario{
   margin: 2% 0%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  width: 100%;
 }
 
 /*

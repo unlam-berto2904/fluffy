@@ -3,7 +3,6 @@ var base_url = window.location.origin;
 $(document).ready(function() {
 var idUsuario = $("#idUsuario").val();
 mostrarMascotasDelUser(idUsuario);
-
 });
 
 
@@ -23,7 +22,7 @@ function mostrarMascotasDelUser(idUsuario) {
 
 function enviarMascotasAVistaMascotasDelUser(mascotasDelUser){
     $.ajax({
-      url:base_url+"/fluffy/vistas/vistaMascotasDelUser.php",
+      url:base_url+"/fluffy/vistas/home.php",
       type:"POST",
       data:{mascotas:mascotasDelUser},
       success: function(data){

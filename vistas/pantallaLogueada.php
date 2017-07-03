@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <?php
 require ('../clases/UsuarioClass.php');
 // require ('../clases/ConnQuery.php');
@@ -20,6 +21,7 @@ else {
   header("location: ../index.php");
 }
 ?>
+
 <html>
   <head ng-app="fluffy">
     <meta charset="utf-8">
@@ -136,6 +138,7 @@ else {
       <a href="vistaMascotasDelUser.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">mostrar animales</a>
       <a href="vistaExperiencia.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Mostrar Experiencias</a>
       <a href="vistaCrearMascota.php" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Crear Mascotas</a>
+      <a href="logout.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">LogOut</a>
     </div>
     
 

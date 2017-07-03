@@ -31,6 +31,11 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <?php 
+        session_start();
+        require_once  ('librerias/loginFacebook/helper/facebookLogin/FacebookLogin.php');
+        $facebookLogin = new FacebookLogin();
+    ?>
 
 </head>
 
@@ -88,7 +93,9 @@
             </div>
             <div class="col-sm-12 contenedor-login-botones">
                 	<a href="" class="btn btn-danger btn-md google"><i class="fa fa-2x fa-google"></i>  Iniciar con Google</a>
-                	<a href="" class="btn btn-primary btn-md facebook"><i class="fa fa-2x fa-facebook-square"></i>   Iniciar con Facebook</a>
+                    <?php
+                        echo '<a href="' . $facebookLogin->getLoginUrl() . '" class="btn btn-primary btn-md facebook"><i class="fa fa-2x fa-facebook-square"></i>   Iniciar con Facebook</a>'
+                    ?>
             </div>
         </div>
     </header>
