@@ -125,9 +125,17 @@ Class Mascota{
 		$conexion = new ConnQuery();
 
 		//definicion de la consulta
-		$sql = "SELECT  M.id_mascota, M.nombre nombreMascota, U.id_usuario, U.nombre nombreUsuario
+		$sql = "SELECT  M.id_mascota, 
+						M.nombre nombreMascota, 
+						M.foto_mascota fotoPerfil,
+						M.fecha_nacimiento fechaNacimiento,
+						U.id_usuario, U.nombre nombreUsuario,
+						S.descripcion sexo,
+						R.descripcion raza
 			FROM usuario U join mascota M on U.id_usuario=M.id_usuario join
-				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota 
+				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota join
+				sexo S on M.id_sexo=S.id_sexo join
+				raza R on M.id_raza=R.id_raza
 			where MM.perdido =  1
 			limit ?,?";
 		/* private $idUsuario;
@@ -161,9 +169,17 @@ Class Mascota{
 		$conexion = new ConnQuery();
 
 		//definicion de la consulta
-		$sql = "SELECT  M.id_mascota, M.nombre nombreMascota, U.id_usuario, U.nombre nombreUsuario
+		$sql = "SELECT  M.id_mascota, 
+						M.nombre nombreMascota, 
+						M.foto_mascota fotoPerfil,
+						M.fecha_nacimiento fechaNacimiento,
+						U.id_usuario, U.nombre nombreUsuario,
+						S.descripcion sexo,
+						R.descripcion raza
 			FROM usuario U join mascota M on U.id_usuario=M.id_usuario join
-				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota 
+				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota join
+				sexo S on M.id_sexo=S.id_sexo join
+				raza R on M.id_raza=R.id_raza
 			where MM.adopcion =  1
 			limit ?,?";
 
@@ -190,9 +206,17 @@ Class Mascota{
 		$conexion = new ConnQuery();
 
 		$output = array();
-		$sql = "SELECT  M.id_mascota, M.nombre nombreMascota, U.id_usuario, U.nombre nombreUsuario
+		$sql = "SELECT  M.id_mascota, 
+						M.nombre nombreMascota, 
+						M.foto_mascota fotoPerfil,
+						M.fecha_nacimiento fechaNacimiento,
+						U.id_usuario, U.nombre nombreUsuario,
+						S.descripcion sexo,
+						R.descripcion raza
 			FROM usuario U join mascota M on U.id_usuario=M.id_usuario join
-				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota 
+				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota join
+				sexo S on M.id_sexo=S.id_sexo join
+				raza R on M.id_raza=R.id_raza
 			where MM.cita =  1
 			limit ?,?";
 

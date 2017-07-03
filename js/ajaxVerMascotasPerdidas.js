@@ -1,7 +1,7 @@
 
 
 //funcion ajax para consultar mascotas perdidas
-app.controller("controlador", function($scope, $http){
+app.controller("controladorPerdidos", function($scope, $http){
   $scope.verMascotasPerdidas = function(){
     	$http.post("../controladores/verMascotasPerdidasController.php", {'desde':desde, 'cantidad':cantidad})
     	.success(function(data){

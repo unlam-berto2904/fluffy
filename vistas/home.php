@@ -34,7 +34,7 @@ else {
     <link href="../librerias/bootstrap/css/simple-sidebar.css" rel="stylesheet">
     <link href="../librerias/fuentes/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/estiloHome.css" rel="stylesheet">
-    <script type="text/javascript" src="../librerias/angular.min.js"></script>
+    
 
     <!-- Angular -->
     <script type="text/javascript" src="../librerias/angular.min.js" ></script>
@@ -131,7 +131,7 @@ else {
   		<!-- Contenedor donde estará todo el contenido  -->
       <div ng-controller="controladorEnCita">
         <div ng-controller="controladorEnAdopcion">
-          <div ng-controller="controlador">  
+          <div ng-controller="controladorPerdidos">  
             <div class="tabscontent row col-md-offset-1">
       	      	<!-- Navegador de los tabs -->
       		    <ul class="contenido nav nav-tabs">
@@ -213,10 +213,15 @@ else {
                         
                         <div class="panel panel-default" ng-model="mascota" ng-repeat="mascota in mascotas">
                           <div class="panel-heading panel-heading-experiencias">
-                            <h3>{{mascota.nombreMascota}}</h3>
+                            <img src="../{{mascota.fotoPerfil}}" class="fotoComentario"/>
+                            <h2>{{mascota.nombreMascota}}</h2>
+
                           </div>
                           <div class="panel-body">
-                            <h6>{{mascota.nombreUsuario}} </h6>
+                            <h4>Sexo: {{mascota.sexo}}</h4>
+                            <h4>Raza: {{mascota.raza}}</h4>
+                            <h5>Fecha de nacimiento: {{mascota.fechaNacimiento}}</h5>
+                            <h6>propietario: {{mascota.nombreUsuario}} </h6>
                           </div>
                         </div>
                           
@@ -232,12 +237,17 @@ else {
                     
                     <div class="panel panel-default" ng-model="perdido" ng-repeat="perdido in perdidos">
                       <div class="panel-heading panel-heading-experiencias">
-                        <h3>{{perdido.nombreMascota}}</h3>
-                      </div>
-                      <div class="panel-body">
-                        <h6>{{perdido.nombreUsuario}} </h6>
-                      </div>
-                    </div>
+                            <img src="../{{perdido.fotoPerfil}}" class="fotoComentario"/>
+                            <h2>{{perdido.nombreMascota}}</h2>
+
+                          </div>
+                          <div class="panel-body">
+                            <h4>Sexo: {{perdido.sexo}}</h4>
+                            <h4>Raza: {{perdido.raza}}</h4>
+                            <h5>Fecha de nacimiento: {{perdido.fechaNacimiento}}</h5>
+                            <h6>propietario: {{perdido.nombreUsuario}} </h6>
+                          </div>
+                        </div>
                       
                     <br />
                     <input type="button" name="verPerdidosConcatenado" ng-click="verMascotasPerdidas()" class="btn btn-info" value="Ver m&aacute;s">
@@ -248,13 +258,18 @@ else {
                   <div  ng-init="verMascotasEnAdopcion()">       
                     
                     <div class="panel panel-default" ng-model="adopcion" ng-repeat="adopcion in enAdopcion">
-                      <div class="panel-heading">
-                        <h3>{{adopcion.nombreMascota}}</h3>
-                      </div>
-                      <div class="panel-body">
-                        <h6>{{adopcion.nombreUsuario}} </h6>
-                      </div>
-                    </div>
+                      <div class="panel-heading panel-heading-experiencias">
+                            <img src="../{{adopcion.fotoPerfil}}" class="fotoComentario"/>
+                            <h2>{{adopcion.nombreMascota}}</h2>
+
+                          </div>
+                          <div class="panel-body">
+                            <h4>Sexo: {{adopcion.sexo}}</h4>
+                            <h4>Raza: {{adopcion.raza}}</h4>
+                            <h5>Fecha de nacimiento: {{adopcion.fechaNacimiento}}</h5>
+                            <h6>propietario: {{adopcion.nombreUsuario}} </h6>
+                          </div>
+                        </div>
                       
                     <br />
                     <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
