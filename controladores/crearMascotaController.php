@@ -1,6 +1,7 @@
 <?php
 	require ("../clases/MuroMascotaClass.php");
 	require ("../clases/mascotaClass.php");
+	require_once ("../clases/UsuarioClass.php");
 
 	// $usuario = $_GET["id_usuario"];
 	// $idUsuario = (int)$usuario;
@@ -37,6 +38,24 @@
 	$pathFotoMascota = "resources/fotosDePerfiles/mascotas/mascota_".$usuario."_".$idMuroMascota.".".$ext;
 	move_uploaded_file($fotoPerfil['tmp_name'], "../".$pathFotoMascota);
 //Fin de ingreso de foto de perfil a la carpeta resources
+
+//Llamado datos de Usuario por ID
+	$usuarioArray = Usuario::consultarUsuarioPorID($idUsuario);
+
+//Armado de String URLLite
+	$urlBase = "/perfilesExternos/perfilExternoMascota.php?nombreMascota=" . $nombre . 
+															"&fotoMascota=" . $pathFotoMascota . 
+															"&tipoAnimal=" . $idAnimal .
+															"&tipoRaza=" . $idRaza .
+															"&fechaNacimiento=" . $fechaNacimiento .
+															"&nombreUsuario=" . $usuarioArray['nombreUsuario'] .
+															"&apellidoUsuario=" . $usuarioArray['apellidoUsuario'] .
+															"&fotoUsuario=" . $usuarioArray['fotoPerfilUsuario'] .
+															"&sexoUsuario=" . $usuarioArray['sexoUsuario'] .
+															"&ultimaConexion='" . $usuarioArray['ultimaConexion'] . "'" ;
+	$urlLite = $urlBase;	
+												
+//Fin armado URLLite
 
 	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $pathFotoMascota);
 	$resultado_ingreso = $mascota->persistirMascota();

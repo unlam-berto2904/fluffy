@@ -4,6 +4,7 @@
   // $tipoAnimal = $_GET[""];
   // $raza = $_GET[""];
   // $fechaNacimientoMascota = $_GET[""];
+
   // $nombreDueño = $_GET[""];
   // $apellidoDueño = $_GET[""];
   // $fotoDueño = $_GET[""];
