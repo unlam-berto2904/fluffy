@@ -37,6 +37,7 @@
 .contenidoDiv{
   position: absolute;
   background-color: rgba(240, 95, 64, 0.24);
+  width: 100%;
 }
 .mascotaPerfiles{
   text-align: center;
