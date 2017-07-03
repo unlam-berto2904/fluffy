@@ -1,10 +1,5 @@
 <?php
-
-
-require_once("connQuery.php");
-
-
-
+require_once('connQuery.php');
 
 Class Mascota{
 
@@ -126,7 +121,7 @@ Class Mascota{
 
 		//definicion de la consulta
 		$sql = "SELECT  M.id_mascota,
-						M.nombre nombreMascota, 
+						M.nombre nombreMascota,
 						M.foto_mascota fotoPerfil,
 						M.fecha_nacimiento fechaNacimiento,
 						MM.id_muro_mascota,
@@ -140,8 +135,8 @@ Class Mascota{
 			where MM.perdido =  1
 			ORDER BY id_muro_mascota desc
 			limit ?,?";
-		
-		//ejecucion de prepare_statement	
+
+		//ejecucion de prepare_statement
 		$stmt = $conexion->prepare($sql);
 		//bindeo de datos al statement
 		mysqli_stmt_bind_param($stmt, "ii", $desde, $cantidad);
@@ -163,8 +158,8 @@ Class Mascota{
 		$conexion = new ConnQuery();
 
 		//definicion de la consulta
-		$sql = "SELECT  M.id_mascota, 
-						M.nombre nombreMascota, 
+		$sql = "SELECT  M.id_mascota,
+						M.nombre nombreMascota,
 						M.foto_mascota fotoPerfil,
 						M.fecha_nacimiento fechaNacimiento,
 						MM.id_muro_mascota,
@@ -179,7 +174,7 @@ Class Mascota{
 			ORDER BY id_muro_mascota desc
 			limit ?,?";
 
-		//ejecucion de prepare_statement	
+		//ejecucion de prepare_statement
 		$stmt = $conexion->prepare($sql);
 		//bindeo de datos al statement
 		mysqli_stmt_bind_param($stmt, "ii", $desde, $cantidad);
@@ -193,17 +188,17 @@ Class Mascota{
 		while($fila = mysqli_fetch_assoc($resultado)){
 			$output[] = $fila;
 		}
-		
+
 		return $output;
 	}
 
 	public static function traerCitas( $desde, $cantidad){
-		
+
 		$conexion = new ConnQuery();
 
 		$output = array();
-		$sql = "SELECT  M.id_mascota, 
-						M.nombre nombreMascota, 
+		$sql = "SELECT  M.id_mascota,
+						M.nombre nombreMascota,
 						M.foto_mascota fotoPerfil,
 						M.fecha_nacimiento fechaNacimiento,
 						MM.id_muro_mascota,
@@ -228,36 +223,36 @@ Class Mascota{
 		while ($row = mysqli_fetch_array($resultado)) {
 			$output[] =$row;
 		}
-		
-		return $output;								
+
+		return $output;
 
 	}
-	
+
 
 
 	public static function getPerfilMascotaByIdMuroMascota($idMuroMascota){
 		$cq = new connQuery();
 		$sql = "select          m.nombre                nombre_mascota,
-						                m.foto_mascota          foto_mascota,
-						                m.fecha_nacimiento      fecha_nacimiento_mascota,
-						                m.id_usuario 			id_usuario_mascota,
-						                m.url_lite 				urlLite
-						                s.descripcion           sexo_animal,
-						                r.descripcion           raza_mascota,
-						                a.descripcion           tipo_animal,
-						                a.id_animal				id_tipo_animal
-						                u.nombre                nombre_duenio_mascota,
-						                u.apellido              apellido_duenio_mascota,
-						                u.foto_usuario          foto_usuario,
-						                u.e_mail                email_usuario,
-						                u.ultima_conexion       ultima_conexion_usuario
-						from mascota m
-						join muro_mascota mm on mm.id_muro_mascota = m.id_muro_mascota
-						join usuario u on u.id_usuario = m.id_usuario
-						join raza r on r.id_raza = m.id_raza
-						join animal a on a.id_animal = r.id_animal
-						join sexo s on s.id_sexo = m.id_sexo
-						where m.id_muro_mascota = ".$idMuroMascota;
+                m.foto_mascota          foto_mascota,
+                m.fecha_nacimiento      fecha_nacimiento_mascota,
+                m.id_usuario 			id_usuario_mascota,
+                m.url_lite 				urlLite,
+                s.descripcion           sexo_animal,
+                r.descripcion           raza_mascota,
+                a.descripcion           tipo_animal,
+                a.id_animal				id_tipo_animal,
+                u.nombre                nombre_duenio_mascota,
+                u.apellido              apellido_duenio_mascota,
+                u.foto_usuario          foto_usuario,
+                u.e_mail                email_usuario,
+                u.ultima_conexion       ultima_conexion_usuario
+				from mascota m
+				join muro_mascota mm on mm.id_muro_mascota = m.id_muro_mascota
+				join usuario u on u.id_usuario = m.id_usuario
+				join raza r on r.id_raza = m.id_raza
+				join animal a on a.id_animal = r.id_animal
+				join sexo s on s.id_sexo = m.id_sexo
+				where m.id_muro_mascota = ".$idMuroMascota;
 
 		$fila = $cq->getFila($sql);
 		$perfilMascota = array( 'nombreMascota' => $fila['nombre_mascota'],
@@ -294,7 +289,7 @@ Class Mascota{
 
 	function sacarDeCita($cita, $idMuro){
 		$conexion = new ConnQuery();
-		
+
 		$sql = "UPDATE muro_mascota
 				SET cita = ?
 				WHERE id_muro_mascota = ?";
@@ -309,7 +304,7 @@ Class Mascota{
 	//funciones de Perdido
 	function cambiarAPerdido($perdido, $idMuro){
 		$conexion = new ConnQuery();
-		
+
 		$sql = "UPDATE muro_mascota
 				SET perdido = ?
 				WHERE id_muro_mascota = ?";
@@ -323,7 +318,7 @@ Class Mascota{
 
 	function sacarDePerdido($perdido, $idMuro){
 		$conexion = new ConnQuery();
-		
+
 		$sql = "UPDATE muro_mascota
 				SET perdido = ?
 				WHERE id_muro_mascota = ?";
@@ -338,7 +333,7 @@ Class Mascota{
 	//funciones de Adopcion
 	function cambiarAAdopcion($adopcion, $idMuro){
 		$conexion = new ConnQuery();
-		
+
 		$sql = "UPDATE muro_mascota
 				SET adopcion = ?
 				WHERE id_muro_mascota = ?";
@@ -352,7 +347,7 @@ Class Mascota{
 
 	function sacarDeAdopcion($adopcion, $idMuro){
 		$conexion = new ConnQuery();
-		
+
 		$sql = "UPDATE muro_mascota
 				SET adopcion = ?
 				WHERE id_muro_mascota = ?";

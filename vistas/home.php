@@ -35,15 +35,15 @@ else {
     <link href="../librerias/fuentes/font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/estiloHome.css" rel="stylesheet">
     <link href="../css/estiloPerfilMascotaExterno.css" rel="stylesheet">
-    
+
     <!-- Angular -->
     <script type="text/javascript" src="../librerias/angular.min.js" ></script>
     <!-- Modulo angular -->
     <script type="text/javascript" src="../js/moduloAngularFluffy.js"></script>
     <!-- Controladores angular -->
-    <script type="text/javascript" src="../js/ajaxVerMascotaEnAdopcion.js"></script> 
-    <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script> 
-    <script type="text/javascript" src="../js/ajaxVerMascotaEnCita.js"></script> 
+    <script type="text/javascript" src="../js/ajaxVerMascotaEnAdopcion.js"></script>
+    <script type="text/javascript" src="../js/ajaxVerMascotasPerdidas.js"></script>
+    <script type="text/javascript" src="../js/ajaxVerMascotaEnCita.js"></script>
 
   </head>
 
@@ -77,7 +77,7 @@ else {
                     <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
                     <?php $mascotas = json_decode($_POST["mascotas"],true);
                     foreach ($mascotas as $mascotaUser => $mascota){ ?>
-                      
+
                       <li>
                         <div class="dropdown mascotaPerfiles ">
                           <a class="dropdown-toggle aMuroMascota" data-toggle="dropdown" data-id="<?php echo $mascota['muroMascota']?>">
@@ -94,7 +94,7 @@ else {
                             <li><a href="../controladores/cambiarMascotaAPerdidoController.php?perdido=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Perdido</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=1&mascota=<?= $mascota['muroMascota'] ?>">Poner en Adopcion</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Adopcion</a></li>
-                            
+
                           </ul>
                         </div>
                       </li>
@@ -135,7 +135,7 @@ else {
   		<!-- Contenedor donde estará todo el contenido  -->
       <div ng-controller="controladorEnCita">
         <div ng-controller="controladorEnAdopcion">
-          <div ng-controller="controladorPerdidos">  
+          <div ng-controller="controladorPerdidos">
             <div class="tabscontent row col-md-offset-1">
       	      	<!-- Navegador de los tabs -->
       		    <ul class="contenido nav nav-tabs">
@@ -208,13 +208,13 @@ else {
                         </div>
                       <?php }?>
                   </div>
-                </div>  
+                </div>
                 <!-- SECCION DE CITA  -->
                 <div  class="col-sm-10">
         		      <div id="citas" class="cont col-sm-11 col-sm-push-2 ">
-                    
-                      <div ng-init="traerCitas()">       
-                        
+
+                      <div ng-init="traerCitas()">
+
                         <div class="panel panel-default" ng-model="mascota" ng-repeat="mascota in mascotas">
                           <div class="panel-heading panel-heading-experiencias">
                             <img src="../{{mascota.fotoPerfil}}" class="fotoComentario"/>
@@ -228,17 +228,17 @@ else {
                             <h6>propietario: {{mascota.nombreUsuario}} </h6>
                           </div>
                         </div>
-                          
+
                         <br />
                         <input type="button" name="verCitaConcatenado" ng-click="traerCitas()" class="btn btn-info" value="Ver m&aacute;s">
-                      </div> 
-                      
+                      </div>
+
                   </div>
                 </div>
                 <!-- SECCION DE PERDIDOS  -->
       		      <div id="perdidos" class="cont">
-                  <div ng-init="verMascotasPerdidas()">       
-                    
+                  <div ng-init="verMascotasPerdidas()">
+
                     <div class="panel panel-default" ng-model="perdido" ng-repeat="perdido in perdidos">
                       <div class="panel-heading panel-heading-experiencias">
                             <img src="../{{perdido.fotoPerfil}}" class="fotoComentario"/>
@@ -252,15 +252,15 @@ else {
                             <h6>propietario: {{perdido.nombreUsuario}} </h6>
                           </div>
                         </div>
-                      
+
                     <br />
                     <input type="button" name="verPerdidosConcatenado" ng-click="verMascotasPerdidas()" class="btn btn-info" value="Ver m&aacute;s">
-                  </div>  
+                  </div>
                 </div>
                 <!-- SECCION DE ADOPCION  -->
       		      <div id="adopcion" class="cont">
-                  <div  ng-init="verMascotasEnAdopcion()">       
-                    
+                  <div  ng-init="verMascotasEnAdopcion()">
+
                     <div class="panel panel-default" ng-model="adopcion" ng-repeat="adopcion in enAdopcion">
                       <div class="panel-heading panel-heading-experiencias">
                             <img src="../{{adopcion.fotoPerfil}}" class="fotoComentario"/>
@@ -274,7 +274,7 @@ else {
                             <h6>propietario: {{adopcion.nombreUsuario}} </h6>
                           </div>
                         </div>
-                      
+
                     <br />
                     <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
                   </div>
@@ -285,7 +285,7 @@ else {
           </div>
         </div>
       </div>
-    
+
 
     <!-- MODAL PARA EDITAR USUARIO-->
     <div id="myModalEditarUsuario" class="modal fade" role="dialog">
@@ -313,7 +313,7 @@ else {
                 <label>Nuevo apellido</label>
                 <input type="text" class="form-control" name="nuevoApellido" value="<?= $apellidoUsuario ?>">
               </div>
-              
+
               <div class="form-group col-md-12">
                 <label>Cambiar fecha de nacimiento</label>
                 <input type="date" class="form-control" name="nuevaFechaNacimiento" value="<?= $fechaNacimiento ?>">
@@ -321,7 +321,7 @@ else {
               <div class="form-group col-md-12">
                 <label>Cambiar E-mail</label>
                 <input type="text" class="form-control" name="nuevoE_mail" value="<?=$email ?>">
-              </div> 
+              </div>
               <div class="form-group col-md-12">
                 <label>Cambiar Telefono</label>
                 <input type="text" class="form-control" name="nuevoTelefono" value="<?=$telefono ?>">
@@ -337,7 +337,7 @@ else {
                   <option value="1">Masculino</option>
                   <option value="2">Femenino</option>
                 </select>
-              </div>             
+              </div>
               <div class="form-group col-md-12">
                 <label>Modificar contraseña</label>
                 <input type="password" class="form-control" name="nuevaContrasenia" value="<?= $pass ?>">
@@ -458,12 +458,6 @@ else {
     <div class="modal fade bs-example-modal-lg" id="modalPerfilMascota" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content" >
-          <div class="modal-header">
-            <h4 class="modal-title">Publicar Experiencias</h4>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <div id="prueba">
-             </div>
-          </div>
           <div class="modal-body" id="perfilMascotaDiv">
             <?php $perfilMascota = json_decode($_POST["perfilMascota"],true);
             ?>
