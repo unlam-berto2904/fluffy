@@ -30,7 +30,7 @@
     height: 100%;
     margin-left: -250px;
     overflow-y: auto;
-    background: #000;
+    background: rgb(121, 102, 141);
     -webkit-transition: all 0.5s ease;
     -moz-transition: all 0.5s ease;
     -o-transition: all 0.5s ease;
@@ -54,12 +54,15 @@
 /* Sidebar Styles */
 
 .sidebar-nav {
-    position: absolute;
+    position: relative;
     top: 0;
-    width: 250px;
+    width: 100%;
     margin: 0;
     padding: 0;
     list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
 }
 
 .sidebar-nav li {
@@ -98,7 +101,10 @@
     color: #fff;
     background: none;
 }
-
+#sidebar-wrapper h1{
+  text-align: center;
+  margin: 4%;
+}
 @media(min-width:768px) {
     #wrapper {
         padding-left: 0;
@@ -113,7 +119,7 @@
     }
 
     #wrapper.toggled #sidebar-wrapper {
-        width: 250px;
+        width: 89%;
     }
 
     #page-content-wrapper {

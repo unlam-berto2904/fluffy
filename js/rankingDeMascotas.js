@@ -1,36 +1,45 @@
 $("#menu-toggle").click(function(e) {
     e.preventDefault();
     $("#wrapper").toggleClass("toggled");
+    mostrarRankingValoraciones();
+
 });
 // Load the Visualization API and the corechart package.
-google.charts.load('current', {'packages':['corechart']});
+function mostrarRankingValoraciones() {
+  $.ajax({
+    url:base_url+"/fluffy/controladores/obtenerRankingValoracionesMascotasController.php",
+    type:"POST",
+    data:'',
+    success: function (result) {
+      var parsed = JSON.parse(result);
+      var tipoAnimal = ["Perros","Gatos"];
+        google.charts.load('current', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(drawChart);
 
-// Set a callback to run when the Google Visualization API is loaded.
-google.charts.setOnLoadCallback(drawChart);
+        function drawChart() {
 
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart() {
+          for (var i = 0; i < tipoAnimal.length; i++) {
 
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Topping');
-  data.addColumn('number', 'Slices');
-  data.addRows([
-    ['Mushrooms', 3],
-    ['Onions', 1],
-    ['Olives', 1],
-    ['Zucchini', 1],
-    ['Pepperoni', 2]
-  ]);
+          var data = new google.visualization.DataTable();
+          data.addColumn('string', 'Mascota');
+          data.addColumn('number', 'Valoraciones');
+          data.addRows(parsed[i].length);
+          $.each(parsed[i], function(index, value1) {
+            data.setCell(index, 0, value1.nombreMascota);
+            data.setCell(index, 1, parseInt(value1.valoraciones));
+          })
 
-  // Set chart options
-  var options = {'title':'How Much Pizza I Ate Last Night',
-  'width':400,
-  'height':300};
+          var options = {'title':'Mascotas:' + tipoAnimal[i],
+          'width':500,
+          'height':500,
+          is3D: true,
+          backgroundColor: 'rgb(121, 102, 141)'
+         };
 
-  // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.PieChart(document.getElementById('prueba'));
-  chart.draw(data, options);
+          var chartPie = new google.visualization.PieChart(document.getElementById(tipoAnimal[i]));
+          chartPie.draw(data, options);
+        }
+      }
+    }
+  });
 }

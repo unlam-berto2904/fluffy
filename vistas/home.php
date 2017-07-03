@@ -30,9 +30,13 @@ else {
   </head>
   <body class="nav-sm">
     <div id="wrapper">
-      <div id="sidebar-wrapper">
-          <ul class="sidebar-nav">
-            Hola mundo
+      <div id="sidebar-wrapper" class="rankingDeMascotasTitulo">
+        <i class="fa fa-paw"></i>
+        <span>Fluffy</span></a>
+          <h1>Ranking de Valoraciones</h1>
+          <ul class="sidebar-nav" id="rankingDeMascotas" class="rankingMascotasDiv">
+            <li id="Perros"></li>
+            <li id="Gatos"></li>
           </ul>
       </div>
       <div class="container body" id="page-content-wrapper">
