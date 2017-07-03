@@ -125,10 +125,11 @@ Class Mascota{
 		$conexion = new ConnQuery();
 
 		//definicion de la consulta
-		$sql = "SELECT  M.id_mascota, 
+		$sql = "SELECT  M.id_mascota,
 						M.nombre nombreMascota, 
 						M.foto_mascota fotoPerfil,
 						M.fecha_nacimiento fechaNacimiento,
+						MM.id_muro_mascota,
 						U.id_usuario, U.nombre nombreUsuario,
 						S.descripcion sexo,
 						R.descripcion raza
@@ -137,16 +138,9 @@ Class Mascota{
 				sexo S on M.id_sexo=S.id_sexo join
 				raza R on M.id_raza=R.id_raza
 			where MM.perdido =  1
+			ORDER BY id_muro_mascota desc
 			limit ?,?";
-		/* private $idUsuario;
-	private $sexo;
-	private $fechaNacimiento;
-	private $urlLite;
-	private $nombre;
-	private $idMuroMascota;
-	private $idRaza;
-	private $idAnimal;
-	private $fotoPerfil;*/
+		
 		//ejecucion de prepare_statement	
 		$stmt = $conexion->prepare($sql);
 		//bindeo de datos al statement
@@ -173,6 +167,7 @@ Class Mascota{
 						M.nombre nombreMascota, 
 						M.foto_mascota fotoPerfil,
 						M.fecha_nacimiento fechaNacimiento,
+						MM.id_muro_mascota,
 						U.id_usuario, U.nombre nombreUsuario,
 						S.descripcion sexo,
 						R.descripcion raza
@@ -181,6 +176,7 @@ Class Mascota{
 				sexo S on M.id_sexo=S.id_sexo join
 				raza R on M.id_raza=R.id_raza
 			where MM.adopcion =  1
+			ORDER BY id_muro_mascota desc
 			limit ?,?";
 
 		//ejecucion de prepare_statement	
@@ -210,6 +206,7 @@ Class Mascota{
 						M.nombre nombreMascota, 
 						M.foto_mascota fotoPerfil,
 						M.fecha_nacimiento fechaNacimiento,
+						MM.id_muro_mascota,
 						U.id_usuario, U.nombre nombreUsuario,
 						S.descripcion sexo,
 						R.descripcion raza
@@ -218,6 +215,7 @@ Class Mascota{
 				sexo S on M.id_sexo=S.id_sexo join
 				raza R on M.id_raza=R.id_raza
 			where MM.cita =  1
+			ORDER BY id_muro_mascota desc
 			limit ?,?";
 
 		$stmt = $conexion->prepare($sql);
