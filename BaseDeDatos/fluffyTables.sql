@@ -194,7 +194,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `comentario_externo` ;
 
 CREATE TABLE IF NOT EXISTS `comentario_externo` (
-  `id_comentario_externo` INT NOT NULL,
+  `id_comentario_externo` INT NOT NULL AUTO_INCREMENT,
   `id_usuario` INT NOT NULL,
   `id_experiencia` INT NOT NULL,
   `comentario` VARCHAR(250) NULL,
@@ -253,6 +253,31 @@ CREATE TABLE IF NOT EXISTS `valoracion_experiencia_usuario` (
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_experiencia_has_usuario_usuario1`
     FOREIGN KEY (`id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `notifiacion`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `notifiacion` ;
+
+CREATE TABLE IF NOT EXISTS `notifiacion` (
+  `id_notificacion` INT NOT NULL AUTO_INCREMENT,
+  `id_usuario_receptor` INT NOT NULL,
+  `id_usuario_emisor` INT NULL,
+  `fecha_hora_notificacion` DATETIME NULL,
+  `descripcion` VARCHAR(500) NULL,
+  PRIMARY KEY (`id_notificacion`, `id_usuario_receptor`),
+  CONSTRAINT `fk_Notifiacion_receptor_usuario1`
+    FOREIGN KEY (`id_usuario_receptor`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Notifiacion_emisor_usuario1`
+    FOREIGN KEY (`id_usuario_emisor`)
     REFERENCES `usuario` (`id_usuario`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
@@ -320,6 +345,7 @@ USE `fluffy`;
 INSERT INTO `raza` (`id_raza`, `id_animal`, `descripcion`) VALUES (1, 1, 'Sin Raza');
 INSERT INTO `raza` (`id_raza`, `id_animal`, `descripcion`) VALUES (2, 2, 'Sin Raza');
 INSERT INTO `raza` (`id_raza`, `id_animal`, `descripcion`) VALUES (100, 1, 'Ovejero Aleman');
+INSERT INTO `raza` (`id_raza`, `id_animal`, `descripcion`) VALUES (101, 1, 'Boxer');
 
 COMMIT;
 
@@ -378,5 +404,15 @@ START TRANSACTION;
 USE `fluffy`;
 INSERT INTO `valoracion_experiencia_usuario` (`id_experiencia`, `id_usuario`) VALUES (1, 1);
 INSERT INTO `valoracion_experiencia_usuario` (`id_experiencia`, `id_usuario`) VALUES (1, 2);
+
+COMMIT;
+
+
+-- -----------------------------------------------------
+-- Data for table `notifiacion`
+-- -----------------------------------------------------
+START TRANSACTION;
+USE `fluffy`;
+INSERT INTO `notifiacion` (`id_notificacion`, `id_usuario_receptor`, `id_usuario_emisor`, `fecha_hora_notificacion`, `descripcion`) VALUES (1, 1, 2, '2017-06-30 20:17', 'Esta es una notificacion manual');
 
 COMMIT;
