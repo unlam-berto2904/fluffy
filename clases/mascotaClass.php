@@ -359,6 +359,22 @@ Class Mascota{
 		mysqli_stmt_execute($stmt);
 	}
 
+	function consultarUrl(){
+		$conexion = new ConnQuery();
+
+		$sql = "SELECT M.url_lite
+				FROM 	mascota M
+				WHERE M.id_muro_mascota=?";
+
+		$stmt = $conexion->prepare($sql);
+		mysqli_stmt_bind_param($stmt, "i", $this->idMuroMascota);
+		mysqli_stmt_execute($stmt);
+		$resultado = mysqli_stmt_get_result($stmt);
+		$fila = mysqli_fetch_array($resultado);
+
+		return $fila;
+	}
+
 }
 
 ?>

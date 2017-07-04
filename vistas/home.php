@@ -94,6 +94,7 @@ else {
                             <li><a href="../controladores/cambiarMascotaAPerdidoController.php?perdido=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Perdido</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=1&mascota=<?= $mascota['muroMascota'] ?>">Poner en Adopcion</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Adopcion</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#modalGenerarQR">Genenerar código QR</a></li>
 
                           </ul>
                         </div>
@@ -359,7 +360,27 @@ else {
       </div>
     </div>
 
+<!-- MODAL PARA Mostrar QR-->
+    <div id="modalGenerarQR" class="modal fade" role="dialog">
+      <div class="modal-dialog">
 
+        <!-- Modal content -->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Generación de código QR</h4>
+            <p>Este código contiene un link a la vista pública de tu mascota. Puedes imprimirlo y colocarlo en el collar de ella, para que funcione como Documento de Identidad de tu mascota.</p>
+          </div>
+          <div class="modal-body">
+            <img src="../controladores/generadorDeCodigoQRController.php?idMuro=14"> 
+            <a href="#" class="btn btn-default">Imprimir</a>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
 
     <!-- Modal de regitrar mascota -->
