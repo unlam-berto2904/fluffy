@@ -21,6 +21,8 @@ $_SESSION['fb_access_token'] = $facebookLogin->getFacebookAccessToken();
 $_SESSION['login'] = true;
 $_SESSION['userName'] = $facebookLogin->getUserName();
 $_SESSION['email'] = $facebookLogin->getUserEmail();
+$idUser = $facebookLogin->getIdUser();
+$fotoPerfil = "http://graph.facebook.com/".$idUser."/picture?type=large";
 
 // Persistencia sesion Facebook
 
@@ -42,10 +44,6 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
   	Usuario::actualizarHoraDeConexion($idUsuario);
 	}
 	else {
-    // $request = new FacebookRequest($session, 'GET','/{user-id}/picture');
-    // $response = $request->execute();
-    // $graphObject = $response->getGraphObject();
-
 		$id = Null;
 		$nombre = $_SESSION['userName'];
 		$apellido = Null;
@@ -58,17 +56,20 @@ $_SESSION['email'] = $facebookLogin->getUserEmail();
 		$telefono = Null;
 		$id_domicilio = Null;
 		$ultimaConexion = Null;
+    $fotoPerfil;
 
-		$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)";
+		$sql = "insert into usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido, foto_usuario) VALUE (?, ?, ?, ?, ?, ?,?)";
 		$ps = $connQuery->prepare($sql);
 		mysqli_stmt_bind_param($ps,
-			"sissss",
+			"sisssss",
 		 	$nombre,
 			$id_sexo,
 			$e_mail,
 			$pass,
 			$nombreUsuario,
-			$apellido);
+			$apellido,
+      $fotoPerfil
+    );
 
 		mysqli_stmt_execute($ps);
 

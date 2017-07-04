@@ -26,6 +26,8 @@
  */
 	
 	$QR_BASEDIR = dirname(__FILE__).DIRECTORY_SEPARATOR;
+
+	//$QR_BASEDIR = "../librerias/phpqrcode/";
 	
 	// Required libs
 	

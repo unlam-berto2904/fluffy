@@ -229,14 +229,14 @@ Class Mascota{
 		$conexion = new ConnQuery();
 
 		$output = array();
-		$sql = "SELECT  M.id_mascota,
-						M.nombre nombreMascota,
-						M.foto_mascota fotoPerfil,
-						M.fecha_nacimiento fechaNacimiento,
-						MM.id_muro_mascota,
-						U.id_usuario, U.nombre nombreUsuario,
-						S.descripcion sexo,
-						R.descripcion raza
+		$sql = "select   	M.id_mascota,
+											M.nombre 								nombreMascota,
+											M.foto_mascota 					fotoPerfil,
+											M.fecha_nacimiento 			fechaNacimiento,
+											MM.id_muro_mascota			id_muro_mascota,
+											U.id_usuario, 					U.nombre nombreUsuario,
+											S.descripcion 					sexo,
+											R.descripcion 					raza
 			FROM usuario U join mascota M on U.id_usuario=M.id_usuario join
 				muro_mascota MM on MM.id_muro_mascota=M.id_muro_mascota join
 				sexo S on M.id_sexo=S.id_sexo join
@@ -389,6 +389,22 @@ Class Mascota{
 		mysqli_stmt_bind_param($stmt, "ii", $adopcion, $idMuro);
 
 		mysqli_stmt_execute($stmt);
+	}
+
+	function consultarUrl(){
+		$conexion = new ConnQuery();
+
+		$sql = "SELECT M.url_lite
+				FROM 	mascota M
+				WHERE M.id_muro_mascota=?";
+
+		$stmt = $conexion->prepare($sql);
+		mysqli_stmt_bind_param($stmt, "i", $this->idMuroMascota);
+		mysqli_stmt_execute($stmt);
+		$resultado = mysqli_stmt_get_result($stmt);
+		$fila = mysqli_fetch_array($resultado);
+
+		return $fila;
 	}
 
 }

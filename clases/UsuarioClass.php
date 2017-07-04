@@ -151,7 +151,8 @@ class Usuario{
 								from notifiacion n
 								join usuario ur on ur.id_usuario = n.id_usuario_receptor
 								join usuario ue on ue.id_usuario =  n.id_usuario_emisor
-								where ur.id_usuario =".$idUsuario;
+								where ur.id_usuario =".$idUsuario."
+								order by n.fecha_hora_notificacion desc";
 
 	    $filas = $cq->ejecutarConsulta($sql);
 	    $notifiaciones = array();
