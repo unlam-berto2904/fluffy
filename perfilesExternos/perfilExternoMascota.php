@@ -73,7 +73,7 @@ $ultimaConexionDue = $_GET["ultimaConexion"];
 
         <div class="tab-pane fade in" id="tab2">
          <div class="col-sm-6">
-         	<img alt="" class="img-rounded thumbnail" src="../resources/fotosDePerfiles/usuarios/usuario_1.jpg">
+         	<img alt="" class="img-rounded thumbnail" src="../<?php echo $fotoDueño ?>">
          </div>
 
          <div class="col-sm-6">
