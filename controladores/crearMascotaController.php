@@ -3,15 +3,6 @@
 	require_once("../clases/mascotaClass.php");
 	require_once ("../clases/UsuarioClass.php");
 
-	// $usuario = $_GET["id_usuario"];
-	// $idUsuario = (int)$usuario;
-	// $sexo = 4;
-	// $fechaNacimiento = '2017-01-01';
-	// $urlLite = "urlSarasa";
-	// $nombre = "pancho";
-	// $idMuroMascota = 1;
-	// $idRaza = 1;
-	// $idAnimal = 1;
 
 	$usuario = $_POST["id_usuario"];
 	$idUsuario = (int)$usuario;
@@ -22,6 +13,10 @@
 	$idRaza = $_POST["tipoRaza"];
 	$idAnimal = $_POST["tipoAnimal"];
 	$fotoPerfil = $_FILES["fotoPerfil"];
+
+	$idRazaInt = (int)$idRaza;
+	$idAnimalInt = (int)$idAnimal;
+
 
 	$adopcion = 0;
 	$cita = 0;
@@ -43,7 +38,7 @@
 	$usuarioArray = Usuario::consultarUsuarioPorID($idUsuario);
 	$animal = Mascota::consultarTipoAnimalPorID($idAnimal);
 	$raza = Mascota::consultarTipoRazaPorID($idRaza);
-	$sexo = Mascota::consultarSexoPorID($sexo);
+	$sexoDescripcion = Mascota::consultarSexoPorID($sexo);
 
 //Armado de String URLLite
 	$urlBase = "/perfilesExternos/perfilExternoMascota.php?nombreMascota=" . $nombre . 
@@ -51,7 +46,7 @@
 															"&tipoAnimal=" . $animal .
 															"&tipoRaza=" . $raza .
 															"&fechaNacimiento=" . $fechaNacimiento .
-															"&sexo=" . $sexo .
+															"&sexo=" . $sexoDescripcion .
 															"&nombreUsuario=" . $usuarioArray['nombreUsuario'] .
 															"&apellidoUsuario=" . $usuarioArray['apellidoUsuario'] .
 															"&fotoUsuario=" . $usuarioArray['fotoPerfilUsuario'] .
@@ -59,7 +54,7 @@
 															"&ultimaConexion='" . $usuarioArray['ultimaConexion'] . 
 															"'" ;
 	$urlLite = $urlBase;	
-	var_dump($urlLite);
+	/*var_dump($urlLite);
 	var_dump($pathFotoMascota);
 	var_dump($fechaNacimiento);
 	var_dump($idUsuario);
@@ -68,13 +63,16 @@
 	var_dump($idMuroMascota);
 	var_dump($idRaza);
 	var_dump($idAnimal);
-	
+	var_dump($idRazaInt);
+	var_dump($idAnimalInt);
+	var_dump($sexoDescripcion);
+	die();*/
 	
 
 //Fin armado URLLite
 
-	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $pathFotoMascota);
-	$resultado_ingreso = $mascota->persistirMascota();
+	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRazaInt, $idAnimalInt, $pathFotoMascota);
+	$mascota->persistirMascota();
 	
 	header("location:../vistas/home.php");
 	

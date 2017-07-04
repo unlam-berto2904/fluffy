@@ -26,24 +26,30 @@ Class Mascota{
 	}
 
 	function persistirMascota(){
-		$cq = new ConnQuery();
-		$sql = "INSERT into mascota (id_usuario, id_sexo, fecha_nacimiento, url_lite, nombre, id_muro_mascota, id_raza, id_animal, foto_mascota) VALUES (?,?,?,?,?,?,?,?,?)";
-
-/* */										
-		$ps = $cq->prepare($sql);
-		mysqli_stmt_bind_param($ps,
-		"iisssiiis",
-		$this->idUsuario,
-		$this->sexo,
-		$this->fechaNacimiento,
-		$this->urlLite,
-		$this->nombre,
-		$this->idMuroMascota,
-		$this->idRaza,
-		$this->idAnimal,
-		$this->fotoPerfil);
-		/* */
-		mysqli_stmt_execute($ps);
+		
+	    $cq = new ConnQuery();
+	    $sql = "insert into mascota ( id_usuario,
+	                    id_sexo,
+	                    fecha_nacimiento,
+	                    url_lite,
+	                    nombre,
+	                    id_muro_mascota,
+	                    id_raza,
+	                    id_animal,
+	                    foto_mascota) VALUE (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+	    $ps = $cq->prepare($sql);
+	    mysqli_stmt_bind_param($ps,
+	    "iisssiiis",
+	    $this->idUsuario,
+	    $this->sexo,
+	    $this->fechaNacimiento,
+	    $this->urlLite,
+	    $this->nombre,
+	    $this->idMuroMascota,
+	    $this->idRaza,
+	    $this->idAnimal,
+	    $this->fotoPerfil);
+	    $persistenciaMascota = mysqli_stmt_execute($ps);
 	}
 
 	public static function  ingresarMascota ($id,$nombre){
