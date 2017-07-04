@@ -58,6 +58,20 @@ class FacebookLogin
         return (string) $this->accessToken;
     }
 
+    public function getIdUser(){
+
+        $response = null;
+        try {
+            $response = $this->facebookApi->get('/me?fields=id,name,email', $this->accessToken);
+        } catch(Exception $e) {
+            echo 'Error obteniendo datos del usuario de facebook';
+        }
+
+        $user = $response->getGraphUser();
+        $name = $user->getId() ?  $user->getId() : "sin Id";
+
+        return $name;
+    }
 
     public function getUserName(){
 

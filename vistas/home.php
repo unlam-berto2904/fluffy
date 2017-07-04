@@ -116,7 +116,7 @@ else {
                 <ul class="nav navbar-nav navbar-right">
                   <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
+                      <img src="../<?php echo $fotoUsuario ?>" onerror="this.src='<?php echo $fotoUsuario ?>';" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
                       <span class=" fa fa-angle-down"></span>
 
                     </a>
