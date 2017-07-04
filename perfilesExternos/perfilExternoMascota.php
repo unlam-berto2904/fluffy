@@ -1,15 +1,16 @@
 <?php
-  // $nombreMascota = $_GET[""];
-  // $fotoMascota = $_GET[""];
-  // $tipoAnimal = $_GET[""];
-  // $raza = $_GET[""];
-  // $fechaNacimientoMascota = $_GET[""];
+$nombreMascota = $_GET["nombreMascota"];
+$fotoMascota = $_GET["fotoMascota"];
+$tipoAnimal = $_GET["tipoAnimal"];
+$raza = $_GET["tipoRaza"];
+$fechaNacimientoMascota = $_GET["fechaNacimiento"];
+$sexo = $_GET["sexo"];
 
-  // $nombreDueño = $_GET[""];
-  // $apellidoDueño = $_GET[""];
-  // $fotoDueño = $_GET[""];
-  // $sexoDueño = $_GET[""];
-  // $ultimaConexionDue = $_GET[""];
+$nombreDueño = $_GET["nombreUsuario"];
+$apellidoDueño = $_GET["apellidoUsuario"];
+$fotoDueño = $_GET["fotoUsuario"];
+$sexoDueño = $_GET["sexoUsuario"];
+$ultimaConexionDue = $_GET["ultimaConexion"];
 
 
 ?>
@@ -40,9 +41,9 @@
             <img class="card-bkimg" alt="" src="../resources/fotosDePerfiles/mascotas/mascota_1_2.jpg">
         </div>
         <div class="useravatar">
-            <img alt="" src="../resources/fotosDePerfiles/mascotas/mascota_1_2.jpg">
+            <img alt="" src="<?= $fotoMascota ?>">
         </div>
-        <div class="card-info"> <span class="card-title">Michifuz!</span>
+        <div class="card-info"> <span class="card-title"><?= $nombreMascota ?></span>
 
         </div>
     </div>
@@ -63,11 +64,11 @@
      <div class="well col-sm-12">
       <div class="tab-content">
         <div class="tab-pane fade in active" id="tab1">
-          <h3>Nombre: </h3>
-        </br><h3>Tipo de animal: <?php echo $_GET["age"]; ?></h3>
-          </br><h3>Raza:</h3>
-          </br><h3>Sexo:</h3>
-          </br><h3>Fecha de nacimiento:</h3>
+          <h3>Nombre: <?= $nombreMascota ?></h3>
+        </br><h3>Tipo de animal: <?= $tipoAnimal ?></h3>
+          </br><h3>Raza: <?= $raza ?></h3>
+          </br><h3>Sexo: <?= $sexo ?></h3>
+          </br><h3>Fecha de nacimiento: <?= $fechaNacimientoMascota ?></h3>
         </div>
 
         <div class="tab-pane fade in" id="tab2">
@@ -76,10 +77,10 @@
          </div>
 
          <div class="col-sm-6">
-          </br><h3>Nombre:</h3>
-          </br><h3>Apellido:</h3>
-          </br><h3>Sexo:</h3>
-          </br><h3>Usuario</h3>
+          </br><h3>Nombre: <?= $nombreDueño ?></h3>
+          </br><h3>Apellido: <?= $apellidoDueño ?></h3>
+          </br><h3>Sexo: <?= $sexoDueño ?></h3>
+          </br><h3>Ultima conexion <?= $ultimaConexionDue ?></h3>
          </div>
 
 

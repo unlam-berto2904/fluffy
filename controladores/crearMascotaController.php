@@ -41,19 +41,26 @@
 
 //Llamado datos de Usuario por ID
 	$usuarioArray = Usuario::consultarUsuarioPorID($idUsuario);
+	$animal = Mascota::consultarTipoAnimalPorID($idAnimal);
+	$raza = Mascota::consultarTipoRazaPorID($idRaza);
+	$sexo = Mascota::consultarSexoPorID($sexo);
 
 //Armado de String URLLite
 	$urlBase = "/perfilesExternos/perfilExternoMascota.php?nombreMascota=" . $nombre . 
 															"&fotoMascota=" . $pathFotoMascota . 
-															"&tipoAnimal=" . $idAnimal .
-															"&tipoRaza=" . $idRaza .
+															"&tipoAnimal=" . $animal .
+															"&tipoRaza=" . $raza .
 															"&fechaNacimiento=" . $fechaNacimiento .
+															"$sexo=" . $sexo .
 															"&nombreUsuario=" . $usuarioArray['nombreUsuario'] .
 															"&apellidoUsuario=" . $usuarioArray['apellidoUsuario'] .
 															"&fotoUsuario=" . $usuarioArray['fotoPerfilUsuario'] .
 															"&sexoUsuario=" . $usuarioArray['sexoUsuario'] .
 															"&ultimaConexion='" . $usuarioArray['ultimaConexion'] . "'" ;
 	$urlLite = $urlBase;	
+
+	var_dump($urlLite);
+	die();
 												
 //Fin armado URLLite
 

@@ -92,6 +92,37 @@ Class Mascota{
 
 		return $resultadoConsulta;
 	}
+
+	public static function  consultarTipoAnimalPorID ($id_animal){
+		$cq = new ConnQuery();
+		$sql = "SELECT descripcion from animal where id_animal = ".$id_animal;
+
+		$consulta = $cq->getFila($sql);
+		$campo = $consulta['descripcion'];
+		
+		return $campo;
+	}
+
+	public static function  consultarTipoRazaPorID ($id_raza){
+		$cq = new ConnQuery();
+		$sql = "SELECT descripcion from raza where id_raza = ".$id_raza;
+
+		$consulta = $cq->getFila($sql);
+		$campo = $consulta['descripcion'];
+		
+		return $campo;
+	}
+
+	public static function  consultarSexoPorID ($id_sexo){
+		$cq = new ConnQuery();
+		$sql = "SELECT descripcion from sexo where id_sexo = ".$id_sexo;
+
+		$consulta = $cq->getFila($sql);
+		$campo = $consulta['descripcion'];
+		
+		return $campo;
+	}	
+
 	public static function getMascotasListByIdUsuario($idUsuario){
 	    $cq = new connQuery();
 	    $sql = "select  mm.id_muro_mascota          muro_mascota,
