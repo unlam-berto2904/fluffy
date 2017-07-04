@@ -22,7 +22,7 @@ $_SESSION['login'] = true;
 $_SESSION['userName'] = $facebookLogin->getUserName();
 $_SESSION['email'] = $facebookLogin->getUserEmail();
 $idUser = $facebookLogin->getIdUser();
-$fotoPerfil = file_get_contents("http://graph.facebook.com/".$idUser."/picture");
+$fotoPerfil = "http://graph.facebook.com/".$idUser."/picture";
 
 // Persistencia sesion Facebook
 
