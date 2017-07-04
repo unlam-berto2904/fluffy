@@ -135,7 +135,7 @@ CREATE TABLE IF NOT EXISTS `mascota` (
   `id_usuario` INT NOT NULL,
   `id_sexo` INT NULL,
   `fecha_nacimiento` DATE NULL,
-  `url_lite` VARCHAR(200) NULL,
+  `url_lite` VARCHAR(550) NULL,
   `nombre` VARCHAR(45) NULL,
   `id_muro_mascota` INT NOT NULL,
   `id_raza` INT NOT NULL,
@@ -414,5 +414,6 @@ COMMIT;
 START TRANSACTION;
 USE `fluffy`;
 INSERT INTO `notifiacion` (`id_notificacion`, `id_usuario_receptor`, `id_usuario_emisor`, `fecha_hora_notificacion`, `descripcion`) VALUES (1, 1, 2, '2017-06-30 20:17', 'Esta es una notificacion manual');
+INSERT INTO `notifiacion` (`id_notificacion`, `id_usuario_receptor`, `id_usuario_emisor`, `fecha_hora_notificacion`, `descripcion`) VALUES (2, 1, 2, '2017-06-30 20:25', 'Esta es otra notificacion manual');
 
 COMMIT;
