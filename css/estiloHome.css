@@ -9,10 +9,16 @@
   margin-right: 10%;
 }
 .notificacionUser img{
-  width: 10em;
+  max-width: 5em;
+  max-height: 4em;
 }
 .list_notificaciones{
-
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background: rgba(21, 11, 101, 0.58);
+  color: white;
+  overflow-y: auto;
 }
 .cont{
     display:none;

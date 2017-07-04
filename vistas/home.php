@@ -139,7 +139,7 @@ else {
                 <ul class="nav navbar-nav navbar-right">
                   <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="../<?php echo $fotoUsuario ?>" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
+                      <img src="../<?php echo $fotoUsuario ?>" onerror="this.src='<?php echo $fotoUsuario ?>';" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
                       <span class=" fa fa-angle-down"></span>
 
                     </a>
@@ -234,52 +234,47 @@ else {
                 </div>
                 <!-- SECCION DE CITA  -->
                 <div  class="col-sm-10">
-        		      <div id="citas" class="cont col-sm-11 col-sm-push-2 ">
-
-                      <div ng-init="traerCitas()">
-
-                        <div class="panel panel-default" ng-model="mascota" ng-repeat="mascota in mascotas">
-                          <div class="panel-heading panel-heading-experiencias">
-                            <img src="../{{mascota.fotoPerfil}}" class="fotoComentario"/>
-                            <h2>{{mascota.nombreMascota}}</h2>
-
-                          </div>
-                          <div class="panel-body">
-                            <h4>Sexo: {{mascota.sexo}}</h4>
-                            <h4>Raza: {{mascota.raza}}</h4>
-                            <h5>Fecha de nacimiento: {{mascota.fechaNacimiento}}</h5>
-                            <h6>propietario: {{mascota.nombreUsuario}} </h6>
-                            <a href="#" class="btn btn-default" value="" data-id="1" style=" float: right; ">Me interesa tener una cita</a>
-                          </div>
+        		      <div id="citas" class="cont col-sm-11 col-sm-push-2">
+                    <div ng-init="traerCitas()">
+                      <div class="panel panel-default" ng-model="mascota" ng-repeat="mascota in mascotas">
+                        <div class="panel-heading panel-heading-experiencias">
+                          <img src="../{{mascota.fotoPerfil}}" class="fotoComentario"/>
+                          <h2>{{mascota.nombreMascota}}</h2>
                         </div>
-
-                        <br />
-                        <input type="button" name="verCitaConcatenado" ng-click="traerCitas()" class="btn btn-info" value="Ver m&aacute;s">
+                        <div class="panel-body">
+                          <h4>Sexo: {{mascota.sexo}}</h4>
+                          <h4>Raza: {{mascota.raza}}</h4>
+                          <h5>Fecha de nacimiento: {{mascota.fechaNacimiento}}</h5>
+                          <h6>propietario: {{mascota.nombreUsuario}} </h6>
+                          <a href="#" class="btn btn-default" data-pers-id="{{mascota.id_muro_mascota}}" style=" float: right;" id="notificaCita" >Me interesa tener una cita</a>
+                        </div>
                       </div>
-
+                      <br />
+                      <input type="button" name="verCitaConcatenado" ng-click="traerCitas()" class="btn btn-info" value="Ver m&aacute;s">
+                    </div>
                   </div>
                 </div>
                 <!-- SECCION DE PERDIDOS  -->
-      		      <div  class="col-sm-10">
-                  <div id="perdidos" class="cont col-sm-11 col-sm-push-2">
-                  <div ng-init="verMascotasPerdidas()">
 
-                    <div class="panel panel-default" ng-model="perdido" ng-repeat="perdido in perdidos">
-                      <div class="panel-heading panel-heading-experiencias">
-                            <img src="../{{perdido.fotoPerfil}}" class="fotoComentario"/>
-                            <h2>{{perdido.nombreMascota}}</h2>
-
-                          </div>
-                          <div class="panel-body">
-                            <h4>Sexo: {{perdido.sexo}}</h4>
-                            <h4>Raza: {{perdido.raza}}</h4>
-                            <h5>Fecha de nacimiento: {{perdido.fechaNacimiento}}</h5>
-                            <h6>propietario: {{perdido.nombreUsuario}} </h6>
-                          </div>
+                <div  class="col-sm-10">
+        		      <div id="perdidos" class="cont col-sm-11 col-sm-push-2">
+                    <div ng-init="verMascotasPerdidas()">
+                      <div class="panel panel-default" ng-model="perdido" ng-repeat="perdido in perdidos">
+                        <div class="panel-heading panel-heading-experiencias">
+                          <img src="../{{perdido.fotoPerfil}}" class="fotoComentario"/>
+                          <h2>{{perdido.nombreMascota}}</h2>
                         </div>
-
-                    <br />
-                    <input type="button" name="verPerdidosConcatenado" ng-click="verMascotasPerdidas()" class="btn btn-info" value="Ver m&aacute;s">
+                        <div class="panel-body">
+                          <h4>Sexo: {{perdido.sexo}}</h4>
+                          <h4>Raza: {{perdido.raza}}</h4>
+                          <h5>Fecha de nacimiento: {{perdido.fechaNacimiento}}</h5>
+                          <h6>propietario: {{perdido.nombreUsuario}} </h6>
+                          <a href="#" class="btn btn-default" data-pers-id="{{perdido.id_muro_mascota}}" style=" float: right;" id="notificaEncuentro" >Encontré a tu mascota</a>
+                        </div>
+                      </div>
+                      <br />
+                      <input type="button" name="verPerdidosConcatenado" ng-click="verMascotasPerdidas()" class="btn btn-info" value="Ver m&aacute;s">
+                    </div>
                   </div>
                   </div>
                 </div>
@@ -290,18 +285,17 @@ else {
 
                       <div class="panel panel-default" ng-model="adopcion" ng-repeat="adopcion in enAdopcion">
                         <div class="panel-heading panel-heading-experiencias">
-                              <img src="../{{adopcion.fotoPerfil}}" class="fotoComentario"/>
-                              <h2>{{adopcion.nombreMascota}}</h2>
-
-                            </div>
-                            <div class="panel-body">
-                              <h4>Sexo: {{adopcion.sexo}}</h4>
-                              <h4>Raza: {{adopcion.raza}}</h4>
-                              <h5>Fecha de nacimiento: {{adopcion.fechaNacimiento}}</h5>
-                              <h6>propietario: {{adopcion.nombreUsuario}} </h6>
-                            </div>
-                          </div>
-
+                          <img src="../{{adopcion.fotoPerfil}}" class="fotoComentario"/>
+                          <h2>{{adopcion.nombreMascota}}</h2>
+                        </div>
+                        <div class="panel-body">
+                          <h4>Sexo: {{adopcion.sexo}}</h4>
+                          <h4>Raza: {{adopcion.raza}}</h4>
+                          <h5>Fecha de nacimiento: {{adopcion.fechaNacimiento}}</h5>
+                          <h6>propietario: {{adopcion.nombreUsuario}} </h6>
+                          <a href="#" class="btn btn-default" data-pers-id="{{adopcion.id_muro_mascota}}" style=" float: right;" id="notificaAdopcion" >Me interesa adoptar mascota</a>
+                        </div>
+                      </div>
                       <br />
                       <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
                     </div>
@@ -550,7 +544,7 @@ else {
     <!-- Modal de Notificaciones -->
     <div class="modal fade bs-example-modal-lg" id="cajonDeNotificaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content" >
+        <div class="modal-content" style="background: rgb(240, 95, 64); >
           <div class="modal-body" id="notificacionesDiv">
             <ul class="list-group">
               <?php $notificaciones = json_decode($_POST["notificacionesDeUser"],true);
