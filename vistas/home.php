@@ -94,9 +94,31 @@ else {
                             <li><a href="../controladores/cambiarMascotaAPerdidoController.php?perdido=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Perdido</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=1&mascota=<?= $mascota['muroMascota'] ?>">Poner en Adopcion</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Adopcion</a></li>
-                            <li><a href="#" data-toggle="modal" data-target="#modalGenerarQR">Genenerar código QR</a></li>
+                            <li><a href="#" data-toggle="modal" data-target="#modalGenerarQR-<?= $mascota['muroMascota'] ?>">Genenerar código QR</a></li>
 
                           </ul>
+                          <!--comienzo modal QR -->
+                          <div id="modalGenerarQR-<?= $mascota['muroMascota'] ?>" class="modal fade" role="dialog">
+                            <div class="modal-dialog">
+
+                              <!-- Modal content -->
+                              <div class="modal-content">
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                  <h4 class="modal-title">Generación de código QR</h4>
+                                  <p>Este código contiene un link a la vista pública de tu mascota. Puedes imprimirlo y colocarlo en el collar de ella, para que funcione como Documento de Identidad de tu mascota.</p>
+                                </div>
+                                <div class="modal-body">
+                                  <img src="../controladores/generadorDeCodigoQRController.php?idMuro=<?= $mascota['muroMascota'] ?>"> 
+                                  <a href="#" class="btn btn-default">Imprimir</a>
+                                </div>
+                                <div class="modal-footer">
+                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!--fin modal QR -->
                         </div>
                       </li>
                       <?php
@@ -238,7 +260,8 @@ else {
                   </div>
                 </div>
                 <!-- SECCION DE PERDIDOS  -->
-      		      <div id="perdidos" class="cont">
+      		      <div  class="col-sm-10">
+                  <div id="perdidos" class="cont col-sm-11 col-sm-push-2">
                   <div ng-init="verMascotasPerdidas()">
 
                     <div class="panel panel-default" ng-model="perdido" ng-repeat="perdido in perdidos">
@@ -258,27 +281,30 @@ else {
                     <br />
                     <input type="button" name="verPerdidosConcatenado" ng-click="verMascotasPerdidas()" class="btn btn-info" value="Ver m&aacute;s">
                   </div>
+                  </div>
                 </div>
                 <!-- SECCION DE ADOPCION  -->
-      		      <div id="adopcion" class="cont">
-                  <div  ng-init="verMascotasEnAdopcion()">
+                <div  class="col-sm-10">
+        		      <div id="adopcion" class="cont col-sm-11 col-sm-push-2">
+                    <div  ng-init="verMascotasEnAdopcion()">
 
-                    <div class="panel panel-default" ng-model="adopcion" ng-repeat="adopcion in enAdopcion">
-                      <div class="panel-heading panel-heading-experiencias">
-                            <img src="../{{adopcion.fotoPerfil}}" class="fotoComentario"/>
-                            <h2>{{adopcion.nombreMascota}}</h2>
+                      <div class="panel panel-default" ng-model="adopcion" ng-repeat="adopcion in enAdopcion">
+                        <div class="panel-heading panel-heading-experiencias">
+                              <img src="../{{adopcion.fotoPerfil}}" class="fotoComentario"/>
+                              <h2>{{adopcion.nombreMascota}}</h2>
 
+                            </div>
+                            <div class="panel-body">
+                              <h4>Sexo: {{adopcion.sexo}}</h4>
+                              <h4>Raza: {{adopcion.raza}}</h4>
+                              <h5>Fecha de nacimiento: {{adopcion.fechaNacimiento}}</h5>
+                              <h6>propietario: {{adopcion.nombreUsuario}} </h6>
+                            </div>
                           </div>
-                          <div class="panel-body">
-                            <h4>Sexo: {{adopcion.sexo}}</h4>
-                            <h4>Raza: {{adopcion.raza}}</h4>
-                            <h5>Fecha de nacimiento: {{adopcion.fechaNacimiento}}</h5>
-                            <h6>propietario: {{adopcion.nombreUsuario}} </h6>
-                          </div>
-                        </div>
 
-                    <br />
-                    <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
+                      <br />
+                      <input type="button" name="verAdopcionConcatenado" ng-click="verMascotasEnAdopcion()" class="btn btn-info" value="Ver m&aacute;s">
+                    </div>
                   </div>
                 </div>
                 <!-- FIN SECCION DE CITA PERDIDO ADOPCION -->
@@ -360,27 +386,6 @@ else {
       </div>
     </div>
 
-<!-- MODAL PARA Mostrar QR-->
-    <div id="modalGenerarQR" class="modal fade" role="dialog">
-      <div class="modal-dialog">
-
-        <!-- Modal content -->
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Generación de código QR</h4>
-            <p>Este código contiene un link a la vista pública de tu mascota. Puedes imprimirlo y colocarlo en el collar de ella, para que funcione como Documento de Identidad de tu mascota.</p>
-          </div>
-          <div class="modal-body">
-            <img src="../controladores/generadorDeCodigoQRController.php?idMuro=14"> 
-            <a href="#" class="btn btn-default">Imprimir</a>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
 
     <!-- Modal de regitrar mascota -->
