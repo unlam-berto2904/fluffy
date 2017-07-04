@@ -63,7 +63,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `contrasenia` VARCHAR(100) NULL,
   `nombre_usuario` VARCHAR(100) NULL,
   `apellido` VARCHAR(100) NULL,
-  `foto_usuario` VARCHAR(200) NULL,
+  `foto_usuario` VARCHAR(400) NULL,
   PRIMARY KEY (`id_usuario`),
   CONSTRAINT `id_sexo`
     FOREIGN KEY (`id_sexo`)
