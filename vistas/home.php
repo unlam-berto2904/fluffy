@@ -106,11 +106,10 @@ else {
                                 <div class="modal-header">
                                   <button type="button" class="close" data-dismiss="modal">&times;</button>
                                   <h4 class="modal-title">Generación de código QR</h4>
-                                  <p>Este código contiene un link a la vista pública de tu mascota. Puedes imprimirlo y colocarlo en el collar de ella, para que funcione como Documento de Identidad de tu mascota.</p>
+                                  <p>Este código contiene un link a la vista pública de tu mascota.</p>
                                 </div>
                                 <div class="modal-body">
-                                  <img src="../controladores/generadorDeCodigoQRController.php?idMuro=<?= $mascota['muroMascota'] ?>"> 
-                                  <a href="#" class="btn btn-default">Imprimir</a>
+                                  <img src="../controladores/generadorDeCodigoQRController.php?idMuro=<?= $mascota['muroMascota'] ?>">
                                 </div>
                                 <div class="modal-footer">
                                   <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
