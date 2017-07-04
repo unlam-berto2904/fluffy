@@ -68,14 +68,14 @@ class Usuario{
 	function persistirse(){
 
 			if ($stmt = mysqli_prepare($this->$connQuery, "INSERT INTO usuario (nombre, id_sexo, e_mail, contrasenia, nombre_usuario, apellido) VALUE (?, ?, ?, ?, ?, ?)")){
-				mysqli_stmt_bind_param($stmt, "sissss", 
-										$this->nombre, 
-										$this->id_sexo, 
-										$this->e_mail, 
-										$this->pass, 
-										$this->nombreUsuario, 
+				mysqli_stmt_bind_param($stmt, "sissss",
+										$this->nombre,
+										$this->id_sexo,
+										$this->e_mail,
+										$this->pass,
+										$this->nombreUsuario,
 										$this->apellido);
-				
+
 
 				mysqli_stmt_execute($stmt);
 				$persistido = mysqli_stmt_fetch($stmt);
@@ -108,9 +108,9 @@ class Usuario{
 
 		function editarse(){
 			$conexion = new ConnQuery();
-			$sql = "UPDATE usuario 
-					SET nombre = ?,		
-					id_sexo = ?, 
+			$sql = "UPDATE usuario
+					SET nombre = ?,
+					id_sexo = ?,
 					e_mail = ?,
 					contrasenia = ?,
 					nombre_usuario = ?,
@@ -118,27 +118,55 @@ class Usuario{
 					telefono = ?,
 					ultima_conexion = ?,
 					fecha_nacimiento = ?,
-					foto_usuario = ?										
+					foto_usuario = ?
 					WHERE id_usuario = ?";
 
 			$stmt =  $conexion->prepare($sql);
 
-			mysqli_stmt_bind_param($stmt, "sissssssssi", 
-									$this->nombre, 
-									$this->id_sexo, 
-									$this->e_mail, 
-									$this->pass, 
-									$this->nombreUsuario, 
+			mysqli_stmt_bind_param($stmt, "sissssssssi",
+									$this->nombre,
+									$this->id_sexo,
+									$this->e_mail,
+									$this->pass,
+									$this->nombreUsuario,
 									$this->apellido,
 									$this->telefono,
 									$this->ultimaConexion,
 									$this->fechaNacimiento,
 									$this->fotoPerfil,
-									$this->id);			
+									$this->id);
 			mysqli_stmt_execute($stmt);
 			$editado = mysqli_stmt_fetch($stmt);
 			return $editado;
-			
+
+		}
+		public static function getNotificacionesUsuarioById($idUsuario){
+			$cq = new connQuery();
+	    $sql = "select          ur.nombre                       usuario_receptor,
+							                ue.foto_usuario                 foto_usuario_emisor,
+							                ue.nombre                       nombre_usuario_emisor,
+							                ue.apellido                     apellido_usuario_emisor,
+							                n.fecha_hora_notificacion       fecha_notificacion,
+							                n.descripcion                   descpricion_notificacion
+								from notifiacion n
+								join usuario ur on ur.id_usuario = n.id_usuario_receptor
+								join usuario ue on ue.id_usuario =  n.id_usuario_emisor
+								where ur.id_usuario =".$idUsuario;
+
+	    $filas = $cq->ejecutarConsulta($sql);
+	    $notifiaciones = array();
+
+	    while ($fila =  mysqli_fetch_assoc($filas)) {
+	      $notifiacion = array( 'usuarioReceptor' => $fila['usuario_receptor'],
+															'fotoUsuarioEmisor' => $fila['foto_usuario_emisor'],
+															'nombreUsuarioEmisor' => $fila['nombre_usuario_emisor'],
+															'apellidoUsuarioEmisor' => $fila['apellido_usuario_emisor'],
+															'fechaNotificacion' => $fila['fecha_notificacion'],
+															'descripcionNotificacion' => $fila['descpricion_notificacion']
+	           										);
+				$notifiaciones[] = $notifiacion;
+				}
+			return $notifiaciones;
 		}
 }
 ?>

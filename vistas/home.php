@@ -121,9 +121,9 @@ else {
 
                     </a>
                     <ul class="dropdown-menu dropdown-usermenu pull-right">
+                      <li><a href="javascript:;" data-toggle="modal" data-target="#cajonDeNotificaciones" id="cajonNotificacion" data-id="<?php echo $id_usuario?>">Cajon de notificaciones</a></li>
                       <li><a href="#" data-toggle="modal" data-target="#myModalEditarUsuario">Editar datos del Usuario</a></li>
                       <li><a href="#menu-toggle" id="menu-toggle">Ranking de Valoraciones</a></li>
-                      <li><a href="javascript:;">Ayuda</a></li>
                       <li><a href="../controladores/cerrarSesionController.php"><i class="fa fa-sign-out pull-right"></i> Salir</a></li>
                     </ul>
                 </ul>
@@ -226,6 +226,7 @@ else {
                             <h4>Raza: {{mascota.raza}}</h4>
                             <h5>Fecha de nacimiento: {{mascota.fechaNacimiento}}</h5>
                             <h6>propietario: {{mascota.nombreUsuario}} </h6>
+                            <a href="#" class="btn btn-default" value="" data-id="1" style=" float: right; ">Me interesa tener una cita</a>
                           </div>
                         </div>
 
@@ -422,6 +423,7 @@ else {
         </div>
       </div>
     </div>
+    <!-- Fin modal de mascota -->
 
     <!-- Modal de Crear Experiencias -->
     <div class="modal fade bs-example-modal-lg" id="modalExperiencias" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -451,7 +453,6 @@ else {
         </div>
       </div>
     </div>
-    <!-- Fin modal de mascota -->
 
 
     <!-- Modal perfil de mascota-->
@@ -517,9 +518,30 @@ else {
         </div>
       </div>
     </div>
+  </div>
     <!-- Fin modal perfil de mascota -->
 
-
+    <!-- Modal de Notificaciones -->
+    <div class="modal fade bs-example-modal-lg" id="cajonDeNotificaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content" >
+          <div class="modal-body" id="notificacionesDiv">
+            <ul class="list-group">
+              <?php $notificaciones = json_decode($_POST["notificacionesDeUser"],true);
+              foreach ($notificaciones as $notificacion => $not){ ?>
+                <li class="list-group-item list_notificaciones notificacionUser  list_comentariosExternos">
+                    <img alt="" src="../<?php echo $not['fotoUsuarioEmisor'] ?>">
+                    <label><?php echo $not['nombreUsuarioEmisor'] ?> <?php echo $not['apellidoUsuarioEmisor'] ?></label>
+                    <p class="comentarioUsuario"><em><?php echo $not['descripcionNotificacion'] ?></em></p>
+                    <span><?php echo $not['fechaNotificacion'] ?></span>
+                </li>
+                <?php } ?>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Fin Modal de Notificaciones -->
 
     <script src="../librerias/jquery/jquery.min.js"></script>
     <script src="../js/vistaMascotasDelUser.js" charset="utf-8" type="text/javascript"></script>
@@ -528,6 +550,7 @@ else {
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script src="../js/rankingDeMascotas.js" charset="utf-8" type="text/javascript"> </script>
     <script src="../js/ajaxCargaMascota.js" type="text/javascript" ></script>
+    <script src="../js/notificacionUser.js" type="text/javascript" ></script>
     <script src="../librerias/bootstrap/js/bootstrap.min.js"></script>
 
     <!-- Scripts JS -->

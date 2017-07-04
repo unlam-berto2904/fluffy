@@ -8,6 +8,12 @@
   width: 50%;
   margin-right: 10%;
 }
+.notificacionUser img{
+  width: 10em;
+}
+.list_notificaciones{
+
+}
 .cont{
     display:none;
     padding:8px;
