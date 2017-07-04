@@ -116,7 +116,7 @@ else {
                 <ul class="nav navbar-nav navbar-right">
                   <li class="">
                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                      <img src="../<?php echo $fotoUsuario ?>" onerror="this.src='<?php echo $fotoUsuario ?>';" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
+                      <img src="../<?php echo $fotoUsuario ?>" onerror="this.src='<?php echo $fotoUsuario ?>'" alt=""><?php echo $nombreUsuario." ".$apellidoUsuario ?>
                       <span class=" fa fa-angle-down"></span>
 
                     </a>
@@ -176,7 +176,7 @@ else {
                                     foreach ($comentariosExternos as $ce => $comentario) {?>
                                         <li class="list-group-item" id="id_comentarioExterno_<?php echo $comentario['idComentarioExterno'] ?>">
                                           <div class="perfilComentario">
-                                            <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.style.display='none'"/>
+                                            <img src="../<?php echo $comentario['fotoUsuario'] ?> " class="fotoComentario" onerror="this.src='<?php echo $comentario['fotoUsuario'] ?>'" />
                                             <label><?php echo $comentario['nombreUsuario'] ?>  <?php echo $comentario['apellidoUsuario'] ?></label>
                                           </div>
                                           <p class="comentarioUsuario"><em><?php echo $comentario['comentarioExterno'] ?></em></p>
@@ -503,7 +503,7 @@ else {
 
                 <div class="tab-pane fade in" id="tab2">
                  <div class="col-sm-6">
-                 	<img alt="" class="img-rounded thumbnail" src="../<?php echo $perfilMascota['fotoDuenio'] ?>">
+                 	<img alt="" class="img-rounded thumbnail" src="../<?php echo $perfilMascota['fotoDuenio'] ?>" onerror="this.src='<?php echo $perfilMascota['fotoDuenio'] ?>'">
                  </div>
 
                  <div class="col-sm-6">
@@ -527,13 +527,13 @@ else {
     <!-- Modal de Notificaciones -->
     <div class="modal fade bs-example-modal-lg" id="cajonDeNotificaciones" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content" style="background: rgb(240, 95, 64); >
+        <div class="modal-content" style="background: rgb(240, 95, 64)";>
           <div class="modal-body" id="notificacionesDiv">
             <ul class="list-group">
               <?php $notificaciones = json_decode($_POST["notificacionesDeUser"],true);
               foreach ($notificaciones as $notificacion => $not){ ?>
                 <li class="list-group-item list_notificaciones notificacionUser  list_comentariosExternos">
-                    <img alt="" src="../<?php echo $not['fotoUsuarioEmisor'] ?>">
+                    <img alt="" src="../<?php echo $not['fotoUsuarioEmisor'] ?>" onerror="this.src='<?php echo $not['fotoUsuarioEmisor'] ?>'">
                     <label><?php echo $not['nombreUsuarioEmisor'] ?> <?php echo $not['apellidoUsuarioEmisor'] ?></label>
                     <p class="comentarioUsuario"><em><?php echo $not['descripcionNotificacion'] ?></em></p>
                     <span><?php echo $not['fechaNotificacion'] ?></span>
