@@ -168,5 +168,32 @@ class Usuario{
 				}
 			return $notifiaciones;
 		}
+
+		public static function consultarUsuarioPorID($idUsuario){
+			$conexion = new ConnQuery();
+			$sql = "SELECT 	U.id_usuario idUsuario, 
+							U.nombre nombreUsuario,
+							U.id_sexo idSexoUsuario,
+							S.descripcion sexoUsuario,
+							U.telefono telefonoUsuario,
+							U.e_mail emailUsuario,
+							U.fecha_nacimiento fechaNacimientoUsuario,
+							U.ultima_conexion ultimaConexion,
+							U.nombre_usuario usuario,
+							U.apellido apellidoUsuario,
+							U.foto_usuario fotoPerfilUsuario	
+					FROM usuario U 
+					JOIN sexo S ON U.id_sexo = S.id_sexo
+					WHERE id_usuario = ?";
+			$stmt = $conexion->prepare($sql);
+			mysqli_stmt_bind_param($stmt, "i", $idUsuario);
+			mysqli_stmt_execute($stmt);
+			$output = array();
+			//captura del resultado de la ejecucion del statement
+			$resultado = mysqli_stmt_get_result($stmt);
+			//preparacion del array a retornar
+			$fila = mysqli_fetch_assoc($resultado);
+			return $fila;
+		}
 }
 ?>
