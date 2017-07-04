@@ -1,6 +1,6 @@
 <?php
-	require ("../clases/MuroMascotaClass.php");
-	require ("../clases/mascotaClass.php");
+	require_once("../clases/MuroMascotaClass.php");
+	require_once("../clases/mascotaClass.php");
 	require_once ("../clases/UsuarioClass.php");
 
 	// $usuario = $_GET["id_usuario"];
@@ -51,27 +51,32 @@
 															"&tipoAnimal=" . $animal .
 															"&tipoRaza=" . $raza .
 															"&fechaNacimiento=" . $fechaNacimiento .
-															"$sexo=" . $sexo .
+															"&sexo=" . $sexo .
 															"&nombreUsuario=" . $usuarioArray['nombreUsuario'] .
 															"&apellidoUsuario=" . $usuarioArray['apellidoUsuario'] .
 															"&fotoUsuario=" . $usuarioArray['fotoPerfilUsuario'] .
 															"&sexoUsuario=" . $usuarioArray['sexoUsuario'] .
-															"&ultimaConexion='" . $usuarioArray['ultimaConexion'] . "'" ;
+															"&ultimaConexion='" . $usuarioArray['ultimaConexion'] . 
+															"'" ;
 	$urlLite = $urlBase;	
-
 	var_dump($urlLite);
-	die();
-												
+	var_dump($pathFotoMascota);
+	var_dump($fechaNacimiento);
+	var_dump($idUsuario);
+	var_dump($sexo);
+	var_dump($nombre);
+	var_dump($idMuroMascota);
+	var_dump($idRaza);
+	var_dump($idAnimal);
+	
+	
+
 //Fin armado URLLite
 
 	$mascota = new Mascota($idUsuario, $sexo, $fechaNacimiento, $urlLite, $nombre, $idMuroMascota, $idRaza, $idAnimal, $pathFotoMascota);
 	$resultado_ingreso = $mascota->persistirMascota();
-	$resultado_consulta = Mascota::ingresarMascota($id,$nombre);
-
-	if(!$resultado_consulta){
-		header("location:../vistas/home.php");
-	}else{
-		// echo "<h1>Ha ocurrido un error</h1><h3>Debera volver a intentarlo</h3><a href='index.php'>Volver a Fluffy</a>";
-	}
+	
+	header("location:../vistas/home.php");
+	
 
 ?>

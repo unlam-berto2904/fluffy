@@ -181,9 +181,9 @@ class Usuario{
 							U.ultima_conexion ultimaConexion,
 							U.nombre_usuario usuario,
 							U.apellido apellidoUsuario,
-							U.foto_usuario fotoPerfilUsuario	
+							U.foto_usuario fotoPerfilUsuario
 					FROM usuario U 
-					JOIN sexo S ON U.id_sexo = S.id_sexo
+					JOIN sexo S ON U.id_sexo = S.id_sexo 
 					WHERE id_usuario = ?";
 			$stmt = $conexion->prepare($sql);
 			mysqli_stmt_bind_param($stmt, "i", $idUsuario);

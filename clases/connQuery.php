@@ -3,7 +3,7 @@ class ConnQuery{
 
   private $servidor ="localhost";
   private $usuario = "root";
-  private $pass = "1286";
+  private $pass = "abrh++++";
   private $bd="fluffy";
   private $conn;
 

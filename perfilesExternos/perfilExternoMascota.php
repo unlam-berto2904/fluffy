@@ -41,7 +41,7 @@ $ultimaConexionDue = $_GET["ultimaConexion"];
             <img class="card-bkimg" alt="" src="../resources/fotosDePerfiles/mascotas/mascota_1_2.jpg">
         </div>
         <div class="useravatar">
-            <img alt="" src="<?= $fotoMascota ?>">
+            <img alt="" src="../<?= $fotoMascota ?>">
         </div>
         <div class="card-info"> <span class="card-title"><?= $nombreMascota ?></span>
 

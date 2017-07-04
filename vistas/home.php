@@ -388,12 +388,12 @@ else {
                 <div  ng-controller="controlador" ng-init="cargar()">
                   <select name="tipoAnimal" ng-model="tipoAnimal" ng-change="cargarRaza()" class="form-control">
                     <option value="">Selecciona un tipo de animal de la lista</option>
-                    <option ng-repeat="tipoAnimal in tipoAnimales" value="{{tipoAnimal.id_animal}}">{{tipoAnimal.descripcion}}</option>
+                    <option ng-repeat="tipoAnimal in tipoAnimales" value={{tipoAnimal.id_animal}}>{{tipoAnimal.descripcion}}</option>
                   </select>
                   <br>
                    <select name="tipoRaza" ng-model="tipoRaza" class="form-control">
                     <option value="">Eleg&iacute; una raza de la lista</option>
-                    <option ng-repeat="tipoRaza in tipoRazas" value="{{tipoRaza.id_raza}}">{{tipoRaza.descripcion}}</option>
+                    <option ng-repeat="tipoRaza in tipoRazas" value={{tipoRaza.id_raza}}>{{tipoRaza.descripcion}}</option>
               </select>
                 </div>
               </div>
