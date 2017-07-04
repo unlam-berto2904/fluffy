@@ -1,4 +1,5 @@
 var base_url = window.location.origin;
+var idUsuario = $('#idUsuario').val();
 
 $(document).ready(function() {
 
@@ -6,10 +7,26 @@ $(document).ready(function() {
 
 
 $(document).on("click", "#cajonNotificacion", function () {
-  var idUsuario = $(this).data('id');
+  // var idUsuario = $(this).data('id');
   mostrarNotificaciones(idUsuario);
 });
 
+$(document).on("click", "#notificaCita", function () {
+  var idMuroMascota = $(this).data('pers-id');
+  enviarNotifCita(idUsuario,idMuroMascota);
+});
+
+$(document).on("click", "#notificaEncuentro", function () {
+  var idMuroMascota = $(this).data('pers-id');
+  enviarNotifEncuentro(idUsuario,idMuroMascota);
+});
+
+$(document).on("click", "#notificaAdopcion", function () {
+  var idMuroMascota = $(this).data('pers-id');
+  enviarNotifAdopcion(idUsuario,idMuroMascota);
+});
+
+// funciones de notificacion para el usuario
 function mostrarNotificaciones(idUsuario){
   $.ajax({
     url:base_url+"/fluffy/controladores/obtenerNotificacionesController.php",
@@ -32,4 +49,41 @@ function enviarNotificacionesAModalCajon(notificaciones){
             $('#notificacionesDiv').html(result);
         }
     });
+}
+// ------------------------------------------------------
+
+function enviarNotifCita(idUsuario,idMuroMascota){
+  $.ajax({
+    url:base_url+"/fluffy/controladores/cargarNotificacionCitaController.php",
+    type:"POST",
+    data:{idUsuario:idUsuario,
+          muroMascota:idMuroMascota},
+    success: function (result) {
+      alert("Mensaje enviado");
+      }
+  });
+}
+
+function enviarNotifEncuentro(idUsuario,idMuroMascota){
+  $.ajax({
+    url:base_url+"/fluffy/controladores/cargarNotificacionPerdidoController.php",
+    type:"POST",
+    data:{idUsuario:idUsuario,
+          muroMascota:idMuroMascota},
+    success: function (result) {
+      alert("Mensaje enviado");
+      }
+  });
+}
+
+function enviarNotifAdopcion(idUsuario,idMuroMascota){
+  $.ajax({
+    url:base_url+"/fluffy/controladores/cargarNotificacionAdopcionController.php",
+    type:"POST",
+    data:{idUsuario:idUsuario,
+          muroMascota:idMuroMascota},
+    success: function (result) {
+      alert("Mensaje enviado");
+      }
+  });
 }
