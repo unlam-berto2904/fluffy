@@ -14,6 +14,7 @@ if (isset($_SESSION["usuario"])) {
   $pass = $_SESSION['arrayUsuario']['contrasenia'];
   $telefono = $_SESSION['arrayUsuario']['telefono'];
   $fotoPerfil = $_SESSION['arrayUsuario']['foto_usuario'];
+  $usuario = $_SESSION['arrayUsuario']['nombre_usuario'];
 }
 else {
   session_destroy();
@@ -324,7 +325,7 @@ else {
               <input type="hidden" name="idUsuarioEditarUsuario" id="idUsuarioEditarUsuario" value="<?= $id_usuario?>">
               <div class="form-group col-md-12">
                 <label>Modificar el nombre de usuario</label>
-                <input type="text" class="form-control" name="nuevoNombreUsuario" value="<?= $nombreUsuario ?>">
+                <input type="text" class="form-control" name="nuevoNombreUsuario" value="<?= $usuario ?>">
               </div>
               <div class="form-group col-md-12">
                 <label>Nuevo nombre</label>
