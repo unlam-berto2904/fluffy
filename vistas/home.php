@@ -95,7 +95,27 @@ else {
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=1&mascota=<?= $mascota['muroMascota'] ?>">Poner en Adopcion</a></li>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Adopcion</a></li>
                             <li><a href="#" data-toggle="modal" data-target="#modalGenerarQR-<?= $mascota['muroMascota'] ?>">Genenerar código QR</a></li>
-
+                            <li class="dropdown-submenu">
+                              <a class="test" tabindex="-1" href="#">Solicitud de Adopcion <span class="caret" style=" transform: rotate(270deg); " ></span></a>
+                              <ul class="dropdown-menu dropdown-menu-right solicitudAdopcion">
+                                <?php
+                                foreach ($mascota as $solicitudes => $SolcAdop) {
+                                  if (!empty($SolcAdop[$solicitudes])) {
+                                    foreach ($SolcAdop as $usuarios => $userSolc) {
+                                    ?>
+                                    <li>
+                                      <a class="btn btn-default" href="../controladores/cambiarDeDuenioController.php?idMuroMascota=<?= $mascota['muroMascota']?>&idUsuario=<?= $userSolc['idUsuario']?>">
+                                        <?php echo $userSolc['nombreUserSolicitante']." ".$userSolc['apellidoUserSolicitante']  ?>
+                                        <img src="../<?php echo $userSolc['fotoUserSolicitante'] ?>" onerror="this.src='<?php echo $userSolc['fotoUserSolicitante'] ?>'" alt="" style=" max-width: 3em; margin-left: 1em; ">
+                                      </a>
+                                    </li>
+                                    <?php
+                                      }
+                                    }
+                                  }
+                                ?>
+                              </ul>
+                            </li>
                           </ul>
                           <!--comienzo modal QR -->
                           <div id="modalGenerarQR-<?= $mascota['muroMascota'] ?>" class="modal fade" role="dialog">
