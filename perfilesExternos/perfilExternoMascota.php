@@ -31,6 +31,7 @@ $ultimaConexionDue = $_GET["ultimaConexion"];
   	<div class="text-center">
 
   		<a class="logo" href="../index.php"><i class="fa fa-paw fa-3x"></i></a>
+      <a href="../controladores/crearPDFController.php?nombreMascota=<?= $nombreMascota ?>">Imrpimir PDF</a>
 
   	</div>
 
@@ -88,7 +89,6 @@ $ultimaConexionDue = $_GET["ultimaConexion"];
 
       </div>
     </div>
-
 
 
 
