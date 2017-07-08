@@ -14,6 +14,7 @@ if (isset($_SESSION["usuario"])) {
   $pass = $_SESSION['arrayUsuario']['contrasenia'];
   $telefono = $_SESSION['arrayUsuario']['telefono'];
   $fotoPerfil = $_SESSION['arrayUsuario']['foto_usuario'];
+  $usuario = $_SESSION['arrayUsuario']['nombre_usuario'];
 }
 else {
   session_destroy();
@@ -75,8 +76,9 @@ else {
                 <div class="menu_section">
                   <ul class="nav side-menu side-menu-mascota" id="mascotasUserSection">
                     <input type="hidden" name="usuario" value="<?php echo $id_usuario; ?>" id="idUsuario">
+
                     <?php $mascotas = json_decode($_POST["mascotas"],true);
-                    foreach ($mascotas as $mascotaUser => $mascota){ ?>
+                    foreach ($mascotas as $mascotaUser => $mascota) { ?>
 
                       <li>
                         <div class="dropdown mascotaPerfiles ">
@@ -87,15 +89,75 @@ else {
                             </div>
                           </a>
                           <ul class="dropdown-menu funcionesMascota">
+                            <?php $cita     = $mascota['cita'];
+                                  $perdido  = $mascota['perdido'];
+                                  $adopcion = $mascota['adopcion'];
+                            ?>
                             <li><a href = "#" class="" data-toggle="modal" data-target="#modalExperiencias">Publicar Experiencia</a></li>
+                            <?php if($cita==0){ ?>
                             <li><a href="../controladores/cambiarMascotaACitaController.php?cita=1&mascota=<?= $mascota['muroMascota'] ?>">Poner en Cita</a></li>
+                            <?php } else{ ?>
                             <li><a href="../controladores/cambiarMascotaACitaController.php?cita=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Cita</a></li>
+                            <?php } ?>
+                            <?php if($perdido==0){ ?>
                             <li><a href="../controladores/cambiarMascotaAPerdidoController.php?perdido=1&mascota=<?= $mascota['muroMascota'] ?>">Reportar como perdido</a></li>
+                            <?php } else{ ?>
                             <li><a href="../controladores/cambiarMascotaAPerdidoController.php?perdido=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Perdido</a></li>
+                            <?php } ?>
+                            <?php if($adopcion==0){ ?>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=1&mascota=<?= $mascota['muroMascota'] ?>">Poner en Adopcion</a></li>
+                            <?php } else{ ?>
                             <li><a href="../controladores/cambiarMascotaAAdopcionController.php?adopcion=0&mascota=<?= $mascota['muroMascota'] ?>">Sacar de Adopcion</a></li>
+                            <?php } ?>
                             <li><a href="#" data-toggle="modal" data-target="#modalGenerarQR-<?= $mascota['muroMascota'] ?>">Genenerar código QR</a></li>
-
+                            <?php if(!empty($mascota['0'])){
+                             ?>
+                            <li class="dropdown-submenu">
+                              <a class="test" tabindex="-1" href="#">Solicitud de Adopcion <span class="caret" style=" transform: rotate(270deg); " ></span></a>
+                              <ul class="dropdown-menu dropdown-menu-right solicitudAdopcion">
+                                <?php
+                                foreach ($mascota as $soliciAdop => $SolcAdop) {
+                                  if (!empty($SolcAdop[$soliciAdop])) {
+                                    foreach ($SolcAdop as $usuarios => $userSolc1) {
+                                    ?>
+                                    <li>
+                                      <a class="btn btn-default" href="../controladores/cambiarDeDuenioController.php?idMuroMascota=<?php echo $mascota['muroMascota']?>&idUsuario=<?php echo $userSolc1['idUsuario']?>">
+                                        <?php echo $userSolc1['nombreUserSolicitante']." ".$userSolc1['apellidoUserSolicitante']  ?>
+                                        <img src="../<?php echo $userSolc1['fotoUserSolicitante'] ?>" onerror="this.src='<?php echo $userSolc1['fotoUserSolicitante'] ?>'" alt="" style=" max-width: 3em; margin-left: 1em; ">
+                                      </a>
+                                    </li>
+                                    <?php
+                                      }
+                                    }
+                                  }
+                                ?>
+                              </ul>
+                            </li>
+                          <?php } ?>
+                          <?php if(!empty($mascota['1'])){
+                           ?>
+                          <li class="dropdown-submenu">
+                            <a class="test" tabindex="-1" href="#">Solicitud de Hallazgo <span class="caret" style=" transform: rotate(270deg); " ></span></a>
+                            <ul class="dropdown-menu dropdown-menu-right solicitudAdopcion">
+                              <?php
+                              foreach ($mascota['1'] as $soliciPerd => $SolcPer2) {
+                                if (!empty($SolcPer2)) {
+                                  ?>
+                                  <?php
+                                  ?>
+                                  <li>
+                                    <a class="btn btn-default" href="../controladores/agradecerHallazgoController.php?idMuroMascota=<?php echo $mascota['muroMascota']?>&idUsuario=<?php echo $SolcPer2['idUsuario']?>&user=<?php echo $id_usuario ?>">
+                                      <?php echo $SolcPer2['nombreUserSolicitante']." ".$SolcPer2['apellidoUserSolicitante']  ?>
+                                      <img src="../<?php echo $SolcPer2['fotoUserSolicitante'] ?>" onerror="this.src='<?php echo $SolcPer2['fotoUserSolicitante'] ?>'" alt="" style=" max-width: 3em; margin-left: 1em; ">
+                                    </a>
+                                  </li>
+                                  <?php
+                                  }
+                                }
+                              ?>
+                            </ul>
+                          </li>
+                        <?php } ?>
                           </ul>
                           <!--comienzo modal QR -->
                           <div id="modalGenerarQR-<?= $mascota['muroMascota'] ?>" class="modal fade" role="dialog">
@@ -324,7 +386,7 @@ else {
               <input type="hidden" name="idUsuarioEditarUsuario" id="idUsuarioEditarUsuario" value="<?= $id_usuario?>">
               <div class="form-group col-md-12">
                 <label>Modificar el nombre de usuario</label>
-                <input type="text" class="form-control" name="nuevoNombreUsuario" value="<?= $nombreUsuario ?>">
+                <input type="text" class="form-control" name="nuevoNombreUsuario" value="<?= $usuario ?>">
               </div>
               <div class="form-group col-md-12">
                 <label>Nuevo nombre</label>

@@ -623,6 +623,11 @@ a:focus {
     border-top-left-radius: 0;
     border-top-right-radius: 0
 }
+.solicitudAdopcion{
+  right: 0px;
+  left: 14em;
+  top: 79%;
+}
 .dropdown-menu>li>a {
     color: #5A738E
 }
