@@ -317,7 +317,8 @@ Class Mascota{
 														'idDuenio'		=> $fila['id_usuario_mascota'],
 														'urlLite'		=> $fila['urlLite'],
 														'idAnimal'		=> $fila['id_tipo_animal'],
-														'sexoUsuario' 	=> $fila['sexo_usuario']
+														'sexoUsuario' 	=> $fila['sexo_usuario'],
+														'emailUsuario' => $fila['email_usuario']
 															);
 		return $perfilMascota;
 	}

@@ -18,7 +18,7 @@ $apellidoDueño = $arrayPerfilExterno["apellidoDuenio"];
 $fotoDueño = $arrayPerfilExterno["fotoDuenio"];
 $sexoDueño = $arrayPerfilExterno["sexoUsuario"];
 $ultimaConexionDue = $arrayPerfilExterno["ultimaConexUsuario"];
-
+$emailUsuario = $arrayPerfilExterno["emailUsuario"];
 
 ?>
 <!DOCTYPE html>
@@ -38,7 +38,7 @@ $ultimaConexionDue = $arrayPerfilExterno["ultimaConexUsuario"];
   	<div class="text-center">
 
   		<a class="logo" href="../index.php"><i class="fa fa-paw fa-3x"></i></a>
-      <a href="../controladores/crearPDFController.php?nombreMascota=<?= $nombreMascota ?>">Imrpimir PDF</a>
+      <a href="../controladores/crearPDFController.php?fluffy=<?= $idMuro ?>">Imrpimir PDF</a>
 
   	</div>
 
@@ -89,6 +89,7 @@ $ultimaConexionDue = $arrayPerfilExterno["ultimaConexUsuario"];
           </br><h3>Apellido: <?= $apellidoDueño ?></h3>
           </br><h3>Sexo: <?= $sexoDueño ?></h3>
           </br><h3>Ultima conexion <?= $ultimaConexionDue ?></h3>
+          </br><h3>E-mail: <?= $emailUsuario ?></h3>
          </div>
 
 
