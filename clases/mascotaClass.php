@@ -1,6 +1,7 @@
 <?php
 require_once('connQuery.php');
 require_once('SolicitudAdopcionClass.php');
+require_once('SolicitudHallazgoClass.php');
 
 Class Mascota{
 
@@ -129,11 +130,14 @@ Class Mascota{
 	    $cq = new connQuery();
 	    $sql = "select  mm.id_muro_mascota          muro_mascota,
 							        m.nombre                    nombre_mascota,
-							        m.foto_mascota              foto_mascota
-											from mascota m
-											join usuario u on u.id_usuario = m.id_usuario
-											join muro_mascota mm on m.id_muro_mascota = mm.id_muro_mascota
-											where u.id_usuario =".$idUsuario.";";
+							        m.foto_mascota              foto_mascota,
+							        mm.adopcion                 adopcion,
+							        mm.cita                     cita,
+							        mm.perdido                  perdido
+                from mascota m
+                join usuario u on u.id_usuario = m.id_usuario
+                join muro_mascota mm on m.id_muro_mascota = mm.id_muro_mascota
+                where u.id_usuario =".$idUsuario.";";
 
 	    $filas = $cq->ejecutarConsulta($sql);
 	    $mascotasUser = array();
@@ -141,10 +145,17 @@ Class Mascota{
 	    while ($fila =  mysqli_fetch_assoc($filas)) {
 	      $mascotaUser = array( 'muroMascota' => $fila['muro_mascota'],
 	      											'nombreMascota' => $fila['nombre_mascota'],
-															'fotoMascota'	=> $fila['foto_mascota']
+															'fotoMascota'	=> $fila['foto_mascota'],
+															'adopcion'	=> $fila['adopcion'],
+															'cita'	=> $fila['cita'],
+															'perdido'	=> $fila['perdido']
 	           										);
 				$solicitantesAdopcion = SolicitudAdopcion::getSolicitudesByIdMuroMascota($mascotaUser['muroMascota']);
+				$solicitantesHallazgo = SolicitudHallazgo::getSolicitudesByIdMuroMascota($mascotaUser['muroMascota']);
+
 				$mascotaUser[] = $solicitantesAdopcion;
+				$mascotaUser[] = $solicitantesHallazgo;
+
 				$mascotasUser[] = $mascotaUser;
 				}
 			return $mascotasUser;
@@ -427,6 +438,17 @@ Class Mascota{
     "i",
 		$idMuroMascota);
     mysqli_stmt_execute($ps2);
+
+  }
+	public static function limpiarDeSolicitudHallazgo($idMuroMascota){
+    $cq = new ConnQuery();
+		$sql = "delete from solicitud_hallazgo where id_muro_mascota = ? ;";
+
+		$ps = $cq->prepare($sql);
+		mysqli_stmt_bind_param($ps,
+    "i",
+		$idMuroMascota);
+    mysqli_stmt_execute($ps);
 
   }
 

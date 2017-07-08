@@ -284,6 +284,50 @@ CREATE TABLE IF NOT EXISTS `notifiacion` (
 ENGINE = InnoDB;
 
 
+-- -----------------------------------------------------
+-- Table `solicitud_adopcion`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `solicitud_adopcion` ;
+
+CREATE TABLE IF NOT EXISTS `solicitud_adopcion` (
+  `id_usuario` INT NOT NULL,
+  `id_muro_mascota` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`, `id_muro_mascota`),
+  CONSTRAINT `fk_usuario_has_muro_mascota_usuario1`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_has_muro_mascota_muro_mascota1`
+    FOREIGN KEY (`id_muro_mascota`)
+    REFERENCES `muro_mascota` (`id_muro_mascota`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `solicitud_hallazgo`
+-- -----------------------------------------------------
+DROP TABLE IF EXISTS `solicitud_hallazgo` ;
+
+CREATE TABLE IF NOT EXISTS `solicitud_hallazgo` (
+  `id_usuario` INT NOT NULL,
+  `id_muro_mascota` INT NOT NULL,
+  PRIMARY KEY (`id_usuario`, `id_muro_mascota`),
+  CONSTRAINT `fk_usuario_has_muro_mascota_usuario10`
+    FOREIGN KEY (`id_usuario`)
+    REFERENCES `usuario` (`id_usuario`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_usuario_has_muro_mascota_muro_mascota10`
+    FOREIGN KEY (`id_muro_mascota`)
+    REFERENCES `muro_mascota` (`id_muro_mascota`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
