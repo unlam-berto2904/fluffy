@@ -1,5 +1,6 @@
 <?php
 require_once('connQuery.php');
+require_once('SolicitudAdopcionClass.php');
 
 Class Mascota{
 
@@ -26,7 +27,7 @@ Class Mascota{
 	}
 
 	function persistirMascota(){
-		
+
 	    $cq = new ConnQuery();
 	    $sql = "insert into mascota ( id_usuario,
 	                    id_sexo,
@@ -100,7 +101,7 @@ Class Mascota{
 
 		$consulta = $cq->getFila($sql);
 		$campo = $consulta['descripcion'];
-		
+
 		return $campo;
 	}
 
@@ -110,7 +111,7 @@ Class Mascota{
 
 		$consulta = $cq->getFila($sql);
 		$campo = $consulta['descripcion'];
-		
+
 		return $campo;
 	}
 
@@ -120,9 +121,9 @@ Class Mascota{
 
 		$consulta = $cq->getFila($sql);
 		$campo = $consulta['descripcion'];
-		
+
 		return $campo;
-	}	
+	}
 
 	public static function getMascotasListByIdUsuario($idUsuario){
 	    $cq = new connQuery();
@@ -142,6 +143,8 @@ Class Mascota{
 	      											'nombreMascota' => $fila['nombre_mascota'],
 															'fotoMascota'	=> $fila['foto_mascota']
 	           										);
+				$solicitantesAdopcion = SolicitudAdopcion::getSolicitudesByIdMuroMascota($mascotaUser['muroMascota']);
+				$mascotaUser[] = $solicitantesAdopcion;
 				$mascotasUser[] = $mascotaUser;
 				}
 			return $mascotasUser;
@@ -406,6 +409,26 @@ Class Mascota{
 
 		return $fila;
 	}
+
+	public static function cambiarDeDuenio($idUser, $idMuroMascota){
+    $cq = new ConnQuery();
+    $sql1 = "update mascota set id_usuario = ? where id_muro_mascota = ? ;";
+		$sql2 = "delete from solicitud_adopcion where id_muro_mascota = ? ;";
+
+		$ps1 = $cq->prepare($sql1);
+		mysqli_stmt_bind_param($ps1,
+    "ii",
+    $idUser,
+		$idMuroMascota);
+    mysqli_stmt_execute($ps1);
+
+		$ps2 = $cq->prepare($sql2);
+		mysqli_stmt_bind_param($ps2,
+    "i",
+		$idMuroMascota);
+    mysqli_stmt_execute($ps2);
+
+  }
 
 }
 

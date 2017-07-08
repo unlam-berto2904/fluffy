@@ -28,6 +28,11 @@ function enviarMascotasAVistaMascotasDelUser(mascotasDelUser){
       success: function(data){
         var result = $('<div />').append(data).find('#mascotasUserSection').html();
             $('#mascotasUserSection').html(result);
+            $('.dropdown-submenu a.test').on("click", function(e){
+               $(this).next('ul').toggle();
+               e.stopPropagation();
+               e.preventDefault();
+             });
         }
     });
 }
