@@ -35,38 +35,15 @@
 //Fin de ingreso de foto de perfil a la carpeta resources
 
 //Llamado datos de Usuario por ID
-	$usuarioArray = Usuario::consultarUsuarioPorID($idUsuario);
-	$animal = Mascota::consultarTipoAnimalPorID($idAnimal);
-	$raza = Mascota::consultarTipoRazaPorID($idRaza);
-	$sexoDescripcion = Mascota::consultarSexoPorID($sexo);
+	//$usuarioArray = Usuario::consultarUsuarioPorID($idUsuario);
+	//$animal = Mascota::consultarTipoAnimalPorID($idAnimal);
+	//$raza = Mascota::consultarTipoRazaPorID($idRaza);
+	//$sexoDescripcion = Mascota::consultarSexoPorID($sexo);
 
 //Armado de String URLLite
-	$urlBase = "/perfilesExternos/perfilExternoMascota.php?nombreMascota=" . $nombre . 
-															"&fotoMascota=" . $pathFotoMascota . 
-															"&tipoAnimal=" . $animal .
-															"&tipoRaza=" . $raza .
-															"&fechaNacimiento=" . $fechaNacimiento .
-															"&sexo=" . $sexoDescripcion .
-															"&nombreUsuario=" . $usuarioArray['nombreUsuario'] .
-															"&apellidoUsuario=" . $usuarioArray['apellidoUsuario'] .
-															"&fotoUsuario=" . $usuarioArray['fotoPerfilUsuario'] .
-															"&sexoUsuario=" . $usuarioArray['sexoUsuario'] .
-															"&ultimaConexion='" . $usuarioArray['ultimaConexion'] . 
-															"'" ;
+	$urlBase = "/perfilesExternos/perfilExternoMascota.php?fluffy=" . $idMuroMascota;
 	$urlLite = $urlBase;	
-	/*var_dump($urlLite);
-	var_dump($pathFotoMascota);
-	var_dump($fechaNacimiento);
-	var_dump($idUsuario);
-	var_dump($sexo);
-	var_dump($nombre);
-	var_dump($idMuroMascota);
-	var_dump($idRaza);
-	var_dump($idAnimal);
-	var_dump($idRazaInt);
-	var_dump($idAnimalInt);
-	var_dump($sexoDescripcion);
-	die();*/
+	
 	
 
 //Fin armado URLLite

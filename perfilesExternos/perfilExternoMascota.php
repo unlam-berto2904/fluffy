@@ -1,16 +1,23 @@
 <?php
-$nombreMascota = $_GET["nombreMascota"];
-$fotoMascota = $_GET["fotoMascota"];
-$tipoAnimal = $_GET["tipoAnimal"];
-$raza = $_GET["tipoRaza"];
-$fechaNacimientoMascota = $_GET["fechaNacimiento"];
-$sexo = $_GET["sexo"];
+require_once('../controladores/obtenerDatoperfilExternoController.php');
 
-$nombreDueño = $_GET["nombreUsuario"];
-$apellidoDueño = $_GET["apellidoUsuario"];
-$fotoDueño = $_GET["fotoUsuario"];
-$sexoDueño = $_GET["sexoUsuario"];
-$ultimaConexionDue = $_GET["ultimaConexion"];
+$idMuro = $_GET['fluffy'];
+
+$arrayPerfilExterno = generarArrayPerfilExterno($idMuro);
+
+
+$nombreMascota = $arrayPerfilExterno["nombreMascota"];
+$fotoMascota = $arrayPerfilExterno["fotoMascota"];
+$tipoAnimal = $arrayPerfilExterno["tipoAnimal"];
+$raza = $arrayPerfilExterno["razaMascota"];
+$fechaNacimientoMascota = $arrayPerfilExterno["fechNacMascota"];
+$sexo = $arrayPerfilExterno["sexoAnimal"];
+
+$nombreDueño = $arrayPerfilExterno["nombreDuenio"];
+$apellidoDueño = $arrayPerfilExterno["apellidoDuenio"];
+$fotoDueño = $arrayPerfilExterno["fotoDuenio"];
+$sexoDueño = $arrayPerfilExterno["sexoUsuario"];
+$ultimaConexionDue = $arrayPerfilExterno["ultimaConexUsuario"];
 
 
 ?>

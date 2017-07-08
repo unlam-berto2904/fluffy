@@ -17,7 +17,7 @@
     where m.id_animal = (select id_animal from animal where descripcion = '".$tipoAnimal."')
     group by m.id_muro_mascota
     order by e.valoracion desc
-    limit 10";
+    limit 0,10";
 
     $filas = $cq->ejecutarConsulta($sqlPerro);
     $mascotas = array();

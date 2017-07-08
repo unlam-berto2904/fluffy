@@ -40,8 +40,8 @@ if ($resultadoConEmail) {
 
 }else {
     session_destroy();
-    //header("location:../index.php");
-    echo "fallo ingreso";
+    header("location:../index.php");
+    //echo "fallo ingreso";
   }
 
 ?>

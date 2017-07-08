@@ -277,14 +277,16 @@ Class Mascota{
                 u.apellido              apellido_duenio_mascota,
                 u.foto_usuario          foto_usuario,
                 u.e_mail                email_usuario,
-                u.ultima_conexion       ultima_conexion_usuario
+                u.ultima_conexion       ultima_conexion_usuario,
+                ss.descripcion 			sexo_usuario
 				from mascota m
 				join muro_mascota mm on mm.id_muro_mascota = m.id_muro_mascota
 				join usuario u on u.id_usuario = m.id_usuario
 				join raza r on r.id_raza = m.id_raza
 				join animal a on a.id_animal = r.id_animal
 				join sexo s on s.id_sexo = m.id_sexo
-				where m.id_muro_mascota = ".$idMuroMascota;
+				join sexo ss on u.id_sexo = ss.id_sexo
+				where mm.id_muro_mascota = ".$idMuroMascota;
 
 		$fila = $cq->getFila($sql);
 		$perfilMascota = array( 'nombreMascota' => $fila['nombre_mascota'],
@@ -300,7 +302,8 @@ Class Mascota{
 														'ultimaConexUsuario'	=> $fila['ultima_conexion_usuario'],
 														'idDuenio'		=> $fila['id_usuario_mascota'],
 														'urlLite'		=> $fila['urlLite'],
-														'idAnimal'		=> $fila['id_tipo_animal']
+														'idAnimal'		=> $fila['id_tipo_animal'],
+														'sexoUsuario' 	=> $fila['sexo_usuario']
 															);
 		return $perfilMascota;
 	}
