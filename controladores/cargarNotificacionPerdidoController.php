@@ -1,6 +1,7 @@
 <?php
   require ('../clases/mascotaClass.php');
   require ('../clases/NotificacionClass.php');
+  require_once ('../clases/SolicitudHallazgoClass.php');
 
 
   $idMuroMascota = $_POST['muroMascota'];
@@ -14,4 +15,7 @@
 
   $notificacion =  new Notificacion($idUsuarioReceptor,$idUsuarioEmisor,$fechaNotificacion,$descripcion);
   $notificacion->persistirNotificacion();
+
+  $solicitudAdopcion = new SolicitudHallazgo($idUsuarioEmisor,$idMuroMascota);
+  $solicitudAdopcion->persistirSolicitudHallazgo();
  ?>

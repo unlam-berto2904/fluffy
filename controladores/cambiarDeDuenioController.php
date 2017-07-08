@@ -4,5 +4,5 @@ $idUser = $_GET['idUsuario'];
 $idMuroMascota = $_GET['idMuroMascota'];
 
 Mascota::cambiarDeDuenio($idUser, $idMuroMascota);
-header("location:../vistas/home.php");
+header("location:cambiarMascotaAAdopcionController.php?adopcion=0&mascota=".$idMuroMascota);
 ?>
