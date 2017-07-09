@@ -292,14 +292,14 @@ Class Mascota{
                 u.foto_usuario          foto_usuario,
                 u.e_mail                email_usuario,
                 u.ultima_conexion       ultima_conexion_usuario,
-                ss.descripcion 			sexo_usuario
+                su.descripcion          sexo_usuario
 				from mascota m
 				join muro_mascota mm on mm.id_muro_mascota = m.id_muro_mascota
 				join usuario u on u.id_usuario = m.id_usuario
 				join raza r on r.id_raza = m.id_raza
 				join animal a on a.id_animal = r.id_animal
 				join sexo s on s.id_sexo = m.id_sexo
-				join sexo ss on u.id_sexo = ss.id_sexo
+        left join sexo su on su.id_sexo = u.id_sexo
 				where mm.id_muro_mascota = ".$idMuroMascota;
 
 		$fila = $cq->getFila($sql);
