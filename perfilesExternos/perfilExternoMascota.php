@@ -1,10 +1,9 @@
 <?php
 require_once('../controladores/obtenerDatoperfilExternoController.php');
 
-$idMuro = $_GET['fluffy'];
+$idMuro =$_GET['fluffy'];
 
 $arrayPerfilExterno = generarArrayPerfilExterno($idMuro);
-
 
 $nombreMascota = $arrayPerfilExterno["nombreMascota"];
 $fotoMascota = $arrayPerfilExterno["fotoMascota"];
@@ -81,7 +80,7 @@ $ultimaConexionDue = $arrayPerfilExterno["ultimaConexUsuario"];
 
         <div class="tab-pane fade in" id="tab2">
          <div class="col-sm-6">
-         	<img alt="" class="img-rounded thumbnail" src="../<?php echo $fotoDueño ?>">
+         	<img alt="" class="img-rounded thumbnail" src="../<?php echo $fotoDueño ?>" onerror="this.src='<?php echo $fotoDueño ?>'">
          </div>
 
          <div class="col-sm-6">
